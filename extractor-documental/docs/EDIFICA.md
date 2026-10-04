@@ -12,4 +12,4 @@ Este archivo conserva trazabilidad del encargo inicial. La última indicación d
 
 La trazabilidad local de ese intento permanece en `data/private/edifica/manifest.json`, ignorado por Git. No se modificaron registros de Edifica ni se publicaron datos personales.
 
-No se requiere exportar Edifica ni completar este intento histórico para el proyecto genérico. Los cinco contratos sintéticos autorizados constituyen el conjunto de prueba preparado; la consigna admite ejemplos sintéticos realistas. Los pendientes actuales del proveedor y del video se describen en `GEMINI_LIVE_CHECK.md` y `CHECKLIST_PROFESOR.md`.
+No se requiere exportar Edifica ni completar este intento histórico para el proyecto genérico. Los cinco contratos sintéticos autorizados constituyen el conjunto de prueba preparado; la consigna admite ejemplos sintéticos realistas. El estado del proveedor se describe en `GEMINI_LIVE_CHECK.md`; la grabación del video corresponde al estudiante.

@@ -22,3 +22,7 @@ extractor-documental/web/dist/
 .bsg-build-hash
 .bsg-dependencies-hash
 *.tsbuildinfo
+
+# Preparación personal del estudiante: conservar local, sin publicar.
+extractor-documental/docs/CHECKLIST_PROFESOR.md
+extractor-documental/docs/AUTOEVALUACION_CODIGO.md

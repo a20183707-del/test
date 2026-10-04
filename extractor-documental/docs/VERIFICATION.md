@@ -36,7 +36,7 @@ Las comprobaciones visuales se apoyan en capturas internas de QA bajo `output/`,
 
 La revisión está documentada en `SECURITY_REVIEW.md`. Se comprobaron protección de sesión/Host/Origin/CSRF, límites de archivos y memoria, sanitización de errores, bloqueo de redirecciones que podrían filtrar credenciales, borrado de sesión y rechazo de XML peligroso incluso en UTF-16/32. Las regresiones están incluidas en las 100 pruebas.
 
-No se ejecutó una certificación formal de seguridad. El análisis de PDF carece de aislamiento duro de CPU/memoria; el revisor usa otra llamada/modelo de Gemini y no otro proveedor; la evidencia multimodal tiene límites semánticos. La referencia requiere revisión humana independiente para afirmar exactitud. Los pendientes académicos se conservan explícitos en `CHECKLIST_PROFESOR.md`.
+No se ejecutó una certificación formal de seguridad. El análisis de PDF carece de aislamiento duro de CPU/memoria; el revisor usa otra llamada/modelo de Gemini y no otro proveedor; la evidencia multimodal tiene límites semánticos. La referencia requiere revisión humana independiente para afirmar exactitud. La grabación y presentación del video corresponden al estudiante y siguen pendientes.
 
 ## GitHub
 

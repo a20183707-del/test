@@ -16,7 +16,7 @@ La clave se ingresa en configuración y permanece sólo en memoria. No está en 
 - Supervisión activada bajo 70%; correcciones humanas no elevan la tasa automática.
 - Chrome escritorio 1536×1024 y móvil 390×844, sin desborde horizontal ni errores JS; originales cotejados por hash y texto. DOCX muestra texto sin formato; PDF ofrece visor del navegador y texto de respaldo.
 - Speech exacto y acciones de pantalla en el TXT local de speech, excluido de Git. Por indicación expresa del usuario, él grabará el video del curso. Su grabación y presentación permanecen pendientes; las capturas internas de QA ignoradas por Git no se cuentan como ese entregable.
-- docs/CHECKLIST_PROFESOR.md, GEMINI_LIVE_CHECK.md, VERIFICATION.md y reportes conservan evidencia y límites.
+- GEMINI_LIVE_CHECK.md, VERIFICATION.md y reportes conservan evidencia y límites. El checklist y la autoevaluación personales permanecen locales y excluidos de Git.
 
 Los rechazos iniciales de autenticación/proyecto pertenecieron a configuraciones anteriores. La última credencial ejecutó el lote. Se corrigió una incompatibilidad de maxItems omitiéndolo sólo del request nativo; Pydantic mantiene máximo cuarenta campos.
 
@@ -33,4 +33,4 @@ Código, pruebas y reportes sincronizados en GitHub y checkout local mediante el
 
 ## Retomar
 
-Leer README, ARCHITECTURE y checklist. Ejecutar iniciar.bat y las pruebas indicadas. Para otro dominio, cargar su documento y definir campos manualmente. Conservar límites, validación y versiones. Actualizar locks/evidencia sólo después de verificar. No reemplazar resultados reales por fixtures ni publicar originales/resultados privados.
+Leer README y ARCHITECTURE. Ejecutar iniciar.bat y las pruebas indicadas. Para otro dominio, cargar su documento y definir campos manualmente. Conservar límites, validación y versiones. Actualizar locks/evidencia sólo después de verificar. No reemplazar resultados reales por fixtures ni publicar originales/resultados privados ni documentos personales de preparación.
