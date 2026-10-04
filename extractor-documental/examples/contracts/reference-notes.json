@@ -1,0 +1,100 @@
+{
+  "dataset_kind": "synthetic",
+  "creator": "Codex elaborated source texts and expected values for software tests",
+  "independent_human_review": false,
+  "review_state": "Pendiente de revisión humana independiente; esta referencia elaborada no acredita exactitud real de Gemini.",
+  "real_gemini_execution": false,
+  "field_count": 9,
+  "required_semantic_fields": [
+    "contract_id",
+    "client",
+    "supplier",
+    "start_date",
+    "monthly_fee",
+    "currency",
+    "service_type"
+  ],
+  "documents": [
+    {
+      "filename": "01-limpieza-completo.txt",
+      "expected_deterministic_status": "exitoso",
+      "reference_fields": [
+        "contract_id",
+        "client",
+        "supplier",
+        "start_date",
+        "end_date",
+        "monthly_fee",
+        "currency",
+        "service_type",
+        "auto_renewal"
+      ],
+      "caveat": "Estado esperado sólo de validación determinista con el registro elaborado; el revisor real puede exigir revisión humana adicional."
+    },
+    {
+      "filename": "02-soporte-completo.txt",
+      "expected_deterministic_status": "exitoso",
+      "reference_fields": [
+        "contract_id",
+        "client",
+        "supplier",
+        "start_date",
+        "end_date",
+        "monthly_fee",
+        "currency",
+        "service_type",
+        "auto_renewal"
+      ],
+      "caveat": "Estado esperado sólo de validación determinista con el registro elaborado; el revisor real puede exigir revisión humana adicional."
+    },
+    {
+      "filename": "03-tarifa-ausente.txt",
+      "expected_deterministic_status": "parcial",
+      "reference_fields": [
+        "contract_id",
+        "client",
+        "supplier",
+        "start_date",
+        "end_date",
+        "monthly_fee",
+        "currency",
+        "service_type",
+        "auto_renewal"
+      ],
+      "caveat": "Estado esperado sólo de validación determinista con el registro elaborado; el revisor real puede exigir revisión humana adicional."
+    },
+    {
+      "filename": "04-condiciones-ambiguas.txt",
+      "expected_deterministic_status": "parcial",
+      "reference_fields": [
+        "contract_id",
+        "client",
+        "supplier",
+        "start_date",
+        "end_date",
+        "monthly_fee",
+        "currency",
+        "service_type",
+        "auto_renewal"
+      ],
+      "caveat": "Estado esperado sólo de validación determinista con el registro elaborado; el revisor real puede exigir revisión humana adicional."
+    },
+    {
+      "filename": "05-borrador-vacio.txt",
+      "expected_deterministic_status": "fallido",
+      "reference_fields": [
+        "contract_id",
+        "client",
+        "supplier",
+        "start_date",
+        "end_date",
+        "monthly_fee",
+        "currency",
+        "service_type",
+        "auto_renewal"
+      ],
+      "caveat": "Estado esperado sólo de validación determinista con el registro elaborado; el revisor real puede exigir revisión humana adicional."
+    }
+  ]
+}
+

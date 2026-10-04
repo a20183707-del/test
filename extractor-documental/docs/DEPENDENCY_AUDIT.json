@@ -1,0 +1,172 @@
+{
+  "checked_at_utc": "2026-10-04T14:31:14.674799+00:00",
+  "python_scope": "Installed local virtual environment, excluding editable project; includes development dependencies",
+  "packages": [
+    {
+      "name": "annotated-doc",
+      "version": "0.0.5"
+    },
+    {
+      "name": "annotated-types",
+      "version": "0.8.0"
+    },
+    {
+      "name": "anyio",
+      "version": "4.15.1"
+    },
+    {
+      "name": "certifi",
+      "version": "2026.7.22"
+    },
+    {
+      "name": "click",
+      "version": "8.5.0"
+    },
+    {
+      "name": "colorama",
+      "version": "0.4.6"
+    },
+    {
+      "name": "fastapi",
+      "version": "0.142.2"
+    },
+    {
+      "name": "h11",
+      "version": "0.16.0"
+    },
+    {
+      "name": "httpcore",
+      "version": "1.0.9"
+    },
+    {
+      "name": "httpx",
+      "version": "0.28.1"
+    },
+    {
+      "name": "idna",
+      "version": "3.20"
+    },
+    {
+      "name": "iniconfig",
+      "version": "2.3.0"
+    },
+    {
+      "name": "opentelemetry-api",
+      "version": "1.45.0"
+    },
+    {
+      "name": "packaging",
+      "version": "26.3"
+    },
+    {
+      "name": "pip",
+      "version": "26.2.1"
+    },
+    {
+      "name": "pluggy",
+      "version": "1.6.0"
+    },
+    {
+      "name": "pydantic",
+      "version": "2.13.5"
+    },
+    {
+      "name": "pydantic_core",
+      "version": "2.46.5"
+    },
+    {
+      "name": "Pygments",
+      "version": "2.21.0"
+    },
+    {
+      "name": "pypdf",
+      "version": "6.19.0"
+    },
+    {
+      "name": "pytest",
+      "version": "9.1.1"
+    },
+    {
+      "name": "setuptools",
+      "version": "84.0.0"
+    },
+    {
+      "name": "starlette",
+      "version": "1.7.0"
+    },
+    {
+      "name": "typing-inspection",
+      "version": "0.4.4"
+    },
+    {
+      "name": "typing_extensions",
+      "version": "4.16.0"
+    },
+    {
+      "name": "uvicorn",
+      "version": "0.54.0"
+    }
+  ],
+  "npm": {
+    "status": "completed",
+    "source": "npm audit --json",
+    "known_vulnerabilities": 0,
+    "dependencies_total": 69
+  },
+  "secret_signature_scan": {
+    "scope": "rg --files excluding package-lock.json and Git-ignored paths; no history scan",
+    "files_listed": 57,
+    "high_confidence_signature_matches": 0
+  },
+  "python_osv": {
+    "status": "completed",
+    "source": "https://api.osv.dev/v1/querybatch",
+    "queried_packages": 26,
+    "affected_packages": [],
+    "requires_pagination": false
+  },
+  "previous_python_findings": {
+    "checked_at_utc": "2026-10-04T14:23:40.798942+00:00",
+    "affected_packages": [
+      {
+        "package": "pip",
+        "version": "24.0",
+        "advisory_ids": [
+          "GHSA-4xh5-x5gv-qwph",
+          "GHSA-58qw-9mgm-455v",
+          "GHSA-6vgw-5pg2-w6jp",
+          "GHSA-jp4c-xjxw-mgf9",
+          "GHSA-qwm4-qh6w-59xr",
+          "GHSA-wf93-45jw-7689",
+          "PYSEC-2026-1795",
+          "PYSEC-2026-1796",
+          "PYSEC-2026-196",
+          "PYSEC-2026-2875",
+          "PYSEC-2026-2876",
+          "PYSEC-2026-3721"
+        ]
+      },
+      {
+        "package": "setuptools",
+        "version": "65.5.0",
+        "advisory_ids": [
+          "GHSA-5rjg-fvgr-3xxf",
+          "GHSA-cx63-2mw6-8hw5",
+          "GHSA-h35f-9h28-mq5c",
+          "GHSA-r9hx-vwmv-q579",
+          "PYSEC-2022-43012",
+          "PYSEC-2025-49",
+          "PYSEC-2026-1918",
+          "PYSEC-2026-3447"
+        ]
+      }
+    ],
+    "resolution": "Bootstrap dependencies upgraded locally and minimum versions added to launcher."
+  },
+  "final_secret_signature_scan": {
+    "checked_at_utc": "2026-10-04T15:23:38.937Z",
+    "scope": "All tracked and Git-eligible untracked UTF-8 files, including lockfiles; ignored local outputs and Git history excluded",
+    "files_scanned": 75,
+    "high_confidence_signature_matches": 0
+  }
+}

@@ -3,22 +3,22 @@ requires = ["setuptools>=68"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "edifica-extractor-pagos"
-version = "1.0.0"
-description = "Extracción estructurada y revisión independiente de comprobantes de pagos de Edifica"
+name = "bsg-extractor-documental"
+version = "1.1.0"
+description = "Extracción documental local con Gemini, validación y revisor independiente"
 requires-python = ">=3.11"
 dependencies = [
   "pydantic>=2.8,<3",
-  "requests>=2.32,<3",
   "pypdf>=5,<7",
-  "python-dotenv>=1,<2",
+  "fastapi>=0.115,<1",
+  "uvicorn>=0.30,<1",
 ]
 
 [project.optional-dependencies]
-dev = ["pytest>=8,<10"]
+dev = ["pytest>=8,<10", "httpx>=0.27,<1"]
 
 [project.scripts]
-edifica-extractor = "edifica_extractor.cli:main"
+bsg-extractor = "bsg_extractor.launcher:main"
 
 [tool.setuptools.packages.find]
 where = ["src"]

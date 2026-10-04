@@ -1,0 +1,11 @@
+EJEMPLO SINTÉTICO — creado para pruebas; no representa una relación contractual real.
+CONTRATO CTR-003
+Cliente: Cliente Gamma ficticio.
+Proveedor: Proveedor Tres ficticio.
+Servicio: mantenimiento.
+Fecha de inicio: 2026-03-01.
+Moneda contractual: PEN.
+Tarifa mensual: pendiente de acuerdo; no consta un importe.
+No se ha registrado fecha de fin ni condición de renovación automática.
+Este borrador permite verificar la ausencia de información sin inventar un valor.
+

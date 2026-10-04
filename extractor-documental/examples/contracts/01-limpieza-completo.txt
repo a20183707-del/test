@@ -1,0 +1,10 @@
+EJEMPLO SINTÉTICO — creado para pruebas; no representa una relación contractual real.
+CONTRATO DE SERVICIO CTR-001
+Cliente: Cliente Alfa ficticio.
+Proveedor: Proveedor Uno ficticio.
+Servicio contratado: limpieza.
+Inicio: 2026-01-01. Fin: 2026-12-31.
+Tarifa mensual: 1250.50 PEN.
+Renovación automática: sí.
+La tarifa anterior es mensual e incluye los materiales acordados. No se pactan cargos adicionales.
+

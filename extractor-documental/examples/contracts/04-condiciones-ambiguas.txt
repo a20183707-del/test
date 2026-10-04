@@ -1,0 +1,11 @@
+EJEMPLO SINTÉTICO — creado para pruebas; no representa una relación contractual real.
+BORRADOR DE CONTRATO CTR-004
+Cliente: Cliente Delta ficticio.
+Proveedor: Proveedor Cuatro ficticio.
+Servicio: limpieza.
+Inicio: 03/04/2026. El borrador no aclara si el formato es día/mes/año o mes/día/año.
+Fin: no establecido.
+Se conservan dos ofertas incompatibles: tarifa mensual de 640.25 PEN y tarifa mensual de 800.50 USD.
+Ninguna oferta figura aceptada. La tarifa y la moneda definitivas no constan.
+La condición de renovación automática tampoco consta.
+

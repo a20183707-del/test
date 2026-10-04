@@ -1,0 +1,77 @@
+{
+  "title": "Contratos sintéticos de servicios",
+  "fields": [
+    {
+      "name": "contract_id",
+      "type": "string",
+      "description": "Identificador contractual explícito; no usar el nombre del archivo",
+      "required": true,
+      "enum_values": []
+    },
+    {
+      "name": "client",
+      "type": "string",
+      "description": "Nombre del cliente tal como figura, sin deducirlo",
+      "required": true,
+      "enum_values": []
+    },
+    {
+      "name": "supplier",
+      "type": "string",
+      "description": "Nombre del proveedor tal como figura, sin deducirlo",
+      "required": true,
+      "enum_values": []
+    },
+    {
+      "name": "start_date",
+      "type": "date",
+      "description": "Inicio inequívoco YYYY-MM-DD; una fecha ambigua sin convención es null",
+      "required": true,
+      "enum_values": []
+    },
+    {
+      "name": "end_date",
+      "type": "date",
+      "description": "Fin inequívoco YYYY-MM-DD; null si no consta",
+      "required": false,
+      "enum_values": []
+    },
+    {
+      "name": "monthly_fee",
+      "type": "number",
+      "description": "Tarifa mensual acordada; excluir presupuestos rechazados; sin acuerdo inequívoco usar null",
+      "required": true,
+      "enum_values": [],
+      "minimum": 0
+    },
+    {
+      "name": "currency",
+      "type": "enum",
+      "description": "Moneda contractual acordada y explícita; null si sólo hay ofertas incompatibles",
+      "required": true,
+      "enum_values": [
+        "PEN",
+        "USD"
+      ]
+    },
+    {
+      "name": "service_type",
+      "type": "enum",
+      "description": "Tipo de servicio explícito",
+      "required": true,
+      "enum_values": [
+        "limpieza",
+        "mantenimiento",
+        "soporte"
+      ]
+    },
+    {
+      "name": "auto_renewal",
+      "type": "boolean",
+      "description": "true sólo si se pacta renovación automática, false si se descarta; null si no consta",
+      "required": false,
+      "enum_values": []
+    }
+  ]
+}
+

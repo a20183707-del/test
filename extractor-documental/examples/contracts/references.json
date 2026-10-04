@@ -1,0 +1,58 @@
+{
+  "01-limpieza-completo.txt": {
+    "contract_id": "CTR-001",
+    "client": "Cliente Alfa ficticio",
+    "supplier": "Proveedor Uno ficticio",
+    "start_date": "2026-01-01",
+    "end_date": "2026-12-31",
+    "monthly_fee": 1250.5,
+    "currency": "PEN",
+    "service_type": "limpieza",
+    "auto_renewal": true
+  },
+  "02-soporte-completo.txt": {
+    "contract_id": "CTR-002",
+    "client": "Cliente Beta ficticio",
+    "supplier": "Proveedor Dos ficticio",
+    "start_date": "2026-02-15",
+    "end_date": "2026-08-14",
+    "monthly_fee": 95.75,
+    "currency": "USD",
+    "service_type": "soporte",
+    "auto_renewal": false
+  },
+  "03-tarifa-ausente.txt": {
+    "contract_id": "CTR-003",
+    "client": "Cliente Gamma ficticio",
+    "supplier": "Proveedor Tres ficticio",
+    "start_date": "2026-03-01",
+    "end_date": null,
+    "monthly_fee": null,
+    "currency": "PEN",
+    "service_type": "mantenimiento",
+    "auto_renewal": null
+  },
+  "04-condiciones-ambiguas.txt": {
+    "contract_id": "CTR-004",
+    "client": "Cliente Delta ficticio",
+    "supplier": "Proveedor Cuatro ficticio",
+    "start_date": null,
+    "end_date": null,
+    "monthly_fee": null,
+    "currency": null,
+    "service_type": "limpieza",
+    "auto_renewal": null
+  },
+  "05-borrador-vacio.txt": {
+    "contract_id": null,
+    "client": null,
+    "supplier": null,
+    "start_date": null,
+    "end_date": null,
+    "monthly_fee": null,
+    "currency": null,
+    "service_type": null,
+    "auto_renewal": null
+  }
+}
+

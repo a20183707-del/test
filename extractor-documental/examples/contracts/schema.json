@@ -1,0 +1,131 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Contratos sintéticos de servicios",
+  "type": "object",
+  "properties": {
+    "contract_id": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "description": "Identificador contractual explícito; no usar el nombre del archivo Obligatorio semánticamente; ausencia se representa con null."
+    },
+    "client": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "description": "Nombre del cliente tal como figura, sin deducirlo Obligatorio semánticamente; ausencia se representa con null."
+    },
+    "supplier": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "description": "Nombre del proveedor tal como figura, sin deducirlo Obligatorio semánticamente; ausencia se representa con null."
+    },
+    "start_date": {
+      "anyOf": [
+        {
+          "type": "string",
+          "format": "date"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "description": "Inicio inequívoco YYYY-MM-DD; una fecha ambigua sin convención es null Obligatorio semánticamente; ausencia se representa con null."
+    },
+    "end_date": {
+      "anyOf": [
+        {
+          "type": "string",
+          "format": "date"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "description": "Fin inequívoco YYYY-MM-DD; null si no consta Opcional; ausencia se representa con null."
+    },
+    "monthly_fee": {
+      "anyOf": [
+        {
+          "type": "number",
+          "minimum": 0
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "description": "Tarifa mensual acordada; excluir presupuestos rechazados; sin acuerdo inequívoco usar null Obligatorio semánticamente; ausencia se representa con null."
+    },
+    "currency": {
+      "anyOf": [
+        {
+          "type": "string",
+          "enum": [
+            "PEN",
+            "USD"
+          ]
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "description": "Moneda contractual acordada y explícita; null si sólo hay ofertas incompatibles Obligatorio semánticamente; ausencia se representa con null."
+    },
+    "service_type": {
+      "anyOf": [
+        {
+          "type": "string",
+          "enum": [
+            "limpieza",
+            "mantenimiento",
+            "soporte"
+          ]
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "description": "Tipo de servicio explícito Obligatorio semánticamente; ausencia se representa con null."
+    },
+    "auto_renewal": {
+      "anyOf": [
+        {
+          "type": "boolean"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "description": "true sólo si se pacta renovación automática, false si se descarta; null si no consta Opcional; ausencia se representa con null."
+    }
+  },
+  "required": [
+    "contract_id",
+    "client",
+    "supplier",
+    "start_date",
+    "end_date",
+    "monthly_fee",
+    "currency",
+    "service_type",
+    "auto_renewal"
+  ],
+  "additionalProperties": false
+}
+

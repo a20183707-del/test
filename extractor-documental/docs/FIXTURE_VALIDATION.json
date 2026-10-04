@@ -1,0 +1,56 @@
+{
+  "check": "synthetic_fixture_integrity_and_reference_validation",
+  "executed_at_utc": "2026-10-04T14:40:38.044880+00:00",
+  "provider_calls": 0,
+  "documents": 5,
+  "fields_per_reference": 9,
+  "reference_kind": "elaborated_by_Codex_not_independently_reviewed",
+  "independent_human_review": false,
+  "real_Gemini_extraction": false,
+  "results": [
+    {
+      "document": "01-limpieza-completo.txt",
+      "source_sha256": "78963ef16eb7c51850896256e8c2b3e3f52bb0fc113bf61f19a1159b793aa197",
+      "reference_validation_status": "exitoso",
+      "missing_required_fields": []
+    },
+    {
+      "document": "02-soporte-completo.txt",
+      "source_sha256": "2b9f81781922d0dc58b5bdafe1e40461e9be3837a50cc1feb9200d79125fb7aa",
+      "reference_validation_status": "exitoso",
+      "missing_required_fields": []
+    },
+    {
+      "document": "03-tarifa-ausente.txt",
+      "source_sha256": "ba8bb59ced6f92a9683c8c9c24b78b83ce2f471df4f8221ff713c26af9e23e22",
+      "reference_validation_status": "parcial",
+      "missing_required_fields": [
+        "monthly_fee"
+      ]
+    },
+    {
+      "document": "04-condiciones-ambiguas.txt",
+      "source_sha256": "834db33b2a17cdf43e13c0169a11d91b7a7595b24a3ae5b5665835824206478f",
+      "reference_validation_status": "parcial",
+      "missing_required_fields": [
+        "start_date",
+        "monthly_fee",
+        "currency"
+      ]
+    },
+    {
+      "document": "05-borrador-vacio.txt",
+      "source_sha256": "c1fdb08c4e9b739531786eadef163d4b350e994d17e621591a39cdd497f5bc7c",
+      "reference_validation_status": "fallido",
+      "missing_required_fields": [
+        "contract_id",
+        "client",
+        "supplier",
+        "start_date",
+        "monthly_fee",
+        "currency",
+        "service_type"
+      ]
+    }
+  ]
+}

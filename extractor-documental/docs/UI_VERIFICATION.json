@@ -1,0 +1,85 @@
+{
+  "executed_at_utc": "2026-10-04T15:09:02.300Z",
+  "browser": "Chrome via Playwright",
+  "desktop": {
+    "width": 1536,
+    "height": 1024
+  },
+  "mobile": {
+    "width": 390,
+    "height": 844
+  },
+  "assertions": {
+    "reportMode": "gemini",
+    "projectDenialReason": "Google denegó el acceso al proyecto para generar contenido. Contacta al soporte de Google.",
+    "noProposalButton": true,
+    "unexecutedStages": 2,
+    "errorStage": 1,
+    "sessionCalls": 5,
+    "mobileNoHorizontalOverflow": true,
+    "formats": [
+      {
+        "format": "docx",
+        "mime": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+        "originalHashMatches": true,
+        "previewVisible": true,
+        "previewMatches": true,
+        "docxLabelClear": true,
+        "pdfFallback": false
+      },
+      {
+        "format": "pdf",
+        "mime": "application/pdf",
+        "originalHashMatches": true,
+        "previewVisible": true,
+        "previewMatches": true,
+        "pdfFallback": true
+      },
+      {
+        "format": "png",
+        "mime": "image/png",
+        "originalHashMatches": true,
+        "previewVisible": true,
+        "previewMatches": true,
+        "pdfFallback": false
+      },
+      {
+        "format": "txt",
+        "mime": "text/plain",
+        "originalHashMatches": true,
+        "previewVisible": true,
+        "previewMatches": true,
+        "pdfFallback": false
+      }
+    ],
+    "otherDomainPasted": true,
+    "unsupportedUpload": "Formato o contenido no admitido: usa TXT UTF-8, PDF, DOCX, PNG, JPEG o WEBP.",
+    "finalDocuments": 5,
+    "browserErrors": [],
+    "previewTestCorrection": "La primera comparación buscaba un rótulo diferente del fixture; se repitió contra el texto completo correcto y se verificó carga de píxeles."
+  },
+  "live_snapshots": [
+    {
+      "timestamp": "2026-10-04T14:53:27.309Z",
+      "status": "completed",
+      "calls": 5,
+      "processed": 5,
+      "usage": {
+        "input_tokens": null,
+        "output_tokens": null,
+        "thinking_tokens": null,
+        "cached_tokens": null,
+        "total_tokens": null,
+        "estimated_input_tokens": null,
+        "source": "unavailable",
+        "complete": false,
+        "measured_calls": 0,
+        "total_calls": 5
+      },
+      "displayed": "Estimación del texto de entrada\n102\nAcumulado real de la sesión\n—\nConsumo del lote actual\n—"
+    }
+  ],
+  "real_extraction_success": true,
+  "provider_block": null,
+  "final_live_report": "REAL_GEMINI_BATCH_REPORT.json"
+}

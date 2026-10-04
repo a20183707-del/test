@@ -1,0 +1,4341 @@
+{
+  "schema_version": "2.0.0",
+  "mode": "test_injected",
+  "provider": "fixture_reference_injected",
+  "reviewer": "fixture_review_injected",
+  "schema_definition": {
+    "title": "Contratos sintéticos de servicios",
+    "fields": [
+      {
+        "name": "contract_id",
+        "type": "string",
+        "description": "Identificador contractual explícito; no usar el nombre del archivo",
+        "required": true,
+        "enum_values": [],
+        "minimum": null,
+        "maximum": null
+      },
+      {
+        "name": "client",
+        "type": "string",
+        "description": "Nombre del cliente tal como figura, sin deducirlo",
+        "required": true,
+        "enum_values": [],
+        "minimum": null,
+        "maximum": null
+      },
+      {
+        "name": "supplier",
+        "type": "string",
+        "description": "Nombre del proveedor tal como figura, sin deducirlo",
+        "required": true,
+        "enum_values": [],
+        "minimum": null,
+        "maximum": null
+      },
+      {
+        "name": "start_date",
+        "type": "date",
+        "description": "Inicio inequívoco YYYY-MM-DD; una fecha ambigua sin convención es null",
+        "required": true,
+        "enum_values": [],
+        "minimum": null,
+        "maximum": null
+      },
+      {
+        "name": "end_date",
+        "type": "date",
+        "description": "Fin inequívoco YYYY-MM-DD; null si no consta",
+        "required": false,
+        "enum_values": [],
+        "minimum": null,
+        "maximum": null
+      },
+      {
+        "name": "monthly_fee",
+        "type": "number",
+        "description": "Tarifa mensual acordada; excluir presupuestos rechazados; sin acuerdo inequívoco usar null",
+        "required": true,
+        "enum_values": [],
+        "minimum": 0.0,
+        "maximum": null
+      },
+      {
+        "name": "currency",
+        "type": "enum",
+        "description": "Moneda contractual acordada y explícita; null si sólo hay ofertas incompatibles",
+        "required": true,
+        "enum_values": [
+          "PEN",
+          "USD"
+        ],
+        "minimum": null,
+        "maximum": null
+      },
+      {
+        "name": "service_type",
+        "type": "enum",
+        "description": "Tipo de servicio explícito",
+        "required": true,
+        "enum_values": [
+          "limpieza",
+          "mantenimiento",
+          "soporte"
+        ],
+        "minimum": null,
+        "maximum": null
+      },
+      {
+        "name": "auto_renewal",
+        "type": "boolean",
+        "description": "true sólo si se pacta renovación automática, false si se descarta; null si no consta",
+        "required": false,
+        "enum_values": [],
+        "minimum": null,
+        "maximum": null
+      }
+    ]
+  },
+  "started_at": "2026-10-04T14:40:38.041882Z",
+  "completed_at": "2026-10-04T14:40:38.043880Z",
+  "max_attempts": 3,
+  "max_review_calls": 6,
+  "results": [
+    {
+      "document_id": "synthetic-contract-1",
+      "source_name": "01-limpieza-completo.txt",
+      "status": "exitoso",
+      "record": {
+        "contract_id": "CTR-001",
+        "client": "Cliente Alfa ficticio",
+        "supplier": "Proveedor Uno ficticio",
+        "start_date": "2026-01-01",
+        "end_date": "2026-12-31",
+        "monthly_fee": 1250.5,
+        "currency": "PEN",
+        "service_type": "limpieza",
+        "auto_renewal": true
+      },
+      "attempts": 1,
+      "review_calls": 1,
+      "reasons": [
+        "JSON y reglas locales válidos; todos los campos contrastados por el revisor."
+      ],
+      "attempt_log": [
+        {
+          "attempt": 1,
+          "outcome": "approved",
+          "error_type": null,
+          "messages": [],
+          "elapsed_ms": 0,
+          "record_before": null,
+          "record_after": {
+            "contract_id": "CTR-001",
+            "client": "Cliente Alfa ficticio",
+            "supplier": "Proveedor Uno ficticio",
+            "start_date": "2026-01-01",
+            "end_date": "2026-12-31",
+            "monthly_fee": 1250.5,
+            "currency": "PEN",
+            "service_type": "limpieza",
+            "auto_renewal": true
+          },
+          "reviewer_verdict": {
+            "decision": "approved",
+            "fields": [
+              {
+                "field": "contract_id",
+                "status": "supported",
+                "evidence": "EJEMPLO SINTÉTICO — creado para pruebas; no representa una relación contractual real.",
+                "location": "Texto sintético de prueba",
+                "problem": null,
+                "severity": "none",
+                "proposed_value": "CTR-001",
+                "verification_question": "¿Qué valor explícito consta en el texto sintético?"
+              },
+              {
+                "field": "client",
+                "status": "supported",
+                "evidence": "Cliente: Cliente Alfa ficticio.",
+                "location": "Texto sintético de prueba",
+                "problem": null,
+                "severity": "none",
+                "proposed_value": "Cliente Alfa ficticio",
+                "verification_question": "¿Qué valor explícito consta en el texto sintético?"
+              },
+              {
+                "field": "supplier",
+                "status": "supported",
+                "evidence": "Proveedor: Proveedor Uno ficticio.",
+                "location": "Texto sintético de prueba",
+                "problem": null,
+                "severity": "none",
+                "proposed_value": "Proveedor Uno ficticio",
+                "verification_question": "¿Qué valor explícito consta en el texto sintético?"
+              },
+              {
+                "field": "start_date",
+                "status": "supported",
+                "evidence": "Inicio: 2026-01-01. Fin: 2026-12-31.",
+                "location": "Texto sintético de prueba",
+                "problem": null,
+                "severity": "none",
+                "proposed_value": "2026-01-01",
+                "verification_question": "¿Qué valor explícito consta en el texto sintético?"
+              },
+              {
+                "field": "end_date",
+                "status": "supported",
+                "evidence": "Inicio: 2026-01-01. Fin: 2026-12-31.",
+                "location": "Texto sintético de prueba",
+                "problem": null,
+                "severity": "none",
+                "proposed_value": "2026-12-31",
+                "verification_question": "¿Qué valor explícito consta en el texto sintético?"
+              },
+              {
+                "field": "monthly_fee",
+                "status": "supported",
+                "evidence": "Tarifa mensual: 1250.50 PEN.",
+                "location": "Texto sintético de prueba",
+                "problem": null,
+                "severity": "none",
+                "proposed_value": 1250.5,
+                "verification_question": "¿Qué valor explícito consta en el texto sintético?"
+              },
+              {
+                "field": "currency",
+                "status": "supported",
+                "evidence": "Tarifa mensual: 1250.50 PEN.",
+                "location": "Texto sintético de prueba",
+                "problem": null,
+                "severity": "none",
+                "proposed_value": "PEN",
+                "verification_question": "¿Qué valor explícito consta en el texto sintético?"
+              },
+              {
+                "field": "service_type",
+                "status": "supported",
+                "evidence": "Servicio contratado: limpieza.",
+                "location": "Texto sintético de prueba",
+                "problem": null,
+                "severity": "none",
+                "proposed_value": "limpieza",
+                "verification_question": "¿Qué valor explícito consta en el texto sintético?"
+              },
+              {
+                "field": "auto_renewal",
+                "status": "supported",
+                "evidence": "Renovación automática: sí.",
+                "location": "Texto sintético de prueba",
+                "problem": null,
+                "severity": "none",
+                "proposed_value": true,
+                "verification_question": "¿Qué valor explícito consta en el texto sintético?"
+              }
+            ],
+            "reason": "Revisor inyectado de software con referencia elaborada; no es revisión humana ni ejecución Gemini.",
+            "should_retry": false
+          },
+          "independent_verification": null,
+          "usage": {
+            "input_tokens": null,
+            "output_tokens": null,
+            "thinking_tokens": null,
+            "cached_tokens": null,
+            "total_tokens": null,
+            "estimated_input_tokens": null,
+            "source": "unavailable",
+            "complete": false,
+            "measured_calls": 0,
+            "total_calls": 0
+          }
+        }
+      ],
+      "reviewer_verdict": {
+        "decision": "approved",
+        "fields": [
+          {
+            "field": "contract_id",
+            "status": "supported",
+            "evidence": "EJEMPLO SINTÉTICO — creado para pruebas; no representa una relación contractual real.",
+            "location": "Texto sintético de prueba",
+            "problem": null,
+            "severity": "none",
+            "proposed_value": "CTR-001",
+            "verification_question": "¿Qué valor explícito consta en el texto sintético?"
+          },
+          {
+            "field": "client",
+            "status": "supported",
+            "evidence": "Cliente: Cliente Alfa ficticio.",
+            "location": "Texto sintético de prueba",
+            "problem": null,
+            "severity": "none",
+            "proposed_value": "Cliente Alfa ficticio",
+            "verification_question": "¿Qué valor explícito consta en el texto sintético?"
+          },
+          {
+            "field": "supplier",
+            "status": "supported",
+            "evidence": "Proveedor: Proveedor Uno ficticio.",
+            "location": "Texto sintético de prueba",
+            "problem": null,
+            "severity": "none",
+            "proposed_value": "Proveedor Uno ficticio",
+            "verification_question": "¿Qué valor explícito consta en el texto sintético?"
+          },
+          {
+            "field": "start_date",
+            "status": "supported",
+            "evidence": "Inicio: 2026-01-01. Fin: 2026-12-31.",
+            "location": "Texto sintético de prueba",
+            "problem": null,
+            "severity": "none",
+            "proposed_value": "2026-01-01",
+            "verification_question": "¿Qué valor explícito consta en el texto sintético?"
+          },
+          {
+            "field": "end_date",
+            "status": "supported",
+            "evidence": "Inicio: 2026-01-01. Fin: 2026-12-31.",
+            "location": "Texto sintético de prueba",
+            "problem": null,
+            "severity": "none",
+            "proposed_value": "2026-12-31",
+            "verification_question": "¿Qué valor explícito consta en el texto sintético?"
+          },
+          {
+            "field": "monthly_fee",
+            "status": "supported",
+            "evidence": "Tarifa mensual: 1250.50 PEN.",
+            "location": "Texto sintético de prueba",
+            "problem": null,
+            "severity": "none",
+            "proposed_value": 1250.5,
+            "verification_question": "¿Qué valor explícito consta en el texto sintético?"
+          },
+          {
+            "field": "currency",
+            "status": "supported",
+            "evidence": "Tarifa mensual: 1250.50 PEN.",
+            "location": "Texto sintético de prueba",
+            "problem": null,
+            "severity": "none",
+            "proposed_value": "PEN",
+            "verification_question": "¿Qué valor explícito consta en el texto sintético?"
+          },
+          {
+            "field": "service_type",
+            "status": "supported",
+            "evidence": "Servicio contratado: limpieza.",
+            "location": "Texto sintético de prueba",
+            "problem": null,
+            "severity": "none",
+            "proposed_value": "limpieza",
+            "verification_question": "¿Qué valor explícito consta en el texto sintético?"
+          },
+          {
+            "field": "auto_renewal",
+            "status": "supported",
+            "evidence": "Renovación automática: sí.",
+            "location": "Texto sintético de prueba",
+            "problem": null,
+            "severity": "none",
+            "proposed_value": true,
+            "verification_question": "¿Qué valor explícito consta en el texto sintético?"
+          }
+        ],
+        "reason": "Revisor inyectado de software con referencia elaborada; no es revisión humana ni ejecución Gemini.",
+        "should_retry": false
+      },
+      "human_review_required": false,
+      "usage": {
+        "input_tokens": null,
+        "output_tokens": null,
+        "thinking_tokens": null,
+        "cached_tokens": null,
+        "total_tokens": null,
+        "estimated_input_tokens": null,
+        "source": "unavailable",
+        "complete": false,
+        "measured_calls": 0,
+        "total_calls": 0
+      },
+      "source_sha256": "78963ef16eb7c51850896256e8c2b3e3f52bb0fc113bf61f19a1159b793aa197",
+      "reference_accuracy": null,
+      "provider_calls": [
+        {
+          "id": "c04cd46c71e74d7695aaeb1245710e6c",
+          "document_id": "synthetic-contract-1",
+          "attempt": 1,
+          "role": "extraction",
+          "model": "fixture_reference_injected",
+          "started_at": "2026-10-04T14:40:38.041882Z",
+          "elapsed_ms": 0,
+          "usage": {
+            "input_tokens": null,
+            "output_tokens": null,
+            "thinking_tokens": null,
+            "cached_tokens": null,
+            "total_tokens": null,
+            "estimated_input_tokens": null,
+            "source": "unavailable",
+            "complete": false,
+            "measured_calls": 0,
+            "total_calls": 0
+          },
+          "status": "completed",
+          "error_code": null
+        },
+        {
+          "id": "421d1555c83c41c3a271ab3dd5202078",
+          "document_id": "synthetic-contract-1",
+          "attempt": 1,
+          "role": "review",
+          "model": "fixture_review_injected",
+          "started_at": "2026-10-04T14:40:38.041882Z",
+          "elapsed_ms": 0,
+          "usage": {
+            "input_tokens": null,
+            "output_tokens": null,
+            "thinking_tokens": null,
+            "cached_tokens": null,
+            "total_tokens": null,
+            "estimated_input_tokens": null,
+            "source": "unavailable",
+            "complete": false,
+            "measured_calls": 0,
+            "total_calls": 0
+          },
+          "status": "completed",
+          "error_code": null
+        }
+      ]
+    },
+    {
+      "document_id": "synthetic-contract-2",
+      "source_name": "02-soporte-completo.txt",
+      "status": "exitoso",
+      "record": {
+        "contract_id": "CTR-002",
+        "client": "Cliente Beta ficticio",
+        "supplier": "Proveedor Dos ficticio",
+        "start_date": "2026-02-15",
+        "end_date": "2026-08-14",
+        "monthly_fee": 95.75,
+        "currency": "USD",
+        "service_type": "soporte",
+        "auto_renewal": false
+      },
+      "attempts": 1,
+      "review_calls": 1,
+      "reasons": [
+        "JSON y reglas locales válidos; todos los campos contrastados por el revisor."
+      ],
+      "attempt_log": [
+        {
+          "attempt": 1,
+          "outcome": "approved",
+          "error_type": null,
+          "messages": [],
+          "elapsed_ms": 0,
+          "record_before": null,
+          "record_after": {
+            "contract_id": "CTR-002",
+            "client": "Cliente Beta ficticio",
+            "supplier": "Proveedor Dos ficticio",
+            "start_date": "2026-02-15",
+            "end_date": "2026-08-14",
+            "monthly_fee": 95.75,
+            "currency": "USD",
+            "service_type": "soporte",
+            "auto_renewal": false
+          },
+          "reviewer_verdict": {
+            "decision": "approved",
+            "fields": [
+              {
+                "field": "contract_id",
+                "status": "supported",
+                "evidence": "EJEMPLO SINTÉTICO — creado para pruebas; no representa una relación contractual real.",
+                "location": "Texto sintético de prueba",
+                "problem": null,
+                "severity": "none",
+                "proposed_value": "CTR-002",
+                "verification_question": "¿Qué valor explícito consta en el texto sintético?"
+              },
+              {
+                "field": "client",
+                "status": "supported",
+                "evidence": "Cliente: Cliente Beta ficticio.",
+                "location": "Texto sintético de prueba",
+                "problem": null,
+                "severity": "none",
+                "proposed_value": "Cliente Beta ficticio",
+                "verification_question": "¿Qué valor explícito consta en el texto sintético?"
+              },
+              {
+                "field": "supplier",
+                "status": "supported",
+                "evidence": "Proveedor: Proveedor Dos ficticio.",
+                "location": "Texto sintético de prueba",
+                "problem": null,
+                "severity": "none",
+                "proposed_value": "Proveedor Dos ficticio",
+                "verification_question": "¿Qué valor explícito consta en el texto sintético?"
+              },
+              {
+                "field": "start_date",
+                "status": "supported",
+                "evidence": "El servicio es soporte. Vigencia desde 2026-02-15 hasta 2026-08-14.",
+                "location": "Texto sintético de prueba",
+                "problem": null,
+                "severity": "none",
+                "proposed_value": "2026-02-15",
+                "verification_question": "¿Qué valor explícito consta en el texto sintético?"
+              },
+              {
+                "field": "end_date",
+                "status": "supported",
+                "evidence": "El servicio es soporte. Vigencia desde 2026-02-15 hasta 2026-08-14.",
+                "location": "Texto sintético de prueba",
+                "problem": null,
+                "severity": "none",
+                "proposed_value": "2026-08-14",
+                "verification_question": "¿Qué valor explícito consta en el texto sintético?"
+              },
+              {
+                "field": "monthly_fee",
+                "status": "supported",
+                "evidence": "Cuota mensual acordada: 95.75 USD.",
+                "location": "Texto sintético de prueba",
+                "problem": null,
+                "severity": "none",
+                "proposed_value": 95.75,
+                "verification_question": "¿Qué valor explícito consta en el texto sintético?"
+              },
+              {
+                "field": "currency",
+                "status": "supported",
+                "evidence": "Cuota mensual acordada: 95.75 USD.",
+                "location": "Texto sintético de prueba",
+                "problem": null,
+                "severity": "none",
+                "proposed_value": "USD",
+                "verification_question": "¿Qué valor explícito consta en el texto sintético?"
+              },
+              {
+                "field": "service_type",
+                "status": "supported",
+                "evidence": "El servicio es soporte. Vigencia desde 2026-02-15 hasta 2026-08-14.",
+                "location": "Texto sintético de prueba",
+                "problem": null,
+                "severity": "none",
+                "proposed_value": "soporte",
+                "verification_question": "¿Qué valor explícito consta en el texto sintético?"
+              },
+              {
+                "field": "auto_renewal",
+                "status": "supported",
+                "evidence": "Se descarta la renovación automática: no.",
+                "location": "Texto sintético de prueba",
+                "problem": null,
+                "severity": "none",
+                "proposed_value": false,
+                "verification_question": "¿Qué valor explícito consta en el texto sintético?"
+              }
+            ],
+            "reason": "Revisor inyectado de software con referencia elaborada; no es revisión humana ni ejecución Gemini.",
+            "should_retry": false
+          },
+          "independent_verification": null,
+          "usage": {
+            "input_tokens": null,
+            "output_tokens": null,
+            "thinking_tokens": null,
+            "cached_tokens": null,
+            "total_tokens": null,
+            "estimated_input_tokens": null,
+            "source": "unavailable",
+            "complete": false,
+            "measured_calls": 0,
+            "total_calls": 0
+          }
+        }
+      ],
+      "reviewer_verdict": {
+        "decision": "approved",
+        "fields": [
+          {
+            "field": "contract_id",
+            "status": "supported",
+            "evidence": "EJEMPLO SINTÉTICO — creado para pruebas; no representa una relación contractual real.",
+            "location": "Texto sintético de prueba",
+            "problem": null,
+            "severity": "none",
+            "proposed_value": "CTR-002",
+            "verification_question": "¿Qué valor explícito consta en el texto sintético?"
+          },
+          {
+            "field": "client",
+            "status": "supported",
+            "evidence": "Cliente: Cliente Beta ficticio.",
+            "location": "Texto sintético de prueba",
+            "problem": null,
+            "severity": "none",
+            "proposed_value": "Cliente Beta ficticio",
+            "verification_question": "¿Qué valor explícito consta en el texto sintético?"
+          },
+          {
+            "field": "supplier",
+            "status": "supported",
+            "evidence": "Proveedor: Proveedor Dos ficticio.",
+            "location": "Texto sintético de prueba",
+            "problem": null,
+            "severity": "none",
+            "proposed_value": "Proveedor Dos ficticio",
+            "verification_question": "¿Qué valor explícito consta en el texto sintético?"
+          },
+          {
+            "field": "start_date",
+            "status": "supported",
+            "evidence": "El servicio es soporte. Vigencia desde 2026-02-15 hasta 2026-08-14.",
+            "location": "Texto sintético de prueba",
+            "problem": null,
+            "severity": "none",
+            "proposed_value": "2026-02-15",
+            "verification_question": "¿Qué valor explícito consta en el texto sintético?"
+          },
+          {
+            "field": "end_date",
+            "status": "supported",
+            "evidence": "El servicio es soporte. Vigencia desde 2026-02-15 hasta 2026-08-14.",
+            "location": "Texto sintético de prueba",
+            "problem": null,
+            "severity": "none",
+            "proposed_value": "2026-08-14",
+            "verification_question": "¿Qué valor explícito consta en el texto sintético?"
+          },
+          {
+            "field": "monthly_fee",
+            "status": "supported",
+            "evidence": "Cuota mensual acordada: 95.75 USD.",
+            "location": "Texto sintético de prueba",
+            "problem": null,
+            "severity": "none",
+            "proposed_value": 95.75,
+            "verification_question": "¿Qué valor explícito consta en el texto sintético?"
+          },
+          {
+            "field": "currency",
+            "status": "supported",
+            "evidence": "Cuota mensual acordada: 95.75 USD.",
+            "location": "Texto sintético de prueba",
+            "problem": null,
+            "severity": "none",
+            "proposed_value": "USD",
+            "verification_question": "¿Qué valor explícito consta en el texto sintético?"
+          },
+          {
+            "field": "service_type",
+            "status": "supported",
+            "evidence": "El servicio es soporte. Vigencia desde 2026-02-15 hasta 2026-08-14.",
+            "location": "Texto sintético de prueba",
+            "problem": null,
+            "severity": "none",
+            "proposed_value": "soporte",
+            "verification_question": "¿Qué valor explícito consta en el texto sintético?"
+          },
+          {
+            "field": "auto_renewal",
+            "status": "supported",
+            "evidence": "Se descarta la renovación automática: no.",
+            "location": "Texto sintético de prueba",
+            "problem": null,
+            "severity": "none",
+            "proposed_value": false,
+            "verification_question": "¿Qué valor explícito consta en el texto sintético?"
+          }
+        ],
+        "reason": "Revisor inyectado de software con referencia elaborada; no es revisión humana ni ejecución Gemini.",
+        "should_retry": false
+      },
+      "human_review_required": false,
+      "usage": {
+        "input_tokens": null,
+        "output_tokens": null,
+        "thinking_tokens": null,
+        "cached_tokens": null,
+        "total_tokens": null,
+        "estimated_input_tokens": null,
+        "source": "unavailable",
+        "complete": false,
+        "measured_calls": 0,
+        "total_calls": 0
+      },
+      "source_sha256": "2b9f81781922d0dc58b5bdafe1e40461e9be3837a50cc1feb9200d79125fb7aa",
+      "reference_accuracy": null,
+      "provider_calls": [
+        {
+          "id": "e53d341e96624e728d1f2b1d74f3f021",
+          "document_id": "synthetic-contract-2",
+          "attempt": 1,
+          "role": "extraction",
+          "model": "fixture_reference_injected",
+          "started_at": "2026-10-04T14:40:38.042881Z",
+          "elapsed_ms": 0,
+          "usage": {
+            "input_tokens": null,
+            "output_tokens": null,
+            "thinking_tokens": null,
+            "cached_tokens": null,
+            "total_tokens": null,
+            "estimated_input_tokens": null,
+            "source": "unavailable",
+            "complete": false,
+            "measured_calls": 0,
+            "total_calls": 0
+          },
+          "status": "completed",
+          "error_code": null
+        },
+        {
+          "id": "67acd05ed42a45bd97684c436b335779",
+          "document_id": "synthetic-contract-2",
+          "attempt": 1,
+          "role": "review",
+          "model": "fixture_review_injected",
+          "started_at": "2026-10-04T14:40:38.042881Z",
+          "elapsed_ms": 0,
+          "usage": {
+            "input_tokens": null,
+            "output_tokens": null,
+            "thinking_tokens": null,
+            "cached_tokens": null,
+            "total_tokens": null,
+            "estimated_input_tokens": null,
+            "source": "unavailable",
+            "complete": false,
+            "measured_calls": 0,
+            "total_calls": 0
+          },
+          "status": "completed",
+          "error_code": null
+        }
+      ]
+    },
+    {
+      "document_id": "synthetic-contract-3",
+      "source_name": "03-tarifa-ausente.txt",
+      "status": "parcial",
+      "record": {
+        "contract_id": "CTR-003",
+        "client": "Cliente Gamma ficticio",
+        "supplier": "Proveedor Tres ficticio",
+        "start_date": "2026-03-01",
+        "end_date": null,
+        "monthly_fee": null,
+        "currency": "PEN",
+        "service_type": "mantenimiento",
+        "auto_renewal": null
+      },
+      "attempts": 1,
+      "review_calls": 1,
+      "reasons": [
+        "Falta dato obligatorio verificable: monthly_fee.",
+        "Revisor inyectado de software con referencia elaborada; no es revisión humana ni ejecución Gemini."
+      ],
+      "attempt_log": [
+        {
+          "attempt": 1,
+          "outcome": "needs_review",
+          "error_type": null,
+          "messages": [],
+          "elapsed_ms": 0,
+          "record_before": null,
+          "record_after": {
+            "contract_id": "CTR-003",
+            "client": "Cliente Gamma ficticio",
+            "supplier": "Proveedor Tres ficticio",
+            "start_date": "2026-03-01",
+            "end_date": null,
+            "monthly_fee": null,
+            "currency": "PEN",
+            "service_type": "mantenimiento",
+            "auto_renewal": null
+          },
+          "reviewer_verdict": {
+            "decision": "needs_review",
+            "fields": [
+              {
+                "field": "contract_id",
+                "status": "supported",
+                "evidence": "EJEMPLO SINTÉTICO — creado para pruebas; no representa una relación contractual real.",
+                "location": "Texto sintético de prueba",
+                "problem": null,
+                "severity": "none",
+                "proposed_value": "CTR-003",
+                "verification_question": "¿Qué valor explícito consta en el texto sintético?"
+              },
+              {
+                "field": "client",
+                "status": "supported",
+                "evidence": "Cliente: Cliente Gamma ficticio.",
+                "location": "Texto sintético de prueba",
+                "problem": null,
+                "severity": "none",
+                "proposed_value": "Cliente Gamma ficticio",
+                "verification_question": "¿Qué valor explícito consta en el texto sintético?"
+              },
+              {
+                "field": "supplier",
+                "status": "supported",
+                "evidence": "Proveedor: Proveedor Tres ficticio.",
+                "location": "Texto sintético de prueba",
+                "problem": null,
+                "severity": "none",
+                "proposed_value": "Proveedor Tres ficticio",
+                "verification_question": "¿Qué valor explícito consta en el texto sintético?"
+              },
+              {
+                "field": "start_date",
+                "status": "supported",
+                "evidence": "Fecha de inicio: 2026-03-01.",
+                "location": "Texto sintético de prueba",
+                "problem": null,
+                "severity": "none",
+                "proposed_value": "2026-03-01",
+                "verification_question": "¿Qué valor explícito consta en el texto sintético?"
+              },
+              {
+                "field": "end_date",
+                "status": "missing",
+                "evidence": null,
+                "location": null,
+                "problem": "Dato ausente o ambiguo en la referencia elaborada",
+                "severity": "low",
+                "proposed_value": null,
+                "verification_question": "¿Qué valor explícito consta en el texto sintético?"
+              },
+              {
+                "field": "monthly_fee",
+                "status": "missing",
+                "evidence": null,
+                "location": null,
+                "problem": "Dato ausente o ambiguo en la referencia elaborada",
+                "severity": "medium",
+                "proposed_value": null,
+                "verification_question": "¿Qué valor explícito consta en el texto sintético?"
+              },
+              {
+                "field": "currency",
+                "status": "supported",
+                "evidence": "Moneda contractual: PEN.",
+                "location": "Texto sintético de prueba",
+                "problem": null,
+                "severity": "none",
+                "proposed_value": "PEN",
+                "verification_question": "¿Qué valor explícito consta en el texto sintético?"
+              },
+              {
+                "field": "service_type",
+                "status": "supported",
+                "evidence": "Servicio: mantenimiento.",
+                "location": "Texto sintético de prueba",
+                "problem": null,
+                "severity": "none",
+                "proposed_value": "mantenimiento",
+                "verification_question": "¿Qué valor explícito consta en el texto sintético?"
+              },
+              {
+                "field": "auto_renewal",
+                "status": "missing",
+                "evidence": null,
+                "location": null,
+                "problem": "Dato ausente o ambiguo en la referencia elaborada",
+                "severity": "low",
+                "proposed_value": null,
+                "verification_question": "¿Qué valor explícito consta en el texto sintético?"
+              }
+            ],
+            "reason": "Revisor inyectado de software con referencia elaborada; no es revisión humana ni ejecución Gemini.",
+            "should_retry": false
+          },
+          "independent_verification": null,
+          "usage": {
+            "input_tokens": null,
+            "output_tokens": null,
+            "thinking_tokens": null,
+            "cached_tokens": null,
+            "total_tokens": null,
+            "estimated_input_tokens": null,
+            "source": "unavailable",
+            "complete": false,
+            "measured_calls": 0,
+            "total_calls": 0
+          }
+        }
+      ],
+      "reviewer_verdict": {
+        "decision": "needs_review",
+        "fields": [
+          {
+            "field": "contract_id",
+            "status": "supported",
+            "evidence": "EJEMPLO SINTÉTICO — creado para pruebas; no representa una relación contractual real.",
+            "location": "Texto sintético de prueba",
+            "problem": null,
+            "severity": "none",
+            "proposed_value": "CTR-003",
+            "verification_question": "¿Qué valor explícito consta en el texto sintético?"
+          },
+          {
+            "field": "client",
+            "status": "supported",
+            "evidence": "Cliente: Cliente Gamma ficticio.",
+            "location": "Texto sintético de prueba",
+            "problem": null,
+            "severity": "none",
+            "proposed_value": "Cliente Gamma ficticio",
+            "verification_question": "¿Qué valor explícito consta en el texto sintético?"
+          },
+          {
+            "field": "supplier",
+            "status": "supported",
+            "evidence": "Proveedor: Proveedor Tres ficticio.",
+            "location": "Texto sintético de prueba",
+            "problem": null,
+            "severity": "none",
+            "proposed_value": "Proveedor Tres ficticio",
+            "verification_question": "¿Qué valor explícito consta en el texto sintético?"
+          },
+          {
+            "field": "start_date",
+            "status": "supported",
+            "evidence": "Fecha de inicio: 2026-03-01.",
+            "location": "Texto sintético de prueba",
+            "problem": null,
+            "severity": "none",
+            "proposed_value": "2026-03-01",
+            "verification_question": "¿Qué valor explícito consta en el texto sintético?"
+          },
+          {
+            "field": "end_date",
+            "status": "missing",
+            "evidence": null,
+            "location": null,
+            "problem": "Dato ausente o ambiguo en la referencia elaborada",
+            "severity": "low",
+            "proposed_value": null,
+            "verification_question": "¿Qué valor explícito consta en el texto sintético?"
+          },
+          {
+            "field": "monthly_fee",
+            "status": "missing",
+            "evidence": null,
+            "location": null,
+            "problem": "Dato ausente o ambiguo en la referencia elaborada",
+            "severity": "medium",
+            "proposed_value": null,
+            "verification_question": "¿Qué valor explícito consta en el texto sintético?"
+          },
+          {
+            "field": "currency",
+            "status": "supported",
+            "evidence": "Moneda contractual: PEN.",
+            "location": "Texto sintético de prueba",
+            "problem": null,
+            "severity": "none",
+            "proposed_value": "PEN",
+            "verification_question": "¿Qué valor explícito consta en el texto sintético?"
+          },
+          {
+            "field": "service_type",
+            "status": "supported",
+            "evidence": "Servicio: mantenimiento.",
+            "location": "Texto sintético de prueba",
+            "problem": null,
+            "severity": "none",
+            "proposed_value": "mantenimiento",
+            "verification_question": "¿Qué valor explícito consta en el texto sintético?"
+          },
+          {
+            "field": "auto_renewal",
+            "status": "missing",
+            "evidence": null,
+            "location": null,
+            "problem": "Dato ausente o ambiguo en la referencia elaborada",
+            "severity": "low",
+            "proposed_value": null,
+            "verification_question": "¿Qué valor explícito consta en el texto sintético?"
+          }
+        ],
+        "reason": "Revisor inyectado de software con referencia elaborada; no es revisión humana ni ejecución Gemini.",
+        "should_retry": false
+      },
+      "human_review_required": true,
+      "usage": {
+        "input_tokens": null,
+        "output_tokens": null,
+        "thinking_tokens": null,
+        "cached_tokens": null,
+        "total_tokens": null,
+        "estimated_input_tokens": null,
+        "source": "unavailable",
+        "complete": false,
+        "measured_calls": 0,
+        "total_calls": 0
+      },
+      "source_sha256": "ba8bb59ced6f92a9683c8c9c24b78b83ce2f471df4f8221ff713c26af9e23e22",
+      "reference_accuracy": null,
+      "provider_calls": [
+        {
+          "id": "18dfab5a2eb442058163ab07350b2ae8",
+          "document_id": "synthetic-contract-3",
+          "attempt": 1,
+          "role": "extraction",
+          "model": "fixture_reference_injected",
+          "started_at": "2026-10-04T14:40:38.042881Z",
+          "elapsed_ms": 0,
+          "usage": {
+            "input_tokens": null,
+            "output_tokens": null,
+            "thinking_tokens": null,
+            "cached_tokens": null,
+            "total_tokens": null,
+            "estimated_input_tokens": null,
+            "source": "unavailable",
+            "complete": false,
+            "measured_calls": 0,
+            "total_calls": 0
+          },
+          "status": "completed",
+          "error_code": null
+        },
+        {
+          "id": "44ca16343622458581933710cc10ba7b",
+          "document_id": "synthetic-contract-3",
+          "attempt": 1,
+          "role": "review",
+          "model": "fixture_review_injected",
+          "started_at": "2026-10-04T14:40:38.042881Z",
+          "elapsed_ms": 0,
+          "usage": {
+            "input_tokens": null,
+            "output_tokens": null,
+            "thinking_tokens": null,
+            "cached_tokens": null,
+            "total_tokens": null,
+            "estimated_input_tokens": null,
+            "source": "unavailable",
+            "complete": false,
+            "measured_calls": 0,
+            "total_calls": 0
+          },
+          "status": "completed",
+          "error_code": null
+        }
+      ]
+    },
+    {
+      "document_id": "synthetic-contract-4",
+      "source_name": "04-condiciones-ambiguas.txt",
+      "status": "parcial",
+      "record": {
+        "contract_id": "CTR-004",
+        "client": "Cliente Delta ficticio",
+        "supplier": "Proveedor Cuatro ficticio",
+        "start_date": null,
+        "end_date": null,
+        "monthly_fee": null,
+        "currency": null,
+        "service_type": "limpieza",
+        "auto_renewal": null
+      },
+      "attempts": 1,
+      "review_calls": 1,
+      "reasons": [
+        "Falta dato obligatorio verificable: start_date.",
+        "Falta dato obligatorio verificable: monthly_fee.",
+        "Falta dato obligatorio verificable: currency.",
+        "Revisor inyectado de software con referencia elaborada; no es revisión humana ni ejecución Gemini."
+      ],
+      "attempt_log": [
+        {
+          "attempt": 1,
+          "outcome": "needs_review",
+          "error_type": null,
+          "messages": [],
+          "elapsed_ms": 0,
+          "record_before": null,
+          "record_after": {
+            "contract_id": "CTR-004",
+            "client": "Cliente Delta ficticio",
+            "supplier": "Proveedor Cuatro ficticio",
+            "start_date": null,
+            "end_date": null,
+            "monthly_fee": null,
+            "currency": null,
+            "service_type": "limpieza",
+            "auto_renewal": null
+          },
+          "reviewer_verdict": {
+            "decision": "needs_review",
+            "fields": [
+              {
+                "field": "contract_id",
+                "status": "supported",
+                "evidence": "EJEMPLO SINTÉTICO — creado para pruebas; no representa una relación contractual real.",
+                "location": "Texto sintético de prueba",
+                "problem": null,
+                "severity": "none",
+                "proposed_value": "CTR-004",
+                "verification_question": "¿Qué valor explícito consta en el texto sintético?"
+              },
+              {
+                "field": "client",
+                "status": "supported",
+                "evidence": "Cliente: Cliente Delta ficticio.",
+                "location": "Texto sintético de prueba",
+                "problem": null,
+                "severity": "none",
+                "proposed_value": "Cliente Delta ficticio",
+                "verification_question": "¿Qué valor explícito consta en el texto sintético?"
+              },
+              {
+                "field": "supplier",
+                "status": "supported",
+                "evidence": "Proveedor: Proveedor Cuatro ficticio.",
+                "location": "Texto sintético de prueba",
+                "problem": null,
+                "severity": "none",
+                "proposed_value": "Proveedor Cuatro ficticio",
+                "verification_question": "¿Qué valor explícito consta en el texto sintético?"
+              },
+              {
+                "field": "start_date",
+                "status": "missing",
+                "evidence": null,
+                "location": null,
+                "problem": "Dato ausente o ambiguo en la referencia elaborada",
+                "severity": "medium",
+                "proposed_value": null,
+                "verification_question": "¿Qué valor explícito consta en el texto sintético?"
+              },
+              {
+                "field": "end_date",
+                "status": "missing",
+                "evidence": null,
+                "location": null,
+                "problem": "Dato ausente o ambiguo en la referencia elaborada",
+                "severity": "low",
+                "proposed_value": null,
+                "verification_question": "¿Qué valor explícito consta en el texto sintético?"
+              },
+              {
+                "field": "monthly_fee",
+                "status": "missing",
+                "evidence": null,
+                "location": null,
+                "problem": "Dato ausente o ambiguo en la referencia elaborada",
+                "severity": "medium",
+                "proposed_value": null,
+                "verification_question": "¿Qué valor explícito consta en el texto sintético?"
+              },
+              {
+                "field": "currency",
+                "status": "missing",
+                "evidence": null,
+                "location": null,
+                "problem": "Dato ausente o ambiguo en la referencia elaborada",
+                "severity": "medium",
+                "proposed_value": null,
+                "verification_question": "¿Qué valor explícito consta en el texto sintético?"
+              },
+              {
+                "field": "service_type",
+                "status": "supported",
+                "evidence": "Servicio: limpieza.",
+                "location": "Texto sintético de prueba",
+                "problem": null,
+                "severity": "none",
+                "proposed_value": "limpieza",
+                "verification_question": "¿Qué valor explícito consta en el texto sintético?"
+              },
+              {
+                "field": "auto_renewal",
+                "status": "missing",
+                "evidence": null,
+                "location": null,
+                "problem": "Dato ausente o ambiguo en la referencia elaborada",
+                "severity": "low",
+                "proposed_value": null,
+                "verification_question": "¿Qué valor explícito consta en el texto sintético?"
+              }
+            ],
+            "reason": "Revisor inyectado de software con referencia elaborada; no es revisión humana ni ejecución Gemini.",
+            "should_retry": false
+          },
+          "independent_verification": null,
+          "usage": {
+            "input_tokens": null,
+            "output_tokens": null,
+            "thinking_tokens": null,
+            "cached_tokens": null,
+            "total_tokens": null,
+            "estimated_input_tokens": null,
+            "source": "unavailable",
+            "complete": false,
+            "measured_calls": 0,
+            "total_calls": 0
+          }
+        }
+      ],
+      "reviewer_verdict": {
+        "decision": "needs_review",
+        "fields": [
+          {
+            "field": "contract_id",
+            "status": "supported",
+            "evidence": "EJEMPLO SINTÉTICO — creado para pruebas; no representa una relación contractual real.",
+            "location": "Texto sintético de prueba",
+            "problem": null,
+            "severity": "none",
+            "proposed_value": "CTR-004",
+            "verification_question": "¿Qué valor explícito consta en el texto sintético?"
+          },
+          {
+            "field": "client",
+            "status": "supported",
+            "evidence": "Cliente: Cliente Delta ficticio.",
+            "location": "Texto sintético de prueba",
+            "problem": null,
+            "severity": "none",
+            "proposed_value": "Cliente Delta ficticio",
+            "verification_question": "¿Qué valor explícito consta en el texto sintético?"
+          },
+          {
+            "field": "supplier",
+            "status": "supported",
+            "evidence": "Proveedor: Proveedor Cuatro ficticio.",
+            "location": "Texto sintético de prueba",
+            "problem": null,
+            "severity": "none",
+            "proposed_value": "Proveedor Cuatro ficticio",
+            "verification_question": "¿Qué valor explícito consta en el texto sintético?"
+          },
+          {
+            "field": "start_date",
+            "status": "missing",
+            "evidence": null,
+            "location": null,
+            "problem": "Dato ausente o ambiguo en la referencia elaborada",
+            "severity": "medium",
+            "proposed_value": null,
+            "verification_question": "¿Qué valor explícito consta en el texto sintético?"
+          },
+          {
+            "field": "end_date",
+            "status": "missing",
+            "evidence": null,
+            "location": null,
+            "problem": "Dato ausente o ambiguo en la referencia elaborada",
+            "severity": "low",
+            "proposed_value": null,
+            "verification_question": "¿Qué valor explícito consta en el texto sintético?"
+          },
+          {
+            "field": "monthly_fee",
+            "status": "missing",
+            "evidence": null,
+            "location": null,
+            "problem": "Dato ausente o ambiguo en la referencia elaborada",
+            "severity": "medium",
+            "proposed_value": null,
+            "verification_question": "¿Qué valor explícito consta en el texto sintético?"
+          },
+          {
+            "field": "currency",
+            "status": "missing",
+            "evidence": null,
+            "location": null,
+            "problem": "Dato ausente o ambiguo en la referencia elaborada",
+            "severity": "medium",
+            "proposed_value": null,
+            "verification_question": "¿Qué valor explícito consta en el texto sintético?"
+          },
+          {
+            "field": "service_type",
+            "status": "supported",
+            "evidence": "Servicio: limpieza.",
+            "location": "Texto sintético de prueba",
+            "problem": null,
+            "severity": "none",
+            "proposed_value": "limpieza",
+            "verification_question": "¿Qué valor explícito consta en el texto sintético?"
+          },
+          {
+            "field": "auto_renewal",
+            "status": "missing",
+            "evidence": null,
+            "location": null,
+            "problem": "Dato ausente o ambiguo en la referencia elaborada",
+            "severity": "low",
+            "proposed_value": null,
+            "verification_question": "¿Qué valor explícito consta en el texto sintético?"
+          }
+        ],
+        "reason": "Revisor inyectado de software con referencia elaborada; no es revisión humana ni ejecución Gemini.",
+        "should_retry": false
+      },
+      "human_review_required": true,
+      "usage": {
+        "input_tokens": null,
+        "output_tokens": null,
+        "thinking_tokens": null,
+        "cached_tokens": null,
+        "total_tokens": null,
+        "estimated_input_tokens": null,
+        "source": "unavailable",
+        "complete": false,
+        "measured_calls": 0,
+        "total_calls": 0
+      },
+      "source_sha256": "834db33b2a17cdf43e13c0169a11d91b7a7595b24a3ae5b5665835824206478f",
+      "reference_accuracy": null,
+      "provider_calls": [
+        {
+          "id": "534e19ef20e54121a270757bc780abf5",
+          "document_id": "synthetic-contract-4",
+          "attempt": 1,
+          "role": "extraction",
+          "model": "fixture_reference_injected",
+          "started_at": "2026-10-04T14:40:38.043880Z",
+          "elapsed_ms": 0,
+          "usage": {
+            "input_tokens": null,
+            "output_tokens": null,
+            "thinking_tokens": null,
+            "cached_tokens": null,
+            "total_tokens": null,
+            "estimated_input_tokens": null,
+            "source": "unavailable",
+            "complete": false,
+            "measured_calls": 0,
+            "total_calls": 0
+          },
+          "status": "completed",
+          "error_code": null
+        },
+        {
+          "id": "93f4286b417f48ebba06da2a4bf33638",
+          "document_id": "synthetic-contract-4",
+          "attempt": 1,
+          "role": "review",
+          "model": "fixture_review_injected",
+          "started_at": "2026-10-04T14:40:38.043880Z",
+          "elapsed_ms": 0,
+          "usage": {
+            "input_tokens": null,
+            "output_tokens": null,
+            "thinking_tokens": null,
+            "cached_tokens": null,
+            "total_tokens": null,
+            "estimated_input_tokens": null,
+            "source": "unavailable",
+            "complete": false,
+            "measured_calls": 0,
+            "total_calls": 0
+          },
+          "status": "completed",
+          "error_code": null
+        }
+      ]
+    },
+    {
+      "document_id": "synthetic-contract-5",
+      "source_name": "05-borrador-vacio.txt",
+      "status": "fallido",
+      "record": {
+        "contract_id": null,
+        "client": null,
+        "supplier": null,
+        "start_date": null,
+        "end_date": null,
+        "monthly_fee": null,
+        "currency": null,
+        "service_type": null,
+        "auto_renewal": null
+      },
+      "attempts": 1,
+      "review_calls": 1,
+      "reasons": [
+        "No se recuperaron datos utilizables.",
+        "Falta dato obligatorio verificable: contract_id.",
+        "Falta dato obligatorio verificable: client.",
+        "Falta dato obligatorio verificable: supplier.",
+        "Falta dato obligatorio verificable: start_date.",
+        "Falta dato obligatorio verificable: monthly_fee.",
+        "Falta dato obligatorio verificable: currency.",
+        "Falta dato obligatorio verificable: service_type.",
+        "Revisor inyectado de software con referencia elaborada; no es revisión humana ni ejecución Gemini."
+      ],
+      "attempt_log": [
+        {
+          "attempt": 1,
+          "outcome": "rejected",
+          "error_type": null,
+          "messages": [],
+          "elapsed_ms": 0,
+          "record_before": null,
+          "record_after": {
+            "contract_id": null,
+            "client": null,
+            "supplier": null,
+            "start_date": null,
+            "end_date": null,
+            "monthly_fee": null,
+            "currency": null,
+            "service_type": null,
+            "auto_renewal": null
+          },
+          "reviewer_verdict": {
+            "decision": "rejected",
+            "fields": [
+              {
+                "field": "contract_id",
+                "status": "missing",
+                "evidence": null,
+                "location": null,
+                "problem": "Dato ausente o ambiguo en la referencia elaborada",
+                "severity": "medium",
+                "proposed_value": null,
+                "verification_question": "¿Qué valor explícito consta en el texto sintético?"
+              },
+              {
+                "field": "client",
+                "status": "missing",
+                "evidence": null,
+                "location": null,
+                "problem": "Dato ausente o ambiguo en la referencia elaborada",
+                "severity": "medium",
+                "proposed_value": null,
+                "verification_question": "¿Qué valor explícito consta en el texto sintético?"
+              },
+              {
+                "field": "supplier",
+                "status": "missing",
+                "evidence": null,
+                "location": null,
+                "problem": "Dato ausente o ambiguo en la referencia elaborada",
+                "severity": "medium",
+                "proposed_value": null,
+                "verification_question": "¿Qué valor explícito consta en el texto sintético?"
+              },
+              {
+                "field": "start_date",
+                "status": "missing",
+                "evidence": null,
+                "location": null,
+                "problem": "Dato ausente o ambiguo en la referencia elaborada",
+                "severity": "medium",
+                "proposed_value": null,
+                "verification_question": "¿Qué valor explícito consta en el texto sintético?"
+              },
+              {
+                "field": "end_date",
+                "status": "missing",
+                "evidence": null,
+                "location": null,
+                "problem": "Dato ausente o ambiguo en la referencia elaborada",
+                "severity": "low",
+                "proposed_value": null,
+                "verification_question": "¿Qué valor explícito consta en el texto sintético?"
+              },
+              {
+                "field": "monthly_fee",
+                "status": "missing",
+                "evidence": null,
+                "location": null,
+                "problem": "Dato ausente o ambiguo en la referencia elaborada",
+                "severity": "medium",
+                "proposed_value": null,
+                "verification_question": "¿Qué valor explícito consta en el texto sintético?"
+              },
+              {
+                "field": "currency",
+                "status": "missing",
+                "evidence": null,
+                "location": null,
+                "problem": "Dato ausente o ambiguo en la referencia elaborada",
+                "severity": "medium",
+                "proposed_value": null,
+                "verification_question": "¿Qué valor explícito consta en el texto sintético?"
+              },
+              {
+                "field": "service_type",
+                "status": "missing",
+                "evidence": null,
+                "location": null,
+                "problem": "Dato ausente o ambiguo en la referencia elaborada",
+                "severity": "medium",
+                "proposed_value": null,
+                "verification_question": "¿Qué valor explícito consta en el texto sintético?"
+              },
+              {
+                "field": "auto_renewal",
+                "status": "missing",
+                "evidence": null,
+                "location": null,
+                "problem": "Dato ausente o ambiguo en la referencia elaborada",
+                "severity": "low",
+                "proposed_value": null,
+                "verification_question": "¿Qué valor explícito consta en el texto sintético?"
+              }
+            ],
+            "reason": "Revisor inyectado de software con referencia elaborada; no es revisión humana ni ejecución Gemini.",
+            "should_retry": false
+          },
+          "independent_verification": null,
+          "usage": {
+            "input_tokens": null,
+            "output_tokens": null,
+            "thinking_tokens": null,
+            "cached_tokens": null,
+            "total_tokens": null,
+            "estimated_input_tokens": null,
+            "source": "unavailable",
+            "complete": false,
+            "measured_calls": 0,
+            "total_calls": 0
+          }
+        }
+      ],
+      "reviewer_verdict": {
+        "decision": "rejected",
+        "fields": [
+          {
+            "field": "contract_id",
+            "status": "missing",
+            "evidence": null,
+            "location": null,
+            "problem": "Dato ausente o ambiguo en la referencia elaborada",
+            "severity": "medium",
+            "proposed_value": null,
+            "verification_question": "¿Qué valor explícito consta en el texto sintético?"
+          },
+          {
+            "field": "client",
+            "status": "missing",
+            "evidence": null,
+            "location": null,
+            "problem": "Dato ausente o ambiguo en la referencia elaborada",
+            "severity": "medium",
+            "proposed_value": null,
+            "verification_question": "¿Qué valor explícito consta en el texto sintético?"
+          },
+          {
+            "field": "supplier",
+            "status": "missing",
+            "evidence": null,
+            "location": null,
+            "problem": "Dato ausente o ambiguo en la referencia elaborada",
+            "severity": "medium",
+            "proposed_value": null,
+            "verification_question": "¿Qué valor explícito consta en el texto sintético?"
+          },
+          {
+            "field": "start_date",
+            "status": "missing",
+            "evidence": null,
+            "location": null,
+            "problem": "Dato ausente o ambiguo en la referencia elaborada",
+            "severity": "medium",
+            "proposed_value": null,
+            "verification_question": "¿Qué valor explícito consta en el texto sintético?"
+          },
+          {
+            "field": "end_date",
+            "status": "missing",
+            "evidence": null,
+            "location": null,
+            "problem": "Dato ausente o ambiguo en la referencia elaborada",
+            "severity": "low",
+            "proposed_value": null,
+            "verification_question": "¿Qué valor explícito consta en el texto sintético?"
+          },
+          {
+            "field": "monthly_fee",
+            "status": "missing",
+            "evidence": null,
+            "location": null,
+            "problem": "Dato ausente o ambiguo en la referencia elaborada",
+            "severity": "medium",
+            "proposed_value": null,
+            "verification_question": "¿Qué valor explícito consta en el texto sintético?"
+          },
+          {
+            "field": "currency",
+            "status": "missing",
+            "evidence": null,
+            "location": null,
+            "problem": "Dato ausente o ambiguo en la referencia elaborada",
+            "severity": "medium",
+            "proposed_value": null,
+            "verification_question": "¿Qué valor explícito consta en el texto sintético?"
+          },
+          {
+            "field": "service_type",
+            "status": "missing",
+            "evidence": null,
+            "location": null,
+            "problem": "Dato ausente o ambiguo en la referencia elaborada",
+            "severity": "medium",
+            "proposed_value": null,
+            "verification_question": "¿Qué valor explícito consta en el texto sintético?"
+          },
+          {
+            "field": "auto_renewal",
+            "status": "missing",
+            "evidence": null,
+            "location": null,
+            "problem": "Dato ausente o ambiguo en la referencia elaborada",
+            "severity": "low",
+            "proposed_value": null,
+            "verification_question": "¿Qué valor explícito consta en el texto sintético?"
+          }
+        ],
+        "reason": "Revisor inyectado de software con referencia elaborada; no es revisión humana ni ejecución Gemini.",
+        "should_retry": false
+      },
+      "human_review_required": true,
+      "usage": {
+        "input_tokens": null,
+        "output_tokens": null,
+        "thinking_tokens": null,
+        "cached_tokens": null,
+        "total_tokens": null,
+        "estimated_input_tokens": null,
+        "source": "unavailable",
+        "complete": false,
+        "measured_calls": 0,
+        "total_calls": 0
+      },
+      "source_sha256": "c1fdb08c4e9b739531786eadef163d4b350e994d17e621591a39cdd497f5bc7c",
+      "reference_accuracy": null,
+      "provider_calls": [
+        {
+          "id": "4c47464887f44660b28804a269a3bb74",
+          "document_id": "synthetic-contract-5",
+          "attempt": 1,
+          "role": "extraction",
+          "model": "fixture_reference_injected",
+          "started_at": "2026-10-04T14:40:38.043880Z",
+          "elapsed_ms": 0,
+          "usage": {
+            "input_tokens": null,
+            "output_tokens": null,
+            "thinking_tokens": null,
+            "cached_tokens": null,
+            "total_tokens": null,
+            "estimated_input_tokens": null,
+            "source": "unavailable",
+            "complete": false,
+            "measured_calls": 0,
+            "total_calls": 0
+          },
+          "status": "completed",
+          "error_code": null
+        },
+        {
+          "id": "da12f20fc8aa4d30bac6d0cae23c99ae",
+          "document_id": "synthetic-contract-5",
+          "attempt": 1,
+          "role": "review",
+          "model": "fixture_review_injected",
+          "started_at": "2026-10-04T14:40:38.043880Z",
+          "elapsed_ms": 0,
+          "usage": {
+            "input_tokens": null,
+            "output_tokens": null,
+            "thinking_tokens": null,
+            "cached_tokens": null,
+            "total_tokens": null,
+            "estimated_input_tokens": null,
+            "source": "unavailable",
+            "complete": false,
+            "measured_calls": 0,
+            "total_calls": 0
+          },
+          "status": "completed",
+          "error_code": null
+        }
+      ]
+    }
+  ],
+  "metrics": {
+    "total": 5,
+    "successful": 2,
+    "partial": 2,
+    "failed": 1,
+    "success_rate": 40.0,
+    "partial_rate": 40.0,
+    "failure_rate": 20.0,
+    "total_attempts": 5,
+    "real_documents": 0,
+    "real_successful": 0,
+    "real_success_rate": null,
+    "synthetic_documents": 5,
+    "undeclared_documents": 0,
+    "rate_definition": "Documentos exitosos / documentos procesados × 100; no es confianza ni exactitud."
+  },
+  "events": [
+    {
+      "document_id": "synthetic-contract-1",
+      "stage": "reading",
+      "attempt": 0,
+      "timestamp": "2026-10-04T14:40:38.041882Z",
+      "detail": "Fuente original preparada para análisis.",
+      "snapshot": null
+    },
+    {
+      "document_id": "synthetic-contract-1",
+      "stage": "extracting",
+      "attempt": 1,
+      "timestamp": "2026-10-04T14:40:38.041882Z",
+      "detail": "El extractor aplica el esquema confirmado.",
+      "snapshot": null
+    },
+    {
+      "document_id": "synthetic-contract-1",
+      "stage": "extracting",
+      "attempt": 1,
+      "timestamp": "2026-10-04T14:40:38.041882Z",
+      "detail": "Llamada terminada; consumo actualizado.",
+      "snapshot": {
+        "token_entry": {
+          "id": "c04cd46c71e74d7695aaeb1245710e6c",
+          "document_id": "synthetic-contract-1",
+          "attempt": 1,
+          "role": "extraction",
+          "model": "fixture_reference_injected",
+          "started_at": "2026-10-04T14:40:38.041882Z",
+          "elapsed_ms": 0,
+          "usage": {
+            "input_tokens": null,
+            "output_tokens": null,
+            "thinking_tokens": null,
+            "cached_tokens": null,
+            "total_tokens": null,
+            "estimated_input_tokens": null,
+            "source": "unavailable",
+            "complete": false,
+            "measured_calls": 0,
+            "total_calls": 0
+          },
+          "status": "completed",
+          "error_code": null
+        },
+        "usage": {
+          "input_tokens": null,
+          "output_tokens": null,
+          "thinking_tokens": null,
+          "cached_tokens": null,
+          "total_tokens": null,
+          "estimated_input_tokens": null,
+          "source": "unavailable",
+          "complete": false,
+          "measured_calls": 0,
+          "total_calls": 0
+        },
+        "batch_usage": {
+          "input_tokens": null,
+          "output_tokens": null,
+          "thinking_tokens": null,
+          "cached_tokens": null,
+          "total_tokens": null,
+          "estimated_input_tokens": null,
+          "source": "unavailable",
+          "complete": false,
+          "measured_calls": 0,
+          "total_calls": 0
+        }
+      }
+    },
+    {
+      "document_id": "synthetic-contract-1",
+      "stage": "validating",
+      "attempt": 1,
+      "timestamp": "2026-10-04T14:40:38.041882Z",
+      "detail": "Validación local de JSON, tipos, formatos y restricciones.",
+      "snapshot": null
+    },
+    {
+      "document_id": "synthetic-contract-1",
+      "stage": "reviewing",
+      "attempt": 1,
+      "timestamp": "2026-10-04T14:40:38.041882Z",
+      "detail": "Revisor: contraste independiente con la fuente original.",
+      "snapshot": {
+        "record": {
+          "contract_id": "CTR-001",
+          "client": "Cliente Alfa ficticio",
+          "supplier": "Proveedor Uno ficticio",
+          "start_date": "2026-01-01",
+          "end_date": "2026-12-31",
+          "monthly_fee": 1250.5,
+          "currency": "PEN",
+          "service_type": "limpieza",
+          "auto_renewal": true
+        },
+        "review_calls": 1
+      }
+    },
+    {
+      "document_id": "synthetic-contract-1",
+      "stage": "reviewing",
+      "attempt": 1,
+      "timestamp": "2026-10-04T14:40:38.042881Z",
+      "detail": "Llamada terminada; consumo actualizado.",
+      "snapshot": {
+        "token_entry": {
+          "id": "421d1555c83c41c3a271ab3dd5202078",
+          "document_id": "synthetic-contract-1",
+          "attempt": 1,
+          "role": "review",
+          "model": "fixture_review_injected",
+          "started_at": "2026-10-04T14:40:38.041882Z",
+          "elapsed_ms": 0,
+          "usage": {
+            "input_tokens": null,
+            "output_tokens": null,
+            "thinking_tokens": null,
+            "cached_tokens": null,
+            "total_tokens": null,
+            "estimated_input_tokens": null,
+            "source": "unavailable",
+            "complete": false,
+            "measured_calls": 0,
+            "total_calls": 0
+          },
+          "status": "completed",
+          "error_code": null
+        },
+        "usage": {
+          "input_tokens": null,
+          "output_tokens": null,
+          "thinking_tokens": null,
+          "cached_tokens": null,
+          "total_tokens": null,
+          "estimated_input_tokens": null,
+          "source": "unavailable",
+          "complete": false,
+          "measured_calls": 0,
+          "total_calls": 0
+        },
+        "batch_usage": {
+          "input_tokens": null,
+          "output_tokens": null,
+          "thinking_tokens": null,
+          "cached_tokens": null,
+          "total_tokens": null,
+          "estimated_input_tokens": null,
+          "source": "unavailable",
+          "complete": false,
+          "measured_calls": 0,
+          "total_calls": 0
+        }
+      }
+    },
+    {
+      "document_id": "synthetic-contract-1",
+      "stage": "completed",
+      "attempt": 1,
+      "timestamp": "2026-10-04T14:40:38.042881Z",
+      "detail": "Documento terminado: exitoso.",
+      "snapshot": {
+        "result": {
+          "document_id": "synthetic-contract-1",
+          "source_name": "01-limpieza-completo.txt",
+          "status": "exitoso",
+          "record": {
+            "contract_id": "CTR-001",
+            "client": "Cliente Alfa ficticio",
+            "supplier": "Proveedor Uno ficticio",
+            "start_date": "2026-01-01",
+            "end_date": "2026-12-31",
+            "monthly_fee": 1250.5,
+            "currency": "PEN",
+            "service_type": "limpieza",
+            "auto_renewal": true
+          },
+          "attempts": 1,
+          "review_calls": 1,
+          "reasons": [
+            "JSON y reglas locales válidos; todos los campos contrastados por el revisor."
+          ],
+          "attempt_log": [
+            {
+              "attempt": 1,
+              "outcome": "approved",
+              "error_type": null,
+              "messages": [],
+              "elapsed_ms": 0,
+              "record_before": null,
+              "record_after": {
+                "contract_id": "CTR-001",
+                "client": "Cliente Alfa ficticio",
+                "supplier": "Proveedor Uno ficticio",
+                "start_date": "2026-01-01",
+                "end_date": "2026-12-31",
+                "monthly_fee": 1250.5,
+                "currency": "PEN",
+                "service_type": "limpieza",
+                "auto_renewal": true
+              },
+              "reviewer_verdict": {
+                "decision": "approved",
+                "fields": [
+                  {
+                    "field": "contract_id",
+                    "status": "supported",
+                    "evidence": "EJEMPLO SINTÉTICO — creado para pruebas; no representa una relación contractual real.",
+                    "location": "Texto sintético de prueba",
+                    "problem": null,
+                    "severity": "none",
+                    "proposed_value": "CTR-001",
+                    "verification_question": "¿Qué valor explícito consta en el texto sintético?"
+                  },
+                  {
+                    "field": "client",
+                    "status": "supported",
+                    "evidence": "Cliente: Cliente Alfa ficticio.",
+                    "location": "Texto sintético de prueba",
+                    "problem": null,
+                    "severity": "none",
+                    "proposed_value": "Cliente Alfa ficticio",
+                    "verification_question": "¿Qué valor explícito consta en el texto sintético?"
+                  },
+                  {
+                    "field": "supplier",
+                    "status": "supported",
+                    "evidence": "Proveedor: Proveedor Uno ficticio.",
+                    "location": "Texto sintético de prueba",
+                    "problem": null,
+                    "severity": "none",
+                    "proposed_value": "Proveedor Uno ficticio",
+                    "verification_question": "¿Qué valor explícito consta en el texto sintético?"
+                  },
+                  {
+                    "field": "start_date",
+                    "status": "supported",
+                    "evidence": "Inicio: 2026-01-01. Fin: 2026-12-31.",
+                    "location": "Texto sintético de prueba",
+                    "problem": null,
+                    "severity": "none",
+                    "proposed_value": "2026-01-01",
+                    "verification_question": "¿Qué valor explícito consta en el texto sintético?"
+                  },
+                  {
+                    "field": "end_date",
+                    "status": "supported",
+                    "evidence": "Inicio: 2026-01-01. Fin: 2026-12-31.",
+                    "location": "Texto sintético de prueba",
+                    "problem": null,
+                    "severity": "none",
+                    "proposed_value": "2026-12-31",
+                    "verification_question": "¿Qué valor explícito consta en el texto sintético?"
+                  },
+                  {
+                    "field": "monthly_fee",
+                    "status": "supported",
+                    "evidence": "Tarifa mensual: 1250.50 PEN.",
+                    "location": "Texto sintético de prueba",
+                    "problem": null,
+                    "severity": "none",
+                    "proposed_value": 1250.5,
+                    "verification_question": "¿Qué valor explícito consta en el texto sintético?"
+                  },
+                  {
+                    "field": "currency",
+                    "status": "supported",
+                    "evidence": "Tarifa mensual: 1250.50 PEN.",
+                    "location": "Texto sintético de prueba",
+                    "problem": null,
+                    "severity": "none",
+                    "proposed_value": "PEN",
+                    "verification_question": "¿Qué valor explícito consta en el texto sintético?"
+                  },
+                  {
+                    "field": "service_type",
+                    "status": "supported",
+                    "evidence": "Servicio contratado: limpieza.",
+                    "location": "Texto sintético de prueba",
+                    "problem": null,
+                    "severity": "none",
+                    "proposed_value": "limpieza",
+                    "verification_question": "¿Qué valor explícito consta en el texto sintético?"
+                  },
+                  {
+                    "field": "auto_renewal",
+                    "status": "supported",
+                    "evidence": "Renovación automática: sí.",
+                    "location": "Texto sintético de prueba",
+                    "problem": null,
+                    "severity": "none",
+                    "proposed_value": true,
+                    "verification_question": "¿Qué valor explícito consta en el texto sintético?"
+                  }
+                ],
+                "reason": "Revisor inyectado de software con referencia elaborada; no es revisión humana ni ejecución Gemini.",
+                "should_retry": false
+              },
+              "independent_verification": null,
+              "usage": {
+                "input_tokens": null,
+                "output_tokens": null,
+                "thinking_tokens": null,
+                "cached_tokens": null,
+                "total_tokens": null,
+                "estimated_input_tokens": null,
+                "source": "unavailable",
+                "complete": false,
+                "measured_calls": 0,
+                "total_calls": 0
+              }
+            }
+          ],
+          "reviewer_verdict": {
+            "decision": "approved",
+            "fields": [
+              {
+                "field": "contract_id",
+                "status": "supported",
+                "evidence": "EJEMPLO SINTÉTICO — creado para pruebas; no representa una relación contractual real.",
+                "location": "Texto sintético de prueba",
+                "problem": null,
+                "severity": "none",
+                "proposed_value": "CTR-001",
+                "verification_question": "¿Qué valor explícito consta en el texto sintético?"
+              },
+              {
+                "field": "client",
+                "status": "supported",
+                "evidence": "Cliente: Cliente Alfa ficticio.",
+                "location": "Texto sintético de prueba",
+                "problem": null,
+                "severity": "none",
+                "proposed_value": "Cliente Alfa ficticio",
+                "verification_question": "¿Qué valor explícito consta en el texto sintético?"
+              },
+              {
+                "field": "supplier",
+                "status": "supported",
+                "evidence": "Proveedor: Proveedor Uno ficticio.",
+                "location": "Texto sintético de prueba",
+                "problem": null,
+                "severity": "none",
+                "proposed_value": "Proveedor Uno ficticio",
+                "verification_question": "¿Qué valor explícito consta en el texto sintético?"
+              },
+              {
+                "field": "start_date",
+                "status": "supported",
+                "evidence": "Inicio: 2026-01-01. Fin: 2026-12-31.",
+                "location": "Texto sintético de prueba",
+                "problem": null,
+                "severity": "none",
+                "proposed_value": "2026-01-01",
+                "verification_question": "¿Qué valor explícito consta en el texto sintético?"
+              },
+              {
+                "field": "end_date",
+                "status": "supported",
+                "evidence": "Inicio: 2026-01-01. Fin: 2026-12-31.",
+                "location": "Texto sintético de prueba",
+                "problem": null,
+                "severity": "none",
+                "proposed_value": "2026-12-31",
+                "verification_question": "¿Qué valor explícito consta en el texto sintético?"
+              },
+              {
+                "field": "monthly_fee",
+                "status": "supported",
+                "evidence": "Tarifa mensual: 1250.50 PEN.",
+                "location": "Texto sintético de prueba",
+                "problem": null,
+                "severity": "none",
+                "proposed_value": 1250.5,
+                "verification_question": "¿Qué valor explícito consta en el texto sintético?"
+              },
+              {
+                "field": "currency",
+                "status": "supported",
+                "evidence": "Tarifa mensual: 1250.50 PEN.",
+                "location": "Texto sintético de prueba",
+                "problem": null,
+                "severity": "none",
+                "proposed_value": "PEN",
+                "verification_question": "¿Qué valor explícito consta en el texto sintético?"
+              },
+              {
+                "field": "service_type",
+                "status": "supported",
+                "evidence": "Servicio contratado: limpieza.",
+                "location": "Texto sintético de prueba",
+                "problem": null,
+                "severity": "none",
+                "proposed_value": "limpieza",
+                "verification_question": "¿Qué valor explícito consta en el texto sintético?"
+              },
+              {
+                "field": "auto_renewal",
+                "status": "supported",
+                "evidence": "Renovación automática: sí.",
+                "location": "Texto sintético de prueba",
+                "problem": null,
+                "severity": "none",
+                "proposed_value": true,
+                "verification_question": "¿Qué valor explícito consta en el texto sintético?"
+              }
+            ],
+            "reason": "Revisor inyectado de software con referencia elaborada; no es revisión humana ni ejecución Gemini.",
+            "should_retry": false
+          },
+          "human_review_required": false,
+          "usage": {
+            "input_tokens": null,
+            "output_tokens": null,
+            "thinking_tokens": null,
+            "cached_tokens": null,
+            "total_tokens": null,
+            "estimated_input_tokens": null,
+            "source": "unavailable",
+            "complete": false,
+            "measured_calls": 0,
+            "total_calls": 0
+          },
+          "source_sha256": "78963ef16eb7c51850896256e8c2b3e3f52bb0fc113bf61f19a1159b793aa197",
+          "reference_accuracy": null,
+          "provider_calls": [
+            {
+              "id": "c04cd46c71e74d7695aaeb1245710e6c",
+              "document_id": "synthetic-contract-1",
+              "attempt": 1,
+              "role": "extraction",
+              "model": "fixture_reference_injected",
+              "started_at": "2026-10-04T14:40:38.041882Z",
+              "elapsed_ms": 0,
+              "usage": {
+                "input_tokens": null,
+                "output_tokens": null,
+                "thinking_tokens": null,
+                "cached_tokens": null,
+                "total_tokens": null,
+                "estimated_input_tokens": null,
+                "source": "unavailable",
+                "complete": false,
+                "measured_calls": 0,
+                "total_calls": 0
+              },
+              "status": "completed",
+              "error_code": null
+            },
+            {
+              "id": "421d1555c83c41c3a271ab3dd5202078",
+              "document_id": "synthetic-contract-1",
+              "attempt": 1,
+              "role": "review",
+              "model": "fixture_review_injected",
+              "started_at": "2026-10-04T14:40:38.041882Z",
+              "elapsed_ms": 0,
+              "usage": {
+                "input_tokens": null,
+                "output_tokens": null,
+                "thinking_tokens": null,
+                "cached_tokens": null,
+                "total_tokens": null,
+                "estimated_input_tokens": null,
+                "source": "unavailable",
+                "complete": false,
+                "measured_calls": 0,
+                "total_calls": 0
+              },
+              "status": "completed",
+              "error_code": null
+            }
+          ]
+        }
+      }
+    },
+    {
+      "document_id": "synthetic-contract-2",
+      "stage": "reading",
+      "attempt": 0,
+      "timestamp": "2026-10-04T14:40:38.042881Z",
+      "detail": "Fuente original preparada para análisis.",
+      "snapshot": null
+    },
+    {
+      "document_id": "synthetic-contract-2",
+      "stage": "extracting",
+      "attempt": 1,
+      "timestamp": "2026-10-04T14:40:38.042881Z",
+      "detail": "El extractor aplica el esquema confirmado.",
+      "snapshot": null
+    },
+    {
+      "document_id": "synthetic-contract-2",
+      "stage": "extracting",
+      "attempt": 1,
+      "timestamp": "2026-10-04T14:40:38.042881Z",
+      "detail": "Llamada terminada; consumo actualizado.",
+      "snapshot": {
+        "token_entry": {
+          "id": "e53d341e96624e728d1f2b1d74f3f021",
+          "document_id": "synthetic-contract-2",
+          "attempt": 1,
+          "role": "extraction",
+          "model": "fixture_reference_injected",
+          "started_at": "2026-10-04T14:40:38.042881Z",
+          "elapsed_ms": 0,
+          "usage": {
+            "input_tokens": null,
+            "output_tokens": null,
+            "thinking_tokens": null,
+            "cached_tokens": null,
+            "total_tokens": null,
+            "estimated_input_tokens": null,
+            "source": "unavailable",
+            "complete": false,
+            "measured_calls": 0,
+            "total_calls": 0
+          },
+          "status": "completed",
+          "error_code": null
+        },
+        "usage": {
+          "input_tokens": null,
+          "output_tokens": null,
+          "thinking_tokens": null,
+          "cached_tokens": null,
+          "total_tokens": null,
+          "estimated_input_tokens": null,
+          "source": "unavailable",
+          "complete": false,
+          "measured_calls": 0,
+          "total_calls": 0
+        },
+        "batch_usage": {
+          "input_tokens": null,
+          "output_tokens": null,
+          "thinking_tokens": null,
+          "cached_tokens": null,
+          "total_tokens": null,
+          "estimated_input_tokens": null,
+          "source": "unavailable",
+          "complete": false,
+          "measured_calls": 0,
+          "total_calls": 0
+        }
+      }
+    },
+    {
+      "document_id": "synthetic-contract-2",
+      "stage": "validating",
+      "attempt": 1,
+      "timestamp": "2026-10-04T14:40:38.042881Z",
+      "detail": "Validación local de JSON, tipos, formatos y restricciones.",
+      "snapshot": null
+    },
+    {
+      "document_id": "synthetic-contract-2",
+      "stage": "reviewing",
+      "attempt": 1,
+      "timestamp": "2026-10-04T14:40:38.042881Z",
+      "detail": "Revisor: contraste independiente con la fuente original.",
+      "snapshot": {
+        "record": {
+          "contract_id": "CTR-002",
+          "client": "Cliente Beta ficticio",
+          "supplier": "Proveedor Dos ficticio",
+          "start_date": "2026-02-15",
+          "end_date": "2026-08-14",
+          "monthly_fee": 95.75,
+          "currency": "USD",
+          "service_type": "soporte",
+          "auto_renewal": false
+        },
+        "review_calls": 1
+      }
+    },
+    {
+      "document_id": "synthetic-contract-2",
+      "stage": "reviewing",
+      "attempt": 1,
+      "timestamp": "2026-10-04T14:40:38.042881Z",
+      "detail": "Llamada terminada; consumo actualizado.",
+      "snapshot": {
+        "token_entry": {
+          "id": "67acd05ed42a45bd97684c436b335779",
+          "document_id": "synthetic-contract-2",
+          "attempt": 1,
+          "role": "review",
+          "model": "fixture_review_injected",
+          "started_at": "2026-10-04T14:40:38.042881Z",
+          "elapsed_ms": 0,
+          "usage": {
+            "input_tokens": null,
+            "output_tokens": null,
+            "thinking_tokens": null,
+            "cached_tokens": null,
+            "total_tokens": null,
+            "estimated_input_tokens": null,
+            "source": "unavailable",
+            "complete": false,
+            "measured_calls": 0,
+            "total_calls": 0
+          },
+          "status": "completed",
+          "error_code": null
+        },
+        "usage": {
+          "input_tokens": null,
+          "output_tokens": null,
+          "thinking_tokens": null,
+          "cached_tokens": null,
+          "total_tokens": null,
+          "estimated_input_tokens": null,
+          "source": "unavailable",
+          "complete": false,
+          "measured_calls": 0,
+          "total_calls": 0
+        },
+        "batch_usage": {
+          "input_tokens": null,
+          "output_tokens": null,
+          "thinking_tokens": null,
+          "cached_tokens": null,
+          "total_tokens": null,
+          "estimated_input_tokens": null,
+          "source": "unavailable",
+          "complete": false,
+          "measured_calls": 0,
+          "total_calls": 0
+        }
+      }
+    },
+    {
+      "document_id": "synthetic-contract-2",
+      "stage": "completed",
+      "attempt": 1,
+      "timestamp": "2026-10-04T14:40:38.042881Z",
+      "detail": "Documento terminado: exitoso.",
+      "snapshot": {
+        "result": {
+          "document_id": "synthetic-contract-2",
+          "source_name": "02-soporte-completo.txt",
+          "status": "exitoso",
+          "record": {
+            "contract_id": "CTR-002",
+            "client": "Cliente Beta ficticio",
+            "supplier": "Proveedor Dos ficticio",
+            "start_date": "2026-02-15",
+            "end_date": "2026-08-14",
+            "monthly_fee": 95.75,
+            "currency": "USD",
+            "service_type": "soporte",
+            "auto_renewal": false
+          },
+          "attempts": 1,
+          "review_calls": 1,
+          "reasons": [
+            "JSON y reglas locales válidos; todos los campos contrastados por el revisor."
+          ],
+          "attempt_log": [
+            {
+              "attempt": 1,
+              "outcome": "approved",
+              "error_type": null,
+              "messages": [],
+              "elapsed_ms": 0,
+              "record_before": null,
+              "record_after": {
+                "contract_id": "CTR-002",
+                "client": "Cliente Beta ficticio",
+                "supplier": "Proveedor Dos ficticio",
+                "start_date": "2026-02-15",
+                "end_date": "2026-08-14",
+                "monthly_fee": 95.75,
+                "currency": "USD",
+                "service_type": "soporte",
+                "auto_renewal": false
+              },
+              "reviewer_verdict": {
+                "decision": "approved",
+                "fields": [
+                  {
+                    "field": "contract_id",
+                    "status": "supported",
+                    "evidence": "EJEMPLO SINTÉTICO — creado para pruebas; no representa una relación contractual real.",
+                    "location": "Texto sintético de prueba",
+                    "problem": null,
+                    "severity": "none",
+                    "proposed_value": "CTR-002",
+                    "verification_question": "¿Qué valor explícito consta en el texto sintético?"
+                  },
+                  {
+                    "field": "client",
+                    "status": "supported",
+                    "evidence": "Cliente: Cliente Beta ficticio.",
+                    "location": "Texto sintético de prueba",
+                    "problem": null,
+                    "severity": "none",
+                    "proposed_value": "Cliente Beta ficticio",
+                    "verification_question": "¿Qué valor explícito consta en el texto sintético?"
+                  },
+                  {
+                    "field": "supplier",
+                    "status": "supported",
+                    "evidence": "Proveedor: Proveedor Dos ficticio.",
+                    "location": "Texto sintético de prueba",
+                    "problem": null,
+                    "severity": "none",
+                    "proposed_value": "Proveedor Dos ficticio",
+                    "verification_question": "¿Qué valor explícito consta en el texto sintético?"
+                  },
+                  {
+                    "field": "start_date",
+                    "status": "supported",
+                    "evidence": "El servicio es soporte. Vigencia desde 2026-02-15 hasta 2026-08-14.",
+                    "location": "Texto sintético de prueba",
+                    "problem": null,
+                    "severity": "none",
+                    "proposed_value": "2026-02-15",
+                    "verification_question": "¿Qué valor explícito consta en el texto sintético?"
+                  },
+                  {
+                    "field": "end_date",
+                    "status": "supported",
+                    "evidence": "El servicio es soporte. Vigencia desde 2026-02-15 hasta 2026-08-14.",
+                    "location": "Texto sintético de prueba",
+                    "problem": null,
+                    "severity": "none",
+                    "proposed_value": "2026-08-14",
+                    "verification_question": "¿Qué valor explícito consta en el texto sintético?"
+                  },
+                  {
+                    "field": "monthly_fee",
+                    "status": "supported",
+                    "evidence": "Cuota mensual acordada: 95.75 USD.",
+                    "location": "Texto sintético de prueba",
+                    "problem": null,
+                    "severity": "none",
+                    "proposed_value": 95.75,
+                    "verification_question": "¿Qué valor explícito consta en el texto sintético?"
+                  },
+                  {
+                    "field": "currency",
+                    "status": "supported",
+                    "evidence": "Cuota mensual acordada: 95.75 USD.",
+                    "location": "Texto sintético de prueba",
+                    "problem": null,
+                    "severity": "none",
+                    "proposed_value": "USD",
+                    "verification_question": "¿Qué valor explícito consta en el texto sintético?"
+                  },
+                  {
+                    "field": "service_type",
+                    "status": "supported",
+                    "evidence": "El servicio es soporte. Vigencia desde 2026-02-15 hasta 2026-08-14.",
+                    "location": "Texto sintético de prueba",
+                    "problem": null,
+                    "severity": "none",
+                    "proposed_value": "soporte",
+                    "verification_question": "¿Qué valor explícito consta en el texto sintético?"
+                  },
+                  {
+                    "field": "auto_renewal",
+                    "status": "supported",
+                    "evidence": "Se descarta la renovación automática: no.",
+                    "location": "Texto sintético de prueba",
+                    "problem": null,
+                    "severity": "none",
+                    "proposed_value": false,
+                    "verification_question": "¿Qué valor explícito consta en el texto sintético?"
+                  }
+                ],
+                "reason": "Revisor inyectado de software con referencia elaborada; no es revisión humana ni ejecución Gemini.",
+                "should_retry": false
+              },
+              "independent_verification": null,
+              "usage": {
+                "input_tokens": null,
+                "output_tokens": null,
+                "thinking_tokens": null,
+                "cached_tokens": null,
+                "total_tokens": null,
+                "estimated_input_tokens": null,
+                "source": "unavailable",
+                "complete": false,
+                "measured_calls": 0,
+                "total_calls": 0
+              }
+            }
+          ],
+          "reviewer_verdict": {
+            "decision": "approved",
+            "fields": [
+              {
+                "field": "contract_id",
+                "status": "supported",
+                "evidence": "EJEMPLO SINTÉTICO — creado para pruebas; no representa una relación contractual real.",
+                "location": "Texto sintético de prueba",
+                "problem": null,
+                "severity": "none",
+                "proposed_value": "CTR-002",
+                "verification_question": "¿Qué valor explícito consta en el texto sintético?"
+              },
+              {
+                "field": "client",
+                "status": "supported",
+                "evidence": "Cliente: Cliente Beta ficticio.",
+                "location": "Texto sintético de prueba",
+                "problem": null,
+                "severity": "none",
+                "proposed_value": "Cliente Beta ficticio",
+                "verification_question": "¿Qué valor explícito consta en el texto sintético?"
+              },
+              {
+                "field": "supplier",
+                "status": "supported",
+                "evidence": "Proveedor: Proveedor Dos ficticio.",
+                "location": "Texto sintético de prueba",
+                "problem": null,
+                "severity": "none",
+                "proposed_value": "Proveedor Dos ficticio",
+                "verification_question": "¿Qué valor explícito consta en el texto sintético?"
+              },
+              {
+                "field": "start_date",
+                "status": "supported",
+                "evidence": "El servicio es soporte. Vigencia desde 2026-02-15 hasta 2026-08-14.",
+                "location": "Texto sintético de prueba",
+                "problem": null,
+                "severity": "none",
+                "proposed_value": "2026-02-15",
+                "verification_question": "¿Qué valor explícito consta en el texto sintético?"
+              },
+              {
+                "field": "end_date",
+                "status": "supported",
+                "evidence": "El servicio es soporte. Vigencia desde 2026-02-15 hasta 2026-08-14.",
+                "location": "Texto sintético de prueba",
+                "problem": null,
+                "severity": "none",
+                "proposed_value": "2026-08-14",
+                "verification_question": "¿Qué valor explícito consta en el texto sintético?"
+              },
+              {
+                "field": "monthly_fee",
+                "status": "supported",
+                "evidence": "Cuota mensual acordada: 95.75 USD.",
+                "location": "Texto sintético de prueba",
+                "problem": null,
+                "severity": "none",
+                "proposed_value": 95.75,
+                "verification_question": "¿Qué valor explícito consta en el texto sintético?"
+              },
+              {
+                "field": "currency",
+                "status": "supported",
+                "evidence": "Cuota mensual acordada: 95.75 USD.",
+                "location": "Texto sintético de prueba",
+                "problem": null,
+                "severity": "none",
+                "proposed_value": "USD",
+                "verification_question": "¿Qué valor explícito consta en el texto sintético?"
+              },
+              {
+                "field": "service_type",
+                "status": "supported",
+                "evidence": "El servicio es soporte. Vigencia desde 2026-02-15 hasta 2026-08-14.",
+                "location": "Texto sintético de prueba",
+                "problem": null,
+                "severity": "none",
+                "proposed_value": "soporte",
+                "verification_question": "¿Qué valor explícito consta en el texto sintético?"
+              },
+              {
+                "field": "auto_renewal",
+                "status": "supported",
+                "evidence": "Se descarta la renovación automática: no.",
+                "location": "Texto sintético de prueba",
+                "problem": null,
+                "severity": "none",
+                "proposed_value": false,
+                "verification_question": "¿Qué valor explícito consta en el texto sintético?"
+              }
+            ],
+            "reason": "Revisor inyectado de software con referencia elaborada; no es revisión humana ni ejecución Gemini.",
+            "should_retry": false
+          },
+          "human_review_required": false,
+          "usage": {
+            "input_tokens": null,
+            "output_tokens": null,
+            "thinking_tokens": null,
+            "cached_tokens": null,
+            "total_tokens": null,
+            "estimated_input_tokens": null,
+            "source": "unavailable",
+            "complete": false,
+            "measured_calls": 0,
+            "total_calls": 0
+          },
+          "source_sha256": "2b9f81781922d0dc58b5bdafe1e40461e9be3837a50cc1feb9200d79125fb7aa",
+          "reference_accuracy": null,
+          "provider_calls": [
+            {
+              "id": "e53d341e96624e728d1f2b1d74f3f021",
+              "document_id": "synthetic-contract-2",
+              "attempt": 1,
+              "role": "extraction",
+              "model": "fixture_reference_injected",
+              "started_at": "2026-10-04T14:40:38.042881Z",
+              "elapsed_ms": 0,
+              "usage": {
+                "input_tokens": null,
+                "output_tokens": null,
+                "thinking_tokens": null,
+                "cached_tokens": null,
+                "total_tokens": null,
+                "estimated_input_tokens": null,
+                "source": "unavailable",
+                "complete": false,
+                "measured_calls": 0,
+                "total_calls": 0
+              },
+              "status": "completed",
+              "error_code": null
+            },
+            {
+              "id": "67acd05ed42a45bd97684c436b335779",
+              "document_id": "synthetic-contract-2",
+              "attempt": 1,
+              "role": "review",
+              "model": "fixture_review_injected",
+              "started_at": "2026-10-04T14:40:38.042881Z",
+              "elapsed_ms": 0,
+              "usage": {
+                "input_tokens": null,
+                "output_tokens": null,
+                "thinking_tokens": null,
+                "cached_tokens": null,
+                "total_tokens": null,
+                "estimated_input_tokens": null,
+                "source": "unavailable",
+                "complete": false,
+                "measured_calls": 0,
+                "total_calls": 0
+              },
+              "status": "completed",
+              "error_code": null
+            }
+          ]
+        }
+      }
+    },
+    {
+      "document_id": "synthetic-contract-3",
+      "stage": "reading",
+      "attempt": 0,
+      "timestamp": "2026-10-04T14:40:38.042881Z",
+      "detail": "Fuente original preparada para análisis.",
+      "snapshot": null
+    },
+    {
+      "document_id": "synthetic-contract-3",
+      "stage": "extracting",
+      "attempt": 1,
+      "timestamp": "2026-10-04T14:40:38.042881Z",
+      "detail": "El extractor aplica el esquema confirmado.",
+      "snapshot": null
+    },
+    {
+      "document_id": "synthetic-contract-3",
+      "stage": "extracting",
+      "attempt": 1,
+      "timestamp": "2026-10-04T14:40:38.042881Z",
+      "detail": "Llamada terminada; consumo actualizado.",
+      "snapshot": {
+        "token_entry": {
+          "id": "18dfab5a2eb442058163ab07350b2ae8",
+          "document_id": "synthetic-contract-3",
+          "attempt": 1,
+          "role": "extraction",
+          "model": "fixture_reference_injected",
+          "started_at": "2026-10-04T14:40:38.042881Z",
+          "elapsed_ms": 0,
+          "usage": {
+            "input_tokens": null,
+            "output_tokens": null,
+            "thinking_tokens": null,
+            "cached_tokens": null,
+            "total_tokens": null,
+            "estimated_input_tokens": null,
+            "source": "unavailable",
+            "complete": false,
+            "measured_calls": 0,
+            "total_calls": 0
+          },
+          "status": "completed",
+          "error_code": null
+        },
+        "usage": {
+          "input_tokens": null,
+          "output_tokens": null,
+          "thinking_tokens": null,
+          "cached_tokens": null,
+          "total_tokens": null,
+          "estimated_input_tokens": null,
+          "source": "unavailable",
+          "complete": false,
+          "measured_calls": 0,
+          "total_calls": 0
+        },
+        "batch_usage": {
+          "input_tokens": null,
+          "output_tokens": null,
+          "thinking_tokens": null,
+          "cached_tokens": null,
+          "total_tokens": null,
+          "estimated_input_tokens": null,
+          "source": "unavailable",
+          "complete": false,
+          "measured_calls": 0,
+          "total_calls": 0
+        }
+      }
+    },
+    {
+      "document_id": "synthetic-contract-3",
+      "stage": "validating",
+      "attempt": 1,
+      "timestamp": "2026-10-04T14:40:38.042881Z",
+      "detail": "Validación local de JSON, tipos, formatos y restricciones.",
+      "snapshot": null
+    },
+    {
+      "document_id": "synthetic-contract-3",
+      "stage": "reviewing",
+      "attempt": 1,
+      "timestamp": "2026-10-04T14:40:38.042881Z",
+      "detail": "Revisor: contraste independiente con la fuente original.",
+      "snapshot": {
+        "record": {
+          "contract_id": "CTR-003",
+          "client": "Cliente Gamma ficticio",
+          "supplier": "Proveedor Tres ficticio",
+          "start_date": "2026-03-01",
+          "end_date": null,
+          "monthly_fee": null,
+          "currency": "PEN",
+          "service_type": "mantenimiento",
+          "auto_renewal": null
+        },
+        "review_calls": 1
+      }
+    },
+    {
+      "document_id": "synthetic-contract-3",
+      "stage": "reviewing",
+      "attempt": 1,
+      "timestamp": "2026-10-04T14:40:38.043880Z",
+      "detail": "Llamada terminada; consumo actualizado.",
+      "snapshot": {
+        "token_entry": {
+          "id": "44ca16343622458581933710cc10ba7b",
+          "document_id": "synthetic-contract-3",
+          "attempt": 1,
+          "role": "review",
+          "model": "fixture_review_injected",
+          "started_at": "2026-10-04T14:40:38.042881Z",
+          "elapsed_ms": 0,
+          "usage": {
+            "input_tokens": null,
+            "output_tokens": null,
+            "thinking_tokens": null,
+            "cached_tokens": null,
+            "total_tokens": null,
+            "estimated_input_tokens": null,
+            "source": "unavailable",
+            "complete": false,
+            "measured_calls": 0,
+            "total_calls": 0
+          },
+          "status": "completed",
+          "error_code": null
+        },
+        "usage": {
+          "input_tokens": null,
+          "output_tokens": null,
+          "thinking_tokens": null,
+          "cached_tokens": null,
+          "total_tokens": null,
+          "estimated_input_tokens": null,
+          "source": "unavailable",
+          "complete": false,
+          "measured_calls": 0,
+          "total_calls": 0
+        },
+        "batch_usage": {
+          "input_tokens": null,
+          "output_tokens": null,
+          "thinking_tokens": null,
+          "cached_tokens": null,
+          "total_tokens": null,
+          "estimated_input_tokens": null,
+          "source": "unavailable",
+          "complete": false,
+          "measured_calls": 0,
+          "total_calls": 0
+        }
+      }
+    },
+    {
+      "document_id": "synthetic-contract-3",
+      "stage": "completed",
+      "attempt": 1,
+      "timestamp": "2026-10-04T14:40:38.043880Z",
+      "detail": "Documento terminado: parcial.",
+      "snapshot": {
+        "result": {
+          "document_id": "synthetic-contract-3",
+          "source_name": "03-tarifa-ausente.txt",
+          "status": "parcial",
+          "record": {
+            "contract_id": "CTR-003",
+            "client": "Cliente Gamma ficticio",
+            "supplier": "Proveedor Tres ficticio",
+            "start_date": "2026-03-01",
+            "end_date": null,
+            "monthly_fee": null,
+            "currency": "PEN",
+            "service_type": "mantenimiento",
+            "auto_renewal": null
+          },
+          "attempts": 1,
+          "review_calls": 1,
+          "reasons": [
+            "Falta dato obligatorio verificable: monthly_fee.",
+            "Revisor inyectado de software con referencia elaborada; no es revisión humana ni ejecución Gemini."
+          ],
+          "attempt_log": [
+            {
+              "attempt": 1,
+              "outcome": "needs_review",
+              "error_type": null,
+              "messages": [],
+              "elapsed_ms": 0,
+              "record_before": null,
+              "record_after": {
+                "contract_id": "CTR-003",
+                "client": "Cliente Gamma ficticio",
+                "supplier": "Proveedor Tres ficticio",
+                "start_date": "2026-03-01",
+                "end_date": null,
+                "monthly_fee": null,
+                "currency": "PEN",
+                "service_type": "mantenimiento",
+                "auto_renewal": null
+              },
+              "reviewer_verdict": {
+                "decision": "needs_review",
+                "fields": [
+                  {
+                    "field": "contract_id",
+                    "status": "supported",
+                    "evidence": "EJEMPLO SINTÉTICO — creado para pruebas; no representa una relación contractual real.",
+                    "location": "Texto sintético de prueba",
+                    "problem": null,
+                    "severity": "none",
+                    "proposed_value": "CTR-003",
+                    "verification_question": "¿Qué valor explícito consta en el texto sintético?"
+                  },
+                  {
+                    "field": "client",
+                    "status": "supported",
+                    "evidence": "Cliente: Cliente Gamma ficticio.",
+                    "location": "Texto sintético de prueba",
+                    "problem": null,
+                    "severity": "none",
+                    "proposed_value": "Cliente Gamma ficticio",
+                    "verification_question": "¿Qué valor explícito consta en el texto sintético?"
+                  },
+                  {
+                    "field": "supplier",
+                    "status": "supported",
+                    "evidence": "Proveedor: Proveedor Tres ficticio.",
+                    "location": "Texto sintético de prueba",
+                    "problem": null,
+                    "severity": "none",
+                    "proposed_value": "Proveedor Tres ficticio",
+                    "verification_question": "¿Qué valor explícito consta en el texto sintético?"
+                  },
+                  {
+                    "field": "start_date",
+                    "status": "supported",
+                    "evidence": "Fecha de inicio: 2026-03-01.",
+                    "location": "Texto sintético de prueba",
+                    "problem": null,
+                    "severity": "none",
+                    "proposed_value": "2026-03-01",
+                    "verification_question": "¿Qué valor explícito consta en el texto sintético?"
+                  },
+                  {
+                    "field": "end_date",
+                    "status": "missing",
+                    "evidence": null,
+                    "location": null,
+                    "problem": "Dato ausente o ambiguo en la referencia elaborada",
+                    "severity": "low",
+                    "proposed_value": null,
+                    "verification_question": "¿Qué valor explícito consta en el texto sintético?"
+                  },
+                  {
+                    "field": "monthly_fee",
+                    "status": "missing",
+                    "evidence": null,
+                    "location": null,
+                    "problem": "Dato ausente o ambiguo en la referencia elaborada",
+                    "severity": "medium",
+                    "proposed_value": null,
+                    "verification_question": "¿Qué valor explícito consta en el texto sintético?"
+                  },
+                  {
+                    "field": "currency",
+                    "status": "supported",
+                    "evidence": "Moneda contractual: PEN.",
+                    "location": "Texto sintético de prueba",
+                    "problem": null,
+                    "severity": "none",
+                    "proposed_value": "PEN",
+                    "verification_question": "¿Qué valor explícito consta en el texto sintético?"
+                  },
+                  {
+                    "field": "service_type",
+                    "status": "supported",
+                    "evidence": "Servicio: mantenimiento.",
+                    "location": "Texto sintético de prueba",
+                    "problem": null,
+                    "severity": "none",
+                    "proposed_value": "mantenimiento",
+                    "verification_question": "¿Qué valor explícito consta en el texto sintético?"
+                  },
+                  {
+                    "field": "auto_renewal",
+                    "status": "missing",
+                    "evidence": null,
+                    "location": null,
+                    "problem": "Dato ausente o ambiguo en la referencia elaborada",
+                    "severity": "low",
+                    "proposed_value": null,
+                    "verification_question": "¿Qué valor explícito consta en el texto sintético?"
+                  }
+                ],
+                "reason": "Revisor inyectado de software con referencia elaborada; no es revisión humana ni ejecución Gemini.",
+                "should_retry": false
+              },
+              "independent_verification": null,
+              "usage": {
+                "input_tokens": null,
+                "output_tokens": null,
+                "thinking_tokens": null,
+                "cached_tokens": null,
+                "total_tokens": null,
+                "estimated_input_tokens": null,
+                "source": "unavailable",
+                "complete": false,
+                "measured_calls": 0,
+                "total_calls": 0
+              }
+            }
+          ],
+          "reviewer_verdict": {
+            "decision": "needs_review",
+            "fields": [
+              {
+                "field": "contract_id",
+                "status": "supported",
+                "evidence": "EJEMPLO SINTÉTICO — creado para pruebas; no representa una relación contractual real.",
+                "location": "Texto sintético de prueba",
+                "problem": null,
+                "severity": "none",
+                "proposed_value": "CTR-003",
+                "verification_question": "¿Qué valor explícito consta en el texto sintético?"
+              },
+              {
+                "field": "client",
+                "status": "supported",
+                "evidence": "Cliente: Cliente Gamma ficticio.",
+                "location": "Texto sintético de prueba",
+                "problem": null,
+                "severity": "none",
+                "proposed_value": "Cliente Gamma ficticio",
+                "verification_question": "¿Qué valor explícito consta en el texto sintético?"
+              },
+              {
+                "field": "supplier",
+                "status": "supported",
+                "evidence": "Proveedor: Proveedor Tres ficticio.",
+                "location": "Texto sintético de prueba",
+                "problem": null,
+                "severity": "none",
+                "proposed_value": "Proveedor Tres ficticio",
+                "verification_question": "¿Qué valor explícito consta en el texto sintético?"
+              },
+              {
+                "field": "start_date",
+                "status": "supported",
+                "evidence": "Fecha de inicio: 2026-03-01.",
+                "location": "Texto sintético de prueba",
+                "problem": null,
+                "severity": "none",
+                "proposed_value": "2026-03-01",
+                "verification_question": "¿Qué valor explícito consta en el texto sintético?"
+              },
+              {
+                "field": "end_date",
+                "status": "missing",
+                "evidence": null,
+                "location": null,
+                "problem": "Dato ausente o ambiguo en la referencia elaborada",
+                "severity": "low",
+                "proposed_value": null,
+                "verification_question": "¿Qué valor explícito consta en el texto sintético?"
+              },
+              {
+                "field": "monthly_fee",
+                "status": "missing",
+                "evidence": null,
+                "location": null,
+                "problem": "Dato ausente o ambiguo en la referencia elaborada",
+                "severity": "medium",
+                "proposed_value": null,
+                "verification_question": "¿Qué valor explícito consta en el texto sintético?"
+              },
+              {
+                "field": "currency",
+                "status": "supported",
+                "evidence": "Moneda contractual: PEN.",
+                "location": "Texto sintético de prueba",
+                "problem": null,
+                "severity": "none",
+                "proposed_value": "PEN",
+                "verification_question": "¿Qué valor explícito consta en el texto sintético?"
+              },
+              {
+                "field": "service_type",
+                "status": "supported",
+                "evidence": "Servicio: mantenimiento.",
+                "location": "Texto sintético de prueba",
+                "problem": null,
+                "severity": "none",
+                "proposed_value": "mantenimiento",
+                "verification_question": "¿Qué valor explícito consta en el texto sintético?"
+              },
+              {
+                "field": "auto_renewal",
+                "status": "missing",
+                "evidence": null,
+                "location": null,
+                "problem": "Dato ausente o ambiguo en la referencia elaborada",
+                "severity": "low",
+                "proposed_value": null,
+                "verification_question": "¿Qué valor explícito consta en el texto sintético?"
+              }
+            ],
+            "reason": "Revisor inyectado de software con referencia elaborada; no es revisión humana ni ejecución Gemini.",
+            "should_retry": false
+          },
+          "human_review_required": true,
+          "usage": {
+            "input_tokens": null,
+            "output_tokens": null,
+            "thinking_tokens": null,
+            "cached_tokens": null,
+            "total_tokens": null,
+            "estimated_input_tokens": null,
+            "source": "unavailable",
+            "complete": false,
+            "measured_calls": 0,
+            "total_calls": 0
+          },
+          "source_sha256": "ba8bb59ced6f92a9683c8c9c24b78b83ce2f471df4f8221ff713c26af9e23e22",
+          "reference_accuracy": null,
+          "provider_calls": [
+            {
+              "id": "18dfab5a2eb442058163ab07350b2ae8",
+              "document_id": "synthetic-contract-3",
+              "attempt": 1,
+              "role": "extraction",
+              "model": "fixture_reference_injected",
+              "started_at": "2026-10-04T14:40:38.042881Z",
+              "elapsed_ms": 0,
+              "usage": {
+                "input_tokens": null,
+                "output_tokens": null,
+                "thinking_tokens": null,
+                "cached_tokens": null,
+                "total_tokens": null,
+                "estimated_input_tokens": null,
+                "source": "unavailable",
+                "complete": false,
+                "measured_calls": 0,
+                "total_calls": 0
+              },
+              "status": "completed",
+              "error_code": null
+            },
+            {
+              "id": "44ca16343622458581933710cc10ba7b",
+              "document_id": "synthetic-contract-3",
+              "attempt": 1,
+              "role": "review",
+              "model": "fixture_review_injected",
+              "started_at": "2026-10-04T14:40:38.042881Z",
+              "elapsed_ms": 0,
+              "usage": {
+                "input_tokens": null,
+                "output_tokens": null,
+                "thinking_tokens": null,
+                "cached_tokens": null,
+                "total_tokens": null,
+                "estimated_input_tokens": null,
+                "source": "unavailable",
+                "complete": false,
+                "measured_calls": 0,
+                "total_calls": 0
+              },
+              "status": "completed",
+              "error_code": null
+            }
+          ]
+        }
+      }
+    },
+    {
+      "document_id": "synthetic-contract-4",
+      "stage": "reading",
+      "attempt": 0,
+      "timestamp": "2026-10-04T14:40:38.043880Z",
+      "detail": "Fuente original preparada para análisis.",
+      "snapshot": null
+    },
+    {
+      "document_id": "synthetic-contract-4",
+      "stage": "extracting",
+      "attempt": 1,
+      "timestamp": "2026-10-04T14:40:38.043880Z",
+      "detail": "El extractor aplica el esquema confirmado.",
+      "snapshot": null
+    },
+    {
+      "document_id": "synthetic-contract-4",
+      "stage": "extracting",
+      "attempt": 1,
+      "timestamp": "2026-10-04T14:40:38.043880Z",
+      "detail": "Llamada terminada; consumo actualizado.",
+      "snapshot": {
+        "token_entry": {
+          "id": "534e19ef20e54121a270757bc780abf5",
+          "document_id": "synthetic-contract-4",
+          "attempt": 1,
+          "role": "extraction",
+          "model": "fixture_reference_injected",
+          "started_at": "2026-10-04T14:40:38.043880Z",
+          "elapsed_ms": 0,
+          "usage": {
+            "input_tokens": null,
+            "output_tokens": null,
+            "thinking_tokens": null,
+            "cached_tokens": null,
+            "total_tokens": null,
+            "estimated_input_tokens": null,
+            "source": "unavailable",
+            "complete": false,
+            "measured_calls": 0,
+            "total_calls": 0
+          },
+          "status": "completed",
+          "error_code": null
+        },
+        "usage": {
+          "input_tokens": null,
+          "output_tokens": null,
+          "thinking_tokens": null,
+          "cached_tokens": null,
+          "total_tokens": null,
+          "estimated_input_tokens": null,
+          "source": "unavailable",
+          "complete": false,
+          "measured_calls": 0,
+          "total_calls": 0
+        },
+        "batch_usage": {
+          "input_tokens": null,
+          "output_tokens": null,
+          "thinking_tokens": null,
+          "cached_tokens": null,
+          "total_tokens": null,
+          "estimated_input_tokens": null,
+          "source": "unavailable",
+          "complete": false,
+          "measured_calls": 0,
+          "total_calls": 0
+        }
+      }
+    },
+    {
+      "document_id": "synthetic-contract-4",
+      "stage": "validating",
+      "attempt": 1,
+      "timestamp": "2026-10-04T14:40:38.043880Z",
+      "detail": "Validación local de JSON, tipos, formatos y restricciones.",
+      "snapshot": null
+    },
+    {
+      "document_id": "synthetic-contract-4",
+      "stage": "reviewing",
+      "attempt": 1,
+      "timestamp": "2026-10-04T14:40:38.043880Z",
+      "detail": "Revisor: contraste independiente con la fuente original.",
+      "snapshot": {
+        "record": {
+          "contract_id": "CTR-004",
+          "client": "Cliente Delta ficticio",
+          "supplier": "Proveedor Cuatro ficticio",
+          "start_date": null,
+          "end_date": null,
+          "monthly_fee": null,
+          "currency": null,
+          "service_type": "limpieza",
+          "auto_renewal": null
+        },
+        "review_calls": 1
+      }
+    },
+    {
+      "document_id": "synthetic-contract-4",
+      "stage": "reviewing",
+      "attempt": 1,
+      "timestamp": "2026-10-04T14:40:38.043880Z",
+      "detail": "Llamada terminada; consumo actualizado.",
+      "snapshot": {
+        "token_entry": {
+          "id": "93f4286b417f48ebba06da2a4bf33638",
+          "document_id": "synthetic-contract-4",
+          "attempt": 1,
+          "role": "review",
+          "model": "fixture_review_injected",
+          "started_at": "2026-10-04T14:40:38.043880Z",
+          "elapsed_ms": 0,
+          "usage": {
+            "input_tokens": null,
+            "output_tokens": null,
+            "thinking_tokens": null,
+            "cached_tokens": null,
+            "total_tokens": null,
+            "estimated_input_tokens": null,
+            "source": "unavailable",
+            "complete": false,
+            "measured_calls": 0,
+            "total_calls": 0
+          },
+          "status": "completed",
+          "error_code": null
+        },
+        "usage": {
+          "input_tokens": null,
+          "output_tokens": null,
+          "thinking_tokens": null,
+          "cached_tokens": null,
+          "total_tokens": null,
+          "estimated_input_tokens": null,
+          "source": "unavailable",
+          "complete": false,
+          "measured_calls": 0,
+          "total_calls": 0
+        },
+        "batch_usage": {
+          "input_tokens": null,
+          "output_tokens": null,
+          "thinking_tokens": null,
+          "cached_tokens": null,
+          "total_tokens": null,
+          "estimated_input_tokens": null,
+          "source": "unavailable",
+          "complete": false,
+          "measured_calls": 0,
+          "total_calls": 0
+        }
+      }
+    },
+    {
+      "document_id": "synthetic-contract-4",
+      "stage": "completed",
+      "attempt": 1,
+      "timestamp": "2026-10-04T14:40:38.043880Z",
+      "detail": "Documento terminado: parcial.",
+      "snapshot": {
+        "result": {
+          "document_id": "synthetic-contract-4",
+          "source_name": "04-condiciones-ambiguas.txt",
+          "status": "parcial",
+          "record": {
+            "contract_id": "CTR-004",
+            "client": "Cliente Delta ficticio",
+            "supplier": "Proveedor Cuatro ficticio",
+            "start_date": null,
+            "end_date": null,
+            "monthly_fee": null,
+            "currency": null,
+            "service_type": "limpieza",
+            "auto_renewal": null
+          },
+          "attempts": 1,
+          "review_calls": 1,
+          "reasons": [
+            "Falta dato obligatorio verificable: start_date.",
+            "Falta dato obligatorio verificable: monthly_fee.",
+            "Falta dato obligatorio verificable: currency.",
+            "Revisor inyectado de software con referencia elaborada; no es revisión humana ni ejecución Gemini."
+          ],
+          "attempt_log": [
+            {
+              "attempt": 1,
+              "outcome": "needs_review",
+              "error_type": null,
+              "messages": [],
+              "elapsed_ms": 0,
+              "record_before": null,
+              "record_after": {
+                "contract_id": "CTR-004",
+                "client": "Cliente Delta ficticio",
+                "supplier": "Proveedor Cuatro ficticio",
+                "start_date": null,
+                "end_date": null,
+                "monthly_fee": null,
+                "currency": null,
+                "service_type": "limpieza",
+                "auto_renewal": null
+              },
+              "reviewer_verdict": {
+                "decision": "needs_review",
+                "fields": [
+                  {
+                    "field": "contract_id",
+                    "status": "supported",
+                    "evidence": "EJEMPLO SINTÉTICO — creado para pruebas; no representa una relación contractual real.",
+                    "location": "Texto sintético de prueba",
+                    "problem": null,
+                    "severity": "none",
+                    "proposed_value": "CTR-004",
+                    "verification_question": "¿Qué valor explícito consta en el texto sintético?"
+                  },
+                  {
+                    "field": "client",
+                    "status": "supported",
+                    "evidence": "Cliente: Cliente Delta ficticio.",
+                    "location": "Texto sintético de prueba",
+                    "problem": null,
+                    "severity": "none",
+                    "proposed_value": "Cliente Delta ficticio",
+                    "verification_question": "¿Qué valor explícito consta en el texto sintético?"
+                  },
+                  {
+                    "field": "supplier",
+                    "status": "supported",
+                    "evidence": "Proveedor: Proveedor Cuatro ficticio.",
+                    "location": "Texto sintético de prueba",
+                    "problem": null,
+                    "severity": "none",
+                    "proposed_value": "Proveedor Cuatro ficticio",
+                    "verification_question": "¿Qué valor explícito consta en el texto sintético?"
+                  },
+                  {
+                    "field": "start_date",
+                    "status": "missing",
+                    "evidence": null,
+                    "location": null,
+                    "problem": "Dato ausente o ambiguo en la referencia elaborada",
+                    "severity": "medium",
+                    "proposed_value": null,
+                    "verification_question": "¿Qué valor explícito consta en el texto sintético?"
+                  },
+                  {
+                    "field": "end_date",
+                    "status": "missing",
+                    "evidence": null,
+                    "location": null,
+                    "problem": "Dato ausente o ambiguo en la referencia elaborada",
+                    "severity": "low",
+                    "proposed_value": null,
+                    "verification_question": "¿Qué valor explícito consta en el texto sintético?"
+                  },
+                  {
+                    "field": "monthly_fee",
+                    "status": "missing",
+                    "evidence": null,
+                    "location": null,
+                    "problem": "Dato ausente o ambiguo en la referencia elaborada",
+                    "severity": "medium",
+                    "proposed_value": null,
+                    "verification_question": "¿Qué valor explícito consta en el texto sintético?"
+                  },
+                  {
+                    "field": "currency",
+                    "status": "missing",
+                    "evidence": null,
+                    "location": null,
+                    "problem": "Dato ausente o ambiguo en la referencia elaborada",
+                    "severity": "medium",
+                    "proposed_value": null,
+                    "verification_question": "¿Qué valor explícito consta en el texto sintético?"
+                  },
+                  {
+                    "field": "service_type",
+                    "status": "supported",
+                    "evidence": "Servicio: limpieza.",
+                    "location": "Texto sintético de prueba",
+                    "problem": null,
+                    "severity": "none",
+                    "proposed_value": "limpieza",
+                    "verification_question": "¿Qué valor explícito consta en el texto sintético?"
+                  },
+                  {
+                    "field": "auto_renewal",
+                    "status": "missing",
+                    "evidence": null,
+                    "location": null,
+                    "problem": "Dato ausente o ambiguo en la referencia elaborada",
+                    "severity": "low",
+                    "proposed_value": null,
+                    "verification_question": "¿Qué valor explícito consta en el texto sintético?"
+                  }
+                ],
+                "reason": "Revisor inyectado de software con referencia elaborada; no es revisión humana ni ejecución Gemini.",
+                "should_retry": false
+              },
+              "independent_verification": null,
+              "usage": {
+                "input_tokens": null,
+                "output_tokens": null,
+                "thinking_tokens": null,
+                "cached_tokens": null,
+                "total_tokens": null,
+                "estimated_input_tokens": null,
+                "source": "unavailable",
+                "complete": false,
+                "measured_calls": 0,
+                "total_calls": 0
+              }
+            }
+          ],
+          "reviewer_verdict": {
+            "decision": "needs_review",
+            "fields": [
+              {
+                "field": "contract_id",
+                "status": "supported",
+                "evidence": "EJEMPLO SINTÉTICO — creado para pruebas; no representa una relación contractual real.",
+                "location": "Texto sintético de prueba",
+                "problem": null,
+                "severity": "none",
+                "proposed_value": "CTR-004",
+                "verification_question": "¿Qué valor explícito consta en el texto sintético?"
+              },
+              {
+                "field": "client",
+                "status": "supported",
+                "evidence": "Cliente: Cliente Delta ficticio.",
+                "location": "Texto sintético de prueba",
+                "problem": null,
+                "severity": "none",
+                "proposed_value": "Cliente Delta ficticio",
+                "verification_question": "¿Qué valor explícito consta en el texto sintético?"
+              },
+              {
+                "field": "supplier",
+                "status": "supported",
+                "evidence": "Proveedor: Proveedor Cuatro ficticio.",
+                "location": "Texto sintético de prueba",
+                "problem": null,
+                "severity": "none",
+                "proposed_value": "Proveedor Cuatro ficticio",
+                "verification_question": "¿Qué valor explícito consta en el texto sintético?"
+              },
+              {
+                "field": "start_date",
+                "status": "missing",
+                "evidence": null,
+                "location": null,
+                "problem": "Dato ausente o ambiguo en la referencia elaborada",
+                "severity": "medium",
+                "proposed_value": null,
+                "verification_question": "¿Qué valor explícito consta en el texto sintético?"
+              },
+              {
+                "field": "end_date",
+                "status": "missing",
+                "evidence": null,
+                "location": null,
+                "problem": "Dato ausente o ambiguo en la referencia elaborada",
+                "severity": "low",
+                "proposed_value": null,
+                "verification_question": "¿Qué valor explícito consta en el texto sintético?"
+              },
+              {
+                "field": "monthly_fee",
+                "status": "missing",
+                "evidence": null,
+                "location": null,
+                "problem": "Dato ausente o ambiguo en la referencia elaborada",
+                "severity": "medium",
+                "proposed_value": null,
+                "verification_question": "¿Qué valor explícito consta en el texto sintético?"
+              },
+              {
+                "field": "currency",
+                "status": "missing",
+                "evidence": null,
+                "location": null,
+                "problem": "Dato ausente o ambiguo en la referencia elaborada",
+                "severity": "medium",
+                "proposed_value": null,
+                "verification_question": "¿Qué valor explícito consta en el texto sintético?"
+              },
+              {
+                "field": "service_type",
+                "status": "supported",
+                "evidence": "Servicio: limpieza.",
+                "location": "Texto sintético de prueba",
+                "problem": null,
+                "severity": "none",
+                "proposed_value": "limpieza",
+                "verification_question": "¿Qué valor explícito consta en el texto sintético?"
+              },
+              {
+                "field": "auto_renewal",
+                "status": "missing",
+                "evidence": null,
+                "location": null,
+                "problem": "Dato ausente o ambiguo en la referencia elaborada",
+                "severity": "low",
+                "proposed_value": null,
+                "verification_question": "¿Qué valor explícito consta en el texto sintético?"
+              }
+            ],
+            "reason": "Revisor inyectado de software con referencia elaborada; no es revisión humana ni ejecución Gemini.",
+            "should_retry": false
+          },
+          "human_review_required": true,
+          "usage": {
+            "input_tokens": null,
+            "output_tokens": null,
+            "thinking_tokens": null,
+            "cached_tokens": null,
+            "total_tokens": null,
+            "estimated_input_tokens": null,
+            "source": "unavailable",
+            "complete": false,
+            "measured_calls": 0,
+            "total_calls": 0
+          },
+          "source_sha256": "834db33b2a17cdf43e13c0169a11d91b7a7595b24a3ae5b5665835824206478f",
+          "reference_accuracy": null,
+          "provider_calls": [
+            {
+              "id": "534e19ef20e54121a270757bc780abf5",
+              "document_id": "synthetic-contract-4",
+              "attempt": 1,
+              "role": "extraction",
+              "model": "fixture_reference_injected",
+              "started_at": "2026-10-04T14:40:38.043880Z",
+              "elapsed_ms": 0,
+              "usage": {
+                "input_tokens": null,
+                "output_tokens": null,
+                "thinking_tokens": null,
+                "cached_tokens": null,
+                "total_tokens": null,
+                "estimated_input_tokens": null,
+                "source": "unavailable",
+                "complete": false,
+                "measured_calls": 0,
+                "total_calls": 0
+              },
+              "status": "completed",
+              "error_code": null
+            },
+            {
+              "id": "93f4286b417f48ebba06da2a4bf33638",
+              "document_id": "synthetic-contract-4",
+              "attempt": 1,
+              "role": "review",
+              "model": "fixture_review_injected",
+              "started_at": "2026-10-04T14:40:38.043880Z",
+              "elapsed_ms": 0,
+              "usage": {
+                "input_tokens": null,
+                "output_tokens": null,
+                "thinking_tokens": null,
+                "cached_tokens": null,
+                "total_tokens": null,
+                "estimated_input_tokens": null,
+                "source": "unavailable",
+                "complete": false,
+                "measured_calls": 0,
+                "total_calls": 0
+              },
+              "status": "completed",
+              "error_code": null
+            }
+          ]
+        }
+      }
+    },
+    {
+      "document_id": "synthetic-contract-5",
+      "stage": "reading",
+      "attempt": 0,
+      "timestamp": "2026-10-04T14:40:38.043880Z",
+      "detail": "Fuente original preparada para análisis.",
+      "snapshot": null
+    },
+    {
+      "document_id": "synthetic-contract-5",
+      "stage": "extracting",
+      "attempt": 1,
+      "timestamp": "2026-10-04T14:40:38.043880Z",
+      "detail": "El extractor aplica el esquema confirmado.",
+      "snapshot": null
+    },
+    {
+      "document_id": "synthetic-contract-5",
+      "stage": "extracting",
+      "attempt": 1,
+      "timestamp": "2026-10-04T14:40:38.043880Z",
+      "detail": "Llamada terminada; consumo actualizado.",
+      "snapshot": {
+        "token_entry": {
+          "id": "4c47464887f44660b28804a269a3bb74",
+          "document_id": "synthetic-contract-5",
+          "attempt": 1,
+          "role": "extraction",
+          "model": "fixture_reference_injected",
+          "started_at": "2026-10-04T14:40:38.043880Z",
+          "elapsed_ms": 0,
+          "usage": {
+            "input_tokens": null,
+            "output_tokens": null,
+            "thinking_tokens": null,
+            "cached_tokens": null,
+            "total_tokens": null,
+            "estimated_input_tokens": null,
+            "source": "unavailable",
+            "complete": false,
+            "measured_calls": 0,
+            "total_calls": 0
+          },
+          "status": "completed",
+          "error_code": null
+        },
+        "usage": {
+          "input_tokens": null,
+          "output_tokens": null,
+          "thinking_tokens": null,
+          "cached_tokens": null,
+          "total_tokens": null,
+          "estimated_input_tokens": null,
+          "source": "unavailable",
+          "complete": false,
+          "measured_calls": 0,
+          "total_calls": 0
+        },
+        "batch_usage": {
+          "input_tokens": null,
+          "output_tokens": null,
+          "thinking_tokens": null,
+          "cached_tokens": null,
+          "total_tokens": null,
+          "estimated_input_tokens": null,
+          "source": "unavailable",
+          "complete": false,
+          "measured_calls": 0,
+          "total_calls": 0
+        }
+      }
+    },
+    {
+      "document_id": "synthetic-contract-5",
+      "stage": "validating",
+      "attempt": 1,
+      "timestamp": "2026-10-04T14:40:38.043880Z",
+      "detail": "Validación local de JSON, tipos, formatos y restricciones.",
+      "snapshot": null
+    },
+    {
+      "document_id": "synthetic-contract-5",
+      "stage": "reviewing",
+      "attempt": 1,
+      "timestamp": "2026-10-04T14:40:38.043880Z",
+      "detail": "Revisor: contraste independiente con la fuente original.",
+      "snapshot": {
+        "record": {
+          "contract_id": null,
+          "client": null,
+          "supplier": null,
+          "start_date": null,
+          "end_date": null,
+          "monthly_fee": null,
+          "currency": null,
+          "service_type": null,
+          "auto_renewal": null
+        },
+        "review_calls": 1
+      }
+    },
+    {
+      "document_id": "synthetic-contract-5",
+      "stage": "reviewing",
+      "attempt": 1,
+      "timestamp": "2026-10-04T14:40:38.043880Z",
+      "detail": "Llamada terminada; consumo actualizado.",
+      "snapshot": {
+        "token_entry": {
+          "id": "da12f20fc8aa4d30bac6d0cae23c99ae",
+          "document_id": "synthetic-contract-5",
+          "attempt": 1,
+          "role": "review",
+          "model": "fixture_review_injected",
+          "started_at": "2026-10-04T14:40:38.043880Z",
+          "elapsed_ms": 0,
+          "usage": {
+            "input_tokens": null,
+            "output_tokens": null,
+            "thinking_tokens": null,
+            "cached_tokens": null,
+            "total_tokens": null,
+            "estimated_input_tokens": null,
+            "source": "unavailable",
+            "complete": false,
+            "measured_calls": 0,
+            "total_calls": 0
+          },
+          "status": "completed",
+          "error_code": null
+        },
+        "usage": {
+          "input_tokens": null,
+          "output_tokens": null,
+          "thinking_tokens": null,
+          "cached_tokens": null,
+          "total_tokens": null,
+          "estimated_input_tokens": null,
+          "source": "unavailable",
+          "complete": false,
+          "measured_calls": 0,
+          "total_calls": 0
+        },
+        "batch_usage": {
+          "input_tokens": null,
+          "output_tokens": null,
+          "thinking_tokens": null,
+          "cached_tokens": null,
+          "total_tokens": null,
+          "estimated_input_tokens": null,
+          "source": "unavailable",
+          "complete": false,
+          "measured_calls": 0,
+          "total_calls": 0
+        }
+      }
+    },
+    {
+      "document_id": "synthetic-contract-5",
+      "stage": "completed",
+      "attempt": 1,
+      "timestamp": "2026-10-04T14:40:38.043880Z",
+      "detail": "Documento terminado: fallido.",
+      "snapshot": {
+        "result": {
+          "document_id": "synthetic-contract-5",
+          "source_name": "05-borrador-vacio.txt",
+          "status": "fallido",
+          "record": {
+            "contract_id": null,
+            "client": null,
+            "supplier": null,
+            "start_date": null,
+            "end_date": null,
+            "monthly_fee": null,
+            "currency": null,
+            "service_type": null,
+            "auto_renewal": null
+          },
+          "attempts": 1,
+          "review_calls": 1,
+          "reasons": [
+            "No se recuperaron datos utilizables.",
+            "Falta dato obligatorio verificable: contract_id.",
+            "Falta dato obligatorio verificable: client.",
+            "Falta dato obligatorio verificable: supplier.",
+            "Falta dato obligatorio verificable: start_date.",
+            "Falta dato obligatorio verificable: monthly_fee.",
+            "Falta dato obligatorio verificable: currency.",
+            "Falta dato obligatorio verificable: service_type.",
+            "Revisor inyectado de software con referencia elaborada; no es revisión humana ni ejecución Gemini."
+          ],
+          "attempt_log": [
+            {
+              "attempt": 1,
+              "outcome": "rejected",
+              "error_type": null,
+              "messages": [],
+              "elapsed_ms": 0,
+              "record_before": null,
+              "record_after": {
+                "contract_id": null,
+                "client": null,
+                "supplier": null,
+                "start_date": null,
+                "end_date": null,
+                "monthly_fee": null,
+                "currency": null,
+                "service_type": null,
+                "auto_renewal": null
+              },
+              "reviewer_verdict": {
+                "decision": "rejected",
+                "fields": [
+                  {
+                    "field": "contract_id",
+                    "status": "missing",
+                    "evidence": null,
+                    "location": null,
+                    "problem": "Dato ausente o ambiguo en la referencia elaborada",
+                    "severity": "medium",
+                    "proposed_value": null,
+                    "verification_question": "¿Qué valor explícito consta en el texto sintético?"
+                  },
+                  {
+                    "field": "client",
+                    "status": "missing",
+                    "evidence": null,
+                    "location": null,
+                    "problem": "Dato ausente o ambiguo en la referencia elaborada",
+                    "severity": "medium",
+                    "proposed_value": null,
+                    "verification_question": "¿Qué valor explícito consta en el texto sintético?"
+                  },
+                  {
+                    "field": "supplier",
+                    "status": "missing",
+                    "evidence": null,
+                    "location": null,
+                    "problem": "Dato ausente o ambiguo en la referencia elaborada",
+                    "severity": "medium",
+                    "proposed_value": null,
+                    "verification_question": "¿Qué valor explícito consta en el texto sintético?"
+                  },
+                  {
+                    "field": "start_date",
+                    "status": "missing",
+                    "evidence": null,
+                    "location": null,
+                    "problem": "Dato ausente o ambiguo en la referencia elaborada",
+                    "severity": "medium",
+                    "proposed_value": null,
+                    "verification_question": "¿Qué valor explícito consta en el texto sintético?"
+                  },
+                  {
+                    "field": "end_date",
+                    "status": "missing",
+                    "evidence": null,
+                    "location": null,
+                    "problem": "Dato ausente o ambiguo en la referencia elaborada",
+                    "severity": "low",
+                    "proposed_value": null,
+                    "verification_question": "¿Qué valor explícito consta en el texto sintético?"
+                  },
+                  {
+                    "field": "monthly_fee",
+                    "status": "missing",
+                    "evidence": null,
+                    "location": null,
+                    "problem": "Dato ausente o ambiguo en la referencia elaborada",
+                    "severity": "medium",
+                    "proposed_value": null,
+                    "verification_question": "¿Qué valor explícito consta en el texto sintético?"
+                  },
+                  {
+                    "field": "currency",
+                    "status": "missing",
+                    "evidence": null,
+                    "location": null,
+                    "problem": "Dato ausente o ambiguo en la referencia elaborada",
+                    "severity": "medium",
+                    "proposed_value": null,
+                    "verification_question": "¿Qué valor explícito consta en el texto sintético?"
+                  },
+                  {
+                    "field": "service_type",
+                    "status": "missing",
+                    "evidence": null,
+                    "location": null,
+                    "problem": "Dato ausente o ambiguo en la referencia elaborada",
+                    "severity": "medium",
+                    "proposed_value": null,
+                    "verification_question": "¿Qué valor explícito consta en el texto sintético?"
+                  },
+                  {
+                    "field": "auto_renewal",
+                    "status": "missing",
+                    "evidence": null,
+                    "location": null,
+                    "problem": "Dato ausente o ambiguo en la referencia elaborada",
+                    "severity": "low",
+                    "proposed_value": null,
+                    "verification_question": "¿Qué valor explícito consta en el texto sintético?"
+                  }
+                ],
+                "reason": "Revisor inyectado de software con referencia elaborada; no es revisión humana ni ejecución Gemini.",
+                "should_retry": false
+              },
+              "independent_verification": null,
+              "usage": {
+                "input_tokens": null,
+                "output_tokens": null,
+                "thinking_tokens": null,
+                "cached_tokens": null,
+                "total_tokens": null,
+                "estimated_input_tokens": null,
+                "source": "unavailable",
+                "complete": false,
+                "measured_calls": 0,
+                "total_calls": 0
+              }
+            }
+          ],
+          "reviewer_verdict": {
+            "decision": "rejected",
+            "fields": [
+              {
+                "field": "contract_id",
+                "status": "missing",
+                "evidence": null,
+                "location": null,
+                "problem": "Dato ausente o ambiguo en la referencia elaborada",
+                "severity": "medium",
+                "proposed_value": null,
+                "verification_question": "¿Qué valor explícito consta en el texto sintético?"
+              },
+              {
+                "field": "client",
+                "status": "missing",
+                "evidence": null,
+                "location": null,
+                "problem": "Dato ausente o ambiguo en la referencia elaborada",
+                "severity": "medium",
+                "proposed_value": null,
+                "verification_question": "¿Qué valor explícito consta en el texto sintético?"
+              },
+              {
+                "field": "supplier",
+                "status": "missing",
+                "evidence": null,
+                "location": null,
+                "problem": "Dato ausente o ambiguo en la referencia elaborada",
+                "severity": "medium",
+                "proposed_value": null,
+                "verification_question": "¿Qué valor explícito consta en el texto sintético?"
+              },
+              {
+                "field": "start_date",
+                "status": "missing",
+                "evidence": null,
+                "location": null,
+                "problem": "Dato ausente o ambiguo en la referencia elaborada",
+                "severity": "medium",
+                "proposed_value": null,
+                "verification_question": "¿Qué valor explícito consta en el texto sintético?"
+              },
+              {
+                "field": "end_date",
+                "status": "missing",
+                "evidence": null,
+                "location": null,
+                "problem": "Dato ausente o ambiguo en la referencia elaborada",
+                "severity": "low",
+                "proposed_value": null,
+                "verification_question": "¿Qué valor explícito consta en el texto sintético?"
+              },
+              {
+                "field": "monthly_fee",
+                "status": "missing",
+                "evidence": null,
+                "location": null,
+                "problem": "Dato ausente o ambiguo en la referencia elaborada",
+                "severity": "medium",
+                "proposed_value": null,
+                "verification_question": "¿Qué valor explícito consta en el texto sintético?"
+              },
+              {
+                "field": "currency",
+                "status": "missing",
+                "evidence": null,
+                "location": null,
+                "problem": "Dato ausente o ambiguo en la referencia elaborada",
+                "severity": "medium",
+                "proposed_value": null,
+                "verification_question": "¿Qué valor explícito consta en el texto sintético?"
+              },
+              {
+                "field": "service_type",
+                "status": "missing",
+                "evidence": null,
+                "location": null,
+                "problem": "Dato ausente o ambiguo en la referencia elaborada",
+                "severity": "medium",
+                "proposed_value": null,
+                "verification_question": "¿Qué valor explícito consta en el texto sintético?"
+              },
+              {
+                "field": "auto_renewal",
+                "status": "missing",
+                "evidence": null,
+                "location": null,
+                "problem": "Dato ausente o ambiguo en la referencia elaborada",
+                "severity": "low",
+                "proposed_value": null,
+                "verification_question": "¿Qué valor explícito consta en el texto sintético?"
+              }
+            ],
+            "reason": "Revisor inyectado de software con referencia elaborada; no es revisión humana ni ejecución Gemini.",
+            "should_retry": false
+          },
+          "human_review_required": true,
+          "usage": {
+            "input_tokens": null,
+            "output_tokens": null,
+            "thinking_tokens": null,
+            "cached_tokens": null,
+            "total_tokens": null,
+            "estimated_input_tokens": null,
+            "source": "unavailable",
+            "complete": false,
+            "measured_calls": 0,
+            "total_calls": 0
+          },
+          "source_sha256": "c1fdb08c4e9b739531786eadef163d4b350e994d17e621591a39cdd497f5bc7c",
+          "reference_accuracy": null,
+          "provider_calls": [
+            {
+              "id": "4c47464887f44660b28804a269a3bb74",
+              "document_id": "synthetic-contract-5",
+              "attempt": 1,
+              "role": "extraction",
+              "model": "fixture_reference_injected",
+              "started_at": "2026-10-04T14:40:38.043880Z",
+              "elapsed_ms": 0,
+              "usage": {
+                "input_tokens": null,
+                "output_tokens": null,
+                "thinking_tokens": null,
+                "cached_tokens": null,
+                "total_tokens": null,
+                "estimated_input_tokens": null,
+                "source": "unavailable",
+                "complete": false,
+                "measured_calls": 0,
+                "total_calls": 0
+              },
+              "status": "completed",
+              "error_code": null
+            },
+            {
+              "id": "da12f20fc8aa4d30bac6d0cae23c99ae",
+              "document_id": "synthetic-contract-5",
+              "attempt": 1,
+              "role": "review",
+              "model": "fixture_review_injected",
+              "started_at": "2026-10-04T14:40:38.043880Z",
+              "elapsed_ms": 0,
+              "usage": {
+                "input_tokens": null,
+                "output_tokens": null,
+                "thinking_tokens": null,
+                "cached_tokens": null,
+                "total_tokens": null,
+                "estimated_input_tokens": null,
+                "source": "unavailable",
+                "complete": false,
+                "measured_calls": 0,
+                "total_calls": 0
+              },
+              "status": "completed",
+              "error_code": null
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "usage": {
+    "input_tokens": null,
+    "output_tokens": null,
+    "thinking_tokens": null,
+    "cached_tokens": null,
+    "total_tokens": null,
+    "estimated_input_tokens": null,
+    "source": "unavailable",
+    "complete": false,
+    "measured_calls": 0,
+    "total_calls": 0
+  },
+  "provider_calls": [
+    {
+      "id": "c04cd46c71e74d7695aaeb1245710e6c",
+      "document_id": "synthetic-contract-1",
+      "attempt": 1,
+      "role": "extraction",
+      "model": "fixture_reference_injected",
+      "started_at": "2026-10-04T14:40:38.041882Z",
+      "elapsed_ms": 0,
+      "usage": {
+        "input_tokens": null,
+        "output_tokens": null,
+        "thinking_tokens": null,
+        "cached_tokens": null,
+        "total_tokens": null,
+        "estimated_input_tokens": null,
+        "source": "unavailable",
+        "complete": false,
+        "measured_calls": 0,
+        "total_calls": 0
+      },
+      "status": "completed",
+      "error_code": null
+    },
+    {
+      "id": "421d1555c83c41c3a271ab3dd5202078",
+      "document_id": "synthetic-contract-1",
+      "attempt": 1,
+      "role": "review",
+      "model": "fixture_review_injected",
+      "started_at": "2026-10-04T14:40:38.041882Z",
+      "elapsed_ms": 0,
+      "usage": {
+        "input_tokens": null,
+        "output_tokens": null,
+        "thinking_tokens": null,
+        "cached_tokens": null,
+        "total_tokens": null,
+        "estimated_input_tokens": null,
+        "source": "unavailable",
+        "complete": false,
+        "measured_calls": 0,
+        "total_calls": 0
+      },
+      "status": "completed",
+      "error_code": null
+    },
+    {
+      "id": "e53d341e96624e728d1f2b1d74f3f021",
+      "document_id": "synthetic-contract-2",
+      "attempt": 1,
+      "role": "extraction",
+      "model": "fixture_reference_injected",
+      "started_at": "2026-10-04T14:40:38.042881Z",
+      "elapsed_ms": 0,
+      "usage": {
+        "input_tokens": null,
+        "output_tokens": null,
+        "thinking_tokens": null,
+        "cached_tokens": null,
+        "total_tokens": null,
+        "estimated_input_tokens": null,
+        "source": "unavailable",
+        "complete": false,
+        "measured_calls": 0,
+        "total_calls": 0
+      },
+      "status": "completed",
+      "error_code": null
+    },
+    {
+      "id": "67acd05ed42a45bd97684c436b335779",
+      "document_id": "synthetic-contract-2",
+      "attempt": 1,
+      "role": "review",
+      "model": "fixture_review_injected",
+      "started_at": "2026-10-04T14:40:38.042881Z",
+      "elapsed_ms": 0,
+      "usage": {
+        "input_tokens": null,
+        "output_tokens": null,
+        "thinking_tokens": null,
+        "cached_tokens": null,
+        "total_tokens": null,
+        "estimated_input_tokens": null,
+        "source": "unavailable",
+        "complete": false,
+        "measured_calls": 0,
+        "total_calls": 0
+      },
+      "status": "completed",
+      "error_code": null
+    },
+    {
+      "id": "18dfab5a2eb442058163ab07350b2ae8",
+      "document_id": "synthetic-contract-3",
+      "attempt": 1,
+      "role": "extraction",
+      "model": "fixture_reference_injected",
+      "started_at": "2026-10-04T14:40:38.042881Z",
+      "elapsed_ms": 0,
+      "usage": {
+        "input_tokens": null,
+        "output_tokens": null,
+        "thinking_tokens": null,
+        "cached_tokens": null,
+        "total_tokens": null,
+        "estimated_input_tokens": null,
+        "source": "unavailable",
+        "complete": false,
+        "measured_calls": 0,
+        "total_calls": 0
+      },
+      "status": "completed",
+      "error_code": null
+    },
+    {
+      "id": "44ca16343622458581933710cc10ba7b",
+      "document_id": "synthetic-contract-3",
+      "attempt": 1,
+      "role": "review",
+      "model": "fixture_review_injected",
+      "started_at": "2026-10-04T14:40:38.042881Z",
+      "elapsed_ms": 0,
+      "usage": {
+        "input_tokens": null,
+        "output_tokens": null,
+        "thinking_tokens": null,
+        "cached_tokens": null,
+        "total_tokens": null,
+        "estimated_input_tokens": null,
+        "source": "unavailable",
+        "complete": false,
+        "measured_calls": 0,
+        "total_calls": 0
+      },
+      "status": "completed",
+      "error_code": null
+    },
+    {
+      "id": "534e19ef20e54121a270757bc780abf5",
+      "document_id": "synthetic-contract-4",
+      "attempt": 1,
+      "role": "extraction",
+      "model": "fixture_reference_injected",
+      "started_at": "2026-10-04T14:40:38.043880Z",
+      "elapsed_ms": 0,
+      "usage": {
+        "input_tokens": null,
+        "output_tokens": null,
+        "thinking_tokens": null,
+        "cached_tokens": null,
+        "total_tokens": null,
+        "estimated_input_tokens": null,
+        "source": "unavailable",
+        "complete": false,
+        "measured_calls": 0,
+        "total_calls": 0
+      },
+      "status": "completed",
+      "error_code": null
+    },
+    {
+      "id": "93f4286b417f48ebba06da2a4bf33638",
+      "document_id": "synthetic-contract-4",
+      "attempt": 1,
+      "role": "review",
+      "model": "fixture_review_injected",
+      "started_at": "2026-10-04T14:40:38.043880Z",
+      "elapsed_ms": 0,
+      "usage": {
+        "input_tokens": null,
+        "output_tokens": null,
+        "thinking_tokens": null,
+        "cached_tokens": null,
+        "total_tokens": null,
+        "estimated_input_tokens": null,
+        "source": "unavailable",
+        "complete": false,
+        "measured_calls": 0,
+        "total_calls": 0
+      },
+      "status": "completed",
+      "error_code": null
+    },
+    {
+      "id": "4c47464887f44660b28804a269a3bb74",
+      "document_id": "synthetic-contract-5",
+      "attempt": 1,
+      "role": "extraction",
+      "model": "fixture_reference_injected",
+      "started_at": "2026-10-04T14:40:38.043880Z",
+      "elapsed_ms": 0,
+      "usage": {
+        "input_tokens": null,
+        "output_tokens": null,
+        "thinking_tokens": null,
+        "cached_tokens": null,
+        "total_tokens": null,
+        "estimated_input_tokens": null,
+        "source": "unavailable",
+        "complete": false,
+        "measured_calls": 0,
+        "total_calls": 0
+      },
+      "status": "completed",
+      "error_code": null
+    },
+    {
+      "id": "da12f20fc8aa4d30bac6d0cae23c99ae",
+      "document_id": "synthetic-contract-5",
+      "attempt": 1,
+      "role": "review",
+      "model": "fixture_review_injected",
+      "started_at": "2026-10-04T14:40:38.043880Z",
+      "elapsed_ms": 0,
+      "usage": {
+        "input_tokens": null,
+        "output_tokens": null,
+        "thinking_tokens": null,
+        "cached_tokens": null,
+        "total_tokens": null,
+        "estimated_input_tokens": null,
+        "source": "unavailable",
+        "complete": false,
+        "measured_calls": 0,
+        "total_calls": 0
+      },
+      "status": "completed",
+      "error_code": null
+    }
+  ]
+}

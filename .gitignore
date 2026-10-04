@@ -1,0 +1,24 @@
+# Secretos y documentos/resultados privados permanecen en este equipo.
+.env
+.env.*
+!.env.example
+*api-key*
+*api_key*
+credentials*.json
+secrets*.json
+extractor-documental/data/private/
+extractor-documental/output/
+output/
+extractor-documental/reports/private/
+*.log
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+*.egg-info/
+node_modules/
+extractor-documental/web/dist/
+.bsg-build-hash
+.bsg-dependencies-hash
+*.tsbuildinfo

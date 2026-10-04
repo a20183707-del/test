@@ -1,0 +1,168 @@
+{
+  "executed_at_utc": "2026-10-04T15:07:06.780Z",
+  "source_documents": "five_synthetic_contracts_uploaded_with_undeclared_provenance",
+  "assertions": {
+    "successPercent": "Éxito del lote\n20%\n1 exitosos · 3 parciales · 1 fallidos",
+    "reviewActual": "approved",
+    "calls": 18,
+    "roles": {
+      "extraction": 7,
+      "review": 7,
+      "verification": 4
+    },
+    "tokens": 30912,
+    "secondDocumentAttempts": 3,
+    "supervisionVisible": true,
+    "versionPreserved": true,
+    "snapshots": [
+      {
+        "calls": 0,
+        "processed": 0,
+        "tokens": null
+      },
+      {
+        "calls": 5,
+        "processed": 1,
+        "tokens": 7852
+      },
+      {
+        "calls": 6,
+        "processed": 1,
+        "tokens": 8791
+      },
+      {
+        "calls": 6,
+        "processed": 1,
+        "tokens": 8791
+      },
+      {
+        "calls": 6,
+        "processed": 1,
+        "tokens": 8791
+      },
+      {
+        "calls": 18,
+        "processed": 5,
+        "tokens": 30912
+      }
+    ],
+    "invalidHumanJsonBlocked": true,
+    "mobileNoOverflow": true
+  },
+  "live_snapshots": [
+    {
+      "timestamp": "2026-10-04T15:04:07.802Z",
+      "status": "running",
+      "calls": 0,
+      "processed": 0,
+      "usage": {
+        "input_tokens": null,
+        "output_tokens": null,
+        "thinking_tokens": null,
+        "cached_tokens": null,
+        "total_tokens": null,
+        "estimated_input_tokens": null,
+        "source": "unavailable",
+        "complete": false,
+        "measured_calls": 0,
+        "total_calls": 0
+      }
+    },
+    {
+      "timestamp": "2026-10-04T15:04:30.189Z",
+      "status": "running",
+      "calls": 5,
+      "processed": 1,
+      "usage": {
+        "input_tokens": 3757,
+        "output_tokens": 1993,
+        "thinking_tokens": null,
+        "cached_tokens": null,
+        "total_tokens": 7852,
+        "estimated_input_tokens": 5589,
+        "source": "provider",
+        "complete": true,
+        "measured_calls": 5,
+        "total_calls": 5
+      },
+      "displayed": "Estimación del texto de entrada\n102\nAcumulado real de la sesión\n7,852\nConsumo del lote actual\n7,852"
+    },
+    {
+      "timestamp": "2026-10-04T15:04:31.703Z",
+      "status": "running",
+      "calls": 6,
+      "processed": 1,
+      "usage": {
+        "input_tokens": 4578,
+        "output_tokens": 2111,
+        "thinking_tokens": null,
+        "cached_tokens": null,
+        "total_tokens": 8791,
+        "estimated_input_tokens": 6939,
+        "source": "provider",
+        "complete": true,
+        "measured_calls": 6,
+        "total_calls": 6
+      },
+      "displayed": "Estimación del texto de entrada\n102\nAcumulado real de la sesión\n8,791\nConsumo del lote actual\n8,791"
+    },
+    {
+      "timestamp": "2026-10-04T15:04:33.220Z",
+      "status": "running",
+      "calls": 6,
+      "processed": 1,
+      "usage": {
+        "input_tokens": 4578,
+        "output_tokens": 2111,
+        "thinking_tokens": null,
+        "cached_tokens": null,
+        "total_tokens": 8791,
+        "estimated_input_tokens": 6939,
+        "source": "provider",
+        "complete": true,
+        "measured_calls": 6,
+        "total_calls": 6
+      },
+      "displayed": "Estimación del texto de entrada\n102\nAcumulado real de la sesión\n8,791\nConsumo del lote actual\n8,791"
+    },
+    {
+      "timestamp": "2026-10-04T15:04:34.736Z",
+      "status": "running",
+      "calls": 6,
+      "processed": 1,
+      "usage": {
+        "input_tokens": 4578,
+        "output_tokens": 2111,
+        "thinking_tokens": null,
+        "cached_tokens": null,
+        "total_tokens": 8791,
+        "estimated_input_tokens": 6939,
+        "source": "provider",
+        "complete": true,
+        "measured_calls": 6,
+        "total_calls": 6
+      },
+      "displayed": "Estimación del texto de entrada\n102\nAcumulado real de la sesión\n8,791\nConsumo del lote actual\n8,791"
+    },
+    {
+      "timestamp": "2026-10-04T15:05:52.662Z",
+      "status": "completed",
+      "calls": 18,
+      "processed": 5,
+      "usage": {
+        "input_tokens": 13370,
+        "output_tokens": 7194,
+        "thinking_tokens": null,
+        "cached_tokens": null,
+        "total_tokens": 30912,
+        "estimated_input_tokens": 20080,
+        "source": "provider",
+        "complete": true,
+        "measured_calls": 18,
+        "total_calls": 18
+      },
+      "displayed": "Estimación del texto de entrada\n102\nAcumulado real de la sesión\n30,912\nConsumo del lote actual\n30,912"
+    }
+  ],
+  "browser_errors": []
+}

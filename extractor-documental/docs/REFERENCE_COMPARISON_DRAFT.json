@@ -1,0 +1,253 @@
+{
+  "executed_at_utc": "2026-10-04T15:13:41.185264+00:00",
+  "reference_kind": "draft_not_independently_human_reviewed",
+  "certified_accuracy": false,
+  "warning": "Coincidencia con una referencia elaborada no certifica exactitud; auto_renewal del contrato 02 requiere revisión por ambigüedad semántica.",
+  "documents": [
+    {
+      "document": "01-limpieza-completo.txt",
+      "result_status": "exitoso",
+      "comparison": {
+        "compared_fields": 9,
+        "correct_fields": 9,
+        "accuracy_percent": 100.0,
+        "fields": [
+          {
+            "field": "contract_id",
+            "matches": true
+          },
+          {
+            "field": "client",
+            "matches": true
+          },
+          {
+            "field": "supplier",
+            "matches": true
+          },
+          {
+            "field": "start_date",
+            "matches": true
+          },
+          {
+            "field": "end_date",
+            "matches": true
+          },
+          {
+            "field": "monthly_fee",
+            "matches": true
+          },
+          {
+            "field": "currency",
+            "matches": true
+          },
+          {
+            "field": "service_type",
+            "matches": true
+          },
+          {
+            "field": "auto_renewal",
+            "matches": true
+          }
+        ],
+        "reference_source": "examples/contracts/references.json; elaborada junto con fixtures",
+        "independent_human_review": false
+      }
+    },
+    {
+      "document": "02-soporte-completo.txt",
+      "result_status": "parcial",
+      "comparison": {
+        "compared_fields": 9,
+        "correct_fields": 9,
+        "accuracy_percent": 100.0,
+        "fields": [
+          {
+            "field": "contract_id",
+            "matches": true
+          },
+          {
+            "field": "client",
+            "matches": true
+          },
+          {
+            "field": "supplier",
+            "matches": true
+          },
+          {
+            "field": "start_date",
+            "matches": true
+          },
+          {
+            "field": "end_date",
+            "matches": true
+          },
+          {
+            "field": "monthly_fee",
+            "matches": true
+          },
+          {
+            "field": "currency",
+            "matches": true
+          },
+          {
+            "field": "service_type",
+            "matches": true
+          },
+          {
+            "field": "auto_renewal",
+            "matches": true
+          }
+        ],
+        "reference_source": "examples/contracts/references.json; elaborada junto con fixtures",
+        "independent_human_review": false
+      }
+    },
+    {
+      "document": "03-tarifa-ausente.txt",
+      "result_status": "parcial",
+      "comparison": {
+        "compared_fields": 9,
+        "correct_fields": 9,
+        "accuracy_percent": 100.0,
+        "fields": [
+          {
+            "field": "contract_id",
+            "matches": true
+          },
+          {
+            "field": "client",
+            "matches": true
+          },
+          {
+            "field": "supplier",
+            "matches": true
+          },
+          {
+            "field": "start_date",
+            "matches": true
+          },
+          {
+            "field": "end_date",
+            "matches": true
+          },
+          {
+            "field": "monthly_fee",
+            "matches": true
+          },
+          {
+            "field": "currency",
+            "matches": true
+          },
+          {
+            "field": "service_type",
+            "matches": true
+          },
+          {
+            "field": "auto_renewal",
+            "matches": true
+          }
+        ],
+        "reference_source": "examples/contracts/references.json; elaborada junto con fixtures",
+        "independent_human_review": false
+      }
+    },
+    {
+      "document": "04-condiciones-ambiguas.txt",
+      "result_status": "parcial",
+      "comparison": {
+        "compared_fields": 9,
+        "correct_fields": 9,
+        "accuracy_percent": 100.0,
+        "fields": [
+          {
+            "field": "contract_id",
+            "matches": true
+          },
+          {
+            "field": "client",
+            "matches": true
+          },
+          {
+            "field": "supplier",
+            "matches": true
+          },
+          {
+            "field": "start_date",
+            "matches": true
+          },
+          {
+            "field": "end_date",
+            "matches": true
+          },
+          {
+            "field": "monthly_fee",
+            "matches": true
+          },
+          {
+            "field": "currency",
+            "matches": true
+          },
+          {
+            "field": "service_type",
+            "matches": true
+          },
+          {
+            "field": "auto_renewal",
+            "matches": true
+          }
+        ],
+        "reference_source": "examples/contracts/references.json; elaborada junto con fixtures",
+        "independent_human_review": false
+      }
+    },
+    {
+      "document": "05-borrador-vacio.txt",
+      "result_status": "fallido",
+      "comparison": {
+        "compared_fields": 9,
+        "correct_fields": 9,
+        "accuracy_percent": 100.0,
+        "fields": [
+          {
+            "field": "contract_id",
+            "matches": true
+          },
+          {
+            "field": "client",
+            "matches": true
+          },
+          {
+            "field": "supplier",
+            "matches": true
+          },
+          {
+            "field": "start_date",
+            "matches": true
+          },
+          {
+            "field": "end_date",
+            "matches": true
+          },
+          {
+            "field": "monthly_fee",
+            "matches": true
+          },
+          {
+            "field": "currency",
+            "matches": true
+          },
+          {
+            "field": "service_type",
+            "matches": true
+          },
+          {
+            "field": "auto_renewal",
+            "matches": true
+          }
+        ],
+        "reference_source": "examples/contracts/references.json; elaborada junto con fixtures",
+        "independent_human_review": false
+      }
+    }
+  ]
+}

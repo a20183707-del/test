@@ -1,0 +1,9 @@
+EJEMPLO SINTÉTICO — creado para pruebas; no representa una relación contractual real.
+ORDEN CONTRACTUAL CTR-002
+Cliente: Cliente Beta ficticio.
+Proveedor: Proveedor Dos ficticio.
+El servicio es soporte. Vigencia desde 2026-02-15 hasta 2026-08-14.
+Cuota mensual acordada: 95.75 USD.
+Se descarta la renovación automática: no.
+Nota: un presupuesto anterior de 150.00 USD fue rechazado; no es la cuota acordada.
+
