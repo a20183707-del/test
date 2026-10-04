@@ -1,0 +1,55 @@
+Continúa y completa mi proyecto final BSG: «Extractor de Datos Estructurados desde Documentos», como aplicación LOCAL para Windows, con código limpio y repositorio privado.
+
+FUENTES Y ESTADO
+- Consigna: https://github.com/arojaspa76/Repo-Fundamentos-Arquitectura-LLM/blob/main/projects/Proyecto_03_Extractor_de_Datos_Estructurados_desde_Documentos.md
+- Mi repositorio: https://github.com/a20183707-del/test
+- Rama de avance: codex/extractor-documental-juez
+- Carpeta: extractor-documental
+- Lee HANDOFF.md. Hay código inicial incompleto y sin probar: no lo consideres un proyecto terminado. Conserva cambios ajenos.
+- Site Edifica: https://edifica-administracion-demo.renzo-1234.chatgpt.site
+
+OBJETIVO
+Construye un pipeline que reciba texto libre o archivos, extraiga los campos solicitados y produzca un JSON validado por documento, indicando éxito, éxito parcial o fallo y sus motivos. La aplicación debe admitir distintos dominios, no estar restringida a pagos. Los comprobantes reales de mis vecinos cargados en Edifica serán el caso de estudio de la tarea.
+
+ENTRADA Y ESQUEMA
+Permite pegar texto y cargar TXT, PDF, DOCX e imágenes. El usuario describe qué datos quiere extraer. Con Gemini, propone un esquema y permite confirmarlo/editarlo mediante una vista sencilla de campos antes de analizar. Ofrece un ejemplo de pagos, pero admite campos personalizados y otros documentos.
+Para la entrega demuestra un esquema con al menos 6 campos, incluido uno numérico, uno fecha y uno categórico. Distingue campos obligatorios de opcionales. Si un dato no existe, usa null y reporta la ausencia; no lo inventes.
+
+GEMINI Y JUEZ
+Usa Gemini mediante su capacidad NATIVA de salida estructurada, con validación programática independiente. Verifica el modelo y API disponibles en la documentación oficial.
+Flujo: lectura → extracción → validación → juez independiente → reextracción si corresponde → resultado o revisión humana.
+El juez debe contrastar la fuente original con los campos extraídos, sin asumir que el extractor tiene razón. Ante cada discrepancia, formula una comprobación neutral y revisa la evidencia pertinente de forma independiente. Registra campo, dato obtenido, evidencia, problema, severidad y propuesta de corrección. No muestres cadenas de pensamiento: muestra hallazgos verificables.
+El juez no cambia silenciosamente los datos: conserva original, propuesta y versiones. La corrección se realiza mediante nueva extracción validada o revisión humana registrada. Extraer información no confirma que un pago sea auténtico ni actualiza Edifica.
+Conserva validadores deterministas: JSON, tipos, fechas, enum y reglas del dominio. El juez los complementa.
+Máximo 3 intentos totales por documento, con límite explícito también para llamadas de verificación del juez. No repitas indefinidamente. Un documento fallido nunca detiene el lote.
+
+INTERFAZ VISUAL SIMPLE
+Usa React + Vite + TypeScript y backend Python local; puedes ajustar detalles técnicos si existe una razón concreta.
+Muestra lista de documentos, documento original, flujo activo, tabla campo/valor/evidencia, hallazgos del juez e historial de intentos.
+Los estados deben reflejar eventos reales del backend: leyendo, extrayendo, validando, revisando, reintentando y terminado.
+Muestra porcentaje de éxito = documentos exitosos / documentos procesados × 100. Separa parciales y fallidos. No confundas esta tasa con confianza del modelo o exactitud comprobada. Antes de procesar muestra «Sin ejecutar».
+No llenes la pantalla de parámetros. Controles principales: cargar/pegar, qué extraer, analizar y exportar. Configuración técnica secundaria.
+Diseño español, limpio, blanco/navy/teal, accesible y adaptable.
+
+DATOS REALES Y PRUEBAS
+Recupera al menos 5 comprobantes distintos de Edifica mediante acceso autorizado y conserva trazabilidad. Las imágenes originales todavía no se han descargado en el avance. Si no tienes acceso, pídeme una exportación concreta y continúa construyendo el resto; no sustituyas silenciosamente recibos por datos inventados.
+No confundas registros de la base de datos con información realmente visible en un recibo.
+Incluye casos incompletos/difíciles y pruebas de JSON inválido, tipos erróneos, error del proveedor, discrepancias del juez, agotamiento de intentos y continuidad del lote. Identifica claramente los fallos inyectados y sepáralos de las métricas reales.
+Los documentos de vecinos y sus resultados deben quedar locales por defecto. Publica código y ejemplos anonimizados en el repositorio privado; no subas datos bancarios personales sin autorización específica.
+
+API KEY Y CÓDIGO
+Prepararé una API key de Gemini. Habilita un campo de contraseña que la entregue al backend y la mantenga sólo en memoria durante la sesión, o lectura de variable de entorno. Nunca la incluyas en Git, logs, capturas ni localStorage. No me pidas pegarla en código.
+Sin key, permite revisar la interfaz y ejecutar pruebas; etiqueta cualquier demostración. No afirmes que hubo llamadas reales a Gemini.
+Código modular y legible: entrada, esquemas, proveedor, juez, validación, pipeline, reportes e interfaz separados. Usa tipos, dependencias mínimas, errores claros y pruebas significativas. Evita archivos gigantes, duplicación y abstracciones innecesarias.
+
+ENTREGABLES
+1. Aplicación local funcional con iniciar.bat e instrucciones reproducibles.
+2. Repositorio actualizado con commits claros, README, instalación, arquitectura y decisiones de validación.
+3. JSON Schema y documentos de prueba autorizados/anonimizados.
+4. Reporte JSON/CSV por documento, motivos, intentos, juez y métricas. Compara campos con una referencia revisada para medir exactitud.
+5. Pruebas automatizadas y evidencia de ejecución.
+6. Guion del video de máximo 30 minutos y, si puedes grabar realmente la aplicación, demostración en video con éxito, fallo y recuperación/continuidad. No sustituyas una demo real por una animación presentada como ejecución.
+7. Instrucciones breves para retomar el proyecto desde Codex local.
+
+EJECUCIÓN
+Revisa la consigna completa, el repositorio y el estado inicial; implementa, prueba y corrige. No te limites a devolver otro plan ni detengas el trabajo por decisiones rutinarias. Cuando necesites mi intervención, pide únicamente el acceso, archivo o credencial imprescindible. Deja explícito lo probado, lo pendiente y lo que requiere la API key.

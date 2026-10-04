@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "edifica-extractor-pagos"
+version = "1.0.0"
+description = "Extracción estructurada y revisión independiente de comprobantes de pagos de Edifica"
+requires-python = ">=3.11"
+dependencies = [
+  "pydantic>=2.8,<3",
+  "requests>=2.32,<3",
+  "pypdf>=5,<7",
+  "python-dotenv>=1,<2",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8,<10"]
+
+[project.scripts]
+edifica-extractor = "edifica_extractor.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+
