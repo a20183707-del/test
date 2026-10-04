@@ -52,8 +52,8 @@ El resultado real difiere del esperado por las pruebas inyectadas. La referencia
 - Verificado históricamente: rechazo controlado, continuidad, reporte de cinco fallos, tasa de 0%, consumo desconocido y supervisión humana del primer intento.
 - Verificado en la nueva configuración: extracción, revisión y comprobación reales; lote completo corregido, reportes JSON/CSV, 20% automático y 30.912 tokens informados.
 - Verificado localmente: 100 pruebas pasaron, con una advertencia del TestClient de desarrollo.
-- Captura real verificada: `output/playwright/demo-real-gemini.webm`, 3:47,08, VP8 1536 × 1024 sin audio; muestra documento fácil, caso difícil/fallo, continuidad, revisor, intentos, tasa y tokens. Archivo local ignorado por Git; hash en `VIDEO.md`.
-- Pendiente académico: explicación final/narración sobre los segmentos reales ya grabados y comprobación de la duración de esa versión. No se declara completa esa presentación.
+- QA visual interno: se comprobó el flujo real, estados, versiones, tokens y casos difíciles. Sus capturas permanecen como evidencia local de desarrollo; no se cuentan como el video académico del usuario.
+- Presentación personal: speech exacto preparado en el TXT local entregado al estudiante, excluido de Git; grabación y presentación pendientes del estudiante. Si ejecuta un nuevo lote, el guion identifica sus resultados visibles y distingue las cifras históricas.
 - Pendiente de comparación: revisión humana independiente de la referencia elaborada. No se acredita exactitud humana por el solo juicio del modelo.
 
 El bloqueo de generación del proyecto anterior ya no impide la ejecución actual. La nueva configuración está autorizada por el usuario; no se solicitan claves adicionales para completar el lote. Las correcciones y los resultados se documentan sin publicar secretos.

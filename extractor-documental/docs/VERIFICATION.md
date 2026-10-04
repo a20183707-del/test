@@ -30,10 +30,16 @@ TXT, DOCX, PDF y PNG conservaron bytes originales comprobados mediante hash. Se 
 
 Se consideraron las direcciones ejecutiva, técnico-operativa y SaaS. Se eligió un flujo operativo con composición SaaS: entrada y original a la izquierda, campos/resultados en el centro, estados y consumo a la derecha. La jerarquía conserva una acción principal; el esquema confirmado se contrae para priorizar resultados. El concepto visual inicial se adaptó a los requisitos posteriores de campos manuales y aplicación genérica. Se revisaron estados vacío, carga, error, éxito, foco y vista móvil.
 
-Capturas locales verificadas: `output/playwright/desktop-final-real.png`, `desktop-real-revisor.png`, `real-intentos.png` y `mobile-final-real.png`. Estos archivos y el video permanecen ignorados por Git. El screencast real `output/playwright/demo-real-gemini.webm` dura 3:47,08 y fue decodificado e inspeccionado; el estado académico final del video se registra en `VIDEO.md`.
+Las comprobaciones visuales se apoyan en capturas internas de QA bajo `output/`, ignoradas por Git. La grabación del video del curso la realizará el estudiante y permanece pendiente. El TXT local, excluido de Git, contiene el speech exacto y las acciones necesarias; el QA interno no se declara como su entrega audiovisual.
 
 ## Seguridad y límites
 
 La revisión está documentada en `SECURITY_REVIEW.md`. Se comprobaron protección de sesión/Host/Origin/CSRF, límites de archivos y memoria, sanitización de errores, bloqueo de redirecciones que podrían filtrar credenciales, borrado de sesión y rechazo de XML peligroso incluso en UTF-16/32. Las regresiones están incluidas en las 100 pruebas.
 
 No se ejecutó una certificación formal de seguridad. El análisis de PDF carece de aislamiento duro de CPU/memoria; el revisor usa otra llamada/modelo de Gemini y no otro proveedor; la evidencia multimodal tiene límites semánticos. La referencia requiere revisión humana independiente para afirmar exactitud. Los pendientes académicos se conservan explícitos en `CHECKLIST_PROFESOR.md`.
+
+## GitHub
+
+El commit `970943e47fad62eedfbc14f406a1a456ef1745dd` se publicó en `codex/extractor-documental-juez` y se comprobó mediante la referencia remota y el objeto de commit. El árbol GitHub coincide exactamente con el índice local. Es hijo del commit original, preservando el historial; el cierre documental del video continúa esa rama. El análisis de firmas de secretos incluyó los archivos elegibles y los locks, con cero coincidencias de alta confianza; no incluyó el historial de Git ni los archivos locales ignorados.
+
+Los cinco hashes SHA-256 del reporte real coinciden con los bytes de los TXT locales y con los blobs del índice Git. `.gitattributes` fija LF para esos documentos, conservando sus hashes también al hacer checkout en Windows.

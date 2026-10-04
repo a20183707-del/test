@@ -131,10 +131,3 @@ def document_parts(document: SourceDocument) -> list[dict[str, Any]]:
     return [{"inlineData": {"mimeType": document.mime,
                             "data": base64.b64encode(document.data).decode("ascii")}}]
 
-
-def make_document(path: Path, document_id: str | None = None,
-                  metadata: dict[str, Any] | None = None) -> SourceDocument:
-    path = path.resolve()
-    if path.stat().st_size > MAX_DOCUMENT_BYTES:
-        raise ValueError("El documento supera el límite de 12 MiB.")
-    return read_document(path.read_bytes(), path.name, document_id, metadata)

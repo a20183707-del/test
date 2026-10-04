@@ -164,9 +164,10 @@
     "resolution": "Bootstrap dependencies upgraded locally and minimum versions added to launcher."
   },
   "final_secret_signature_scan": {
-    "checked_at_utc": "2026-10-04T15:23:38.937Z",
-    "scope": "All tracked and Git-eligible untracked UTF-8 files, including lockfiles; ignored local outputs and Git history excluded",
-    "files_scanned": 75,
-    "high_confidence_signature_matches": 0
+    "checked_at_utc": "2026-10-04T16:00:42.353Z",
+    "scope": "All existing tracked and Git-eligible untracked UTF-8 files, including lockfiles; ignored local outputs and Git history excluded",
+    "files_scanned": 76,
+    "high_confidence_signature_matches": 0,
+    "local_speech_excluded": true
   }
 }

@@ -59,10 +59,10 @@ Las pruebas y `check_offline.py` utilizan respuestas inyectadas, claramente iden
 - [Verificación ejecutada](docs/VERIFICATION.md): pruebas, UI, formatos, Windows y limitaciones.
 - [Prueba real de Gemini](docs/GEMINI_LIVE_CHECK.md): lote completo con extracción, revisor, comprobación neutral y reintentos; historial de incidencias corregidas.
 - [Seguridad y calidad](docs/SECURITY_REVIEW.md) y [auditoría de dependencias](docs/DEPENDENCY_AUDIT.json).
-- [Arquitectura y decisiones](ARCHITECTURE.md), [guion del video](docs/VIDEO.md) y [continuación](HANDOFF.md).
+- [Arquitectura y decisiones](ARCHITECTURE.md), checklist de grabación personal y [continuación](HANDOFF.md).
 - Reportes `docs/SYNTHETIC_BATCH_REPORT.json/.csv`: prueba determinista con cero llamadas externas. `docs/REAL_GEMINI_BATCH_REPORT.json/.csv`: ejecución de solicitudes reales sobre documentos sintéticos; conservar sus resultados aunque sean fallidos.
 
-El lote real de cinco contratos sintéticos produjo **1 exitoso, 3 parciales y 1 fallido (20%)**, con **18 llamadas y 30 912 tokens**. Se conservaron siete intentos de extracción y se activó supervisión humana. El video local de QA dura 3:47 y muestra ejecución real, revisión y fallos; la explicación final del estudiante para el curso sigue pendiente. La referencia de los ejemplos requiere revisión humana independiente para afirmar exactitud.
+El lote real de cinco contratos sintéticos produjo **1 exitoso, 3 parciales y 1 fallido (20%)**, con **18 llamadas y 30 912 tokens**. Se conservaron siete intentos de extracción y se activó supervisión humana. El estudiante grabará su video; el TXT local, excluido de Git, contiene el texto exacto para leer y las acciones que debe mostrar. Esa grabación y su presentación siguen pendientes. Las capturas internas de QA no se cuentan como su entrega audiovisual. La referencia de los ejemplos requiere revisión humana independiente para afirmar exactitud.
 
 ## Privacidad y límites
 

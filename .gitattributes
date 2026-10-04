@@ -1,0 +1,3 @@
+# Preserve the exact UTF-8 fixture bytes used by the recorded batch, on Windows too.
+extractor-documental/examples/contracts/*.txt text eol=lf
+*.bat text eol=crlf
