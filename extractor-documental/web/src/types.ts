@@ -116,6 +116,17 @@ export interface Metrics {
   success_rate: number | null;
   [key: string]: unknown;
 }
+export interface HumanReview {
+  id: string;
+  document_id: string;
+  timestamp: string;
+  actor: string;
+  original_record: Record<string, unknown> | null;
+  proposed_record: Record<string, unknown>;
+  note: string;
+  validation: { status: string; reasons: string[] };
+  changes_pipeline_success: boolean;
+}
 export interface Batch {
   id: string;
   status: "running" | "completed" | "failed";
@@ -135,14 +146,7 @@ export interface Batch {
     processed: number;
     success_rate: number | null;
   };
-  human_reviews?: {
-    id: string;
-    document_id: string;
-    timestamp: string;
-    note: string;
-    proposed_record: Record<string, unknown>;
-    validation: { status: string; reasons: string[] };
-  }[];
+  human_reviews?: HumanReview[];
   error?: string | null;
   report?: unknown;
 }

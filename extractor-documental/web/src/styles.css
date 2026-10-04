@@ -1238,6 +1238,29 @@ main {
   line-height: 1.6;
   margin-top: 8px;
 }
+.review-confirmation {
+  color: #096458;
+  background: #edf8f4;
+  border-left: 3px solid #087f83;
+  padding: 12px;
+  margin-top: 16px;
+  font-size: 12px;
+  overflow-wrap: anywhere;
+}
+.human-audit {
+  margin-top: 20px;
+}
+.human-audit h3 {
+  font-size: 14px;
+}
+.human-audit h4 {
+  font-size: 12px;
+  margin: 14px 0 6px;
+}
+.human-audit .review-receipt {
+  color: var(--muted);
+  overflow-wrap: anywhere;
+}
 @media (max-width: 720px) {
   .supervision-banner {
     flex-wrap: wrap;

@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useState } from "react";
 import { initializeSession, post, request } from "./api";
-import type { Batch, ExtractionSchema, Session, SourceDocument } from "./types";
+import type { Batch, ExtractionSchema, HumanReview, Session, SourceDocument } from "./types";
 export function useWorkspace() {
   const [session, setSession] = useState<Session | null>(null),
     [documents, setDocuments] = useState<SourceDocument[]>([]),
@@ -141,19 +141,33 @@ export function useWorkspace() {
       setSession(await initializeSession());
       setNotice("Credencial de sesión eliminada.");
     });
-  const humanReview = (corrected_data: Record<string, unknown>, note: string) =>
-    run(async () => {
-      if (!batch) return;
-      await post(`/api/batches/${batch.id}/review`, {
+  const humanReview = async (corrected_data: Record<string, unknown>, note: string): Promise<HumanReview> => {
+    if (!batch) throw new Error("No hay un lote disponible para revisar.");
+    const batchId = batch.id;
+    setBusy(true);
+    setError("");
+    setNotice("");
+    try {
+      const { review } = await post<{ review: HumanReview }>(`/api/batches/${batchId}/review`, {
         document_id: selected,
         corrected_data,
         note,
       });
-      setBatch(await request<Batch>(`/api/batches/${batch.id}`));
+      setBatch((current) => current?.id === batchId ? {
+        ...current,
+        human_reviews: [...(current.human_reviews ?? []), review],
+      } : current);
       setNotice(
         "Revisión humana registrada; se conserva el resultado automático.",
       );
-    });
+      return review;
+    } catch (e) {
+      setError(e instanceof Error ? e.message : "No se pudo registrar la revisión.");
+      throw e;
+    } finally {
+      setBusy(false);
+    }
+  };
   const removeDocument = (id: string) =>
     run(async () => {
       await request(`/api/documents/${id}`, { method: "DELETE" });

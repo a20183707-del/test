@@ -1,6 +1,6 @@
 import { Download, FileCheck, Save } from "lucide-react";
 import { useEffect, useState } from "react";
-import type { Batch, DocumentResult, ExtractionSchema } from "../types";
+import type { Batch, DocumentResult, ExtractionSchema, HumanReview } from "../types";
 const printable = (value: unknown) =>
   value === null
     ? "null"
@@ -30,7 +30,7 @@ export default function ResultsPanel({
   onHumanReview: (
     data: Record<string, unknown>,
     note: string,
-  ) => Promise<boolean>;
+  ) => Promise<HumanReview>;
   busy: boolean;
   reviewRequest: number;
 }) {
@@ -38,13 +38,15 @@ export default function ResultsPanel({
     [editing, setEditing] = useState(false),
     [correction, setCorrection] = useState(""),
     [note, setNote] = useState(""),
-    [localError, setLocalError] = useState("");
+    [localError, setLocalError] = useState(""),
+    [savedMessage, setSavedMessage] = useState("");
   useEffect(() => {
     setEditing(false);
-    setCorrection(JSON.stringify(result?.record ?? {}, null, 2));
+    setCorrection(JSON.stringify(result?.record ?? Object.fromEntries(schema.fields.map((field) => [field.name, null])), null, 2));
     setNote("");
     setLocalError("");
-  }, [result?.document_id]);
+    setSavedMessage("");
+  }, [result?.document_id, schema.fields]);
   useEffect(() => {
     if (reviewRequest) {
       setTab("Revisor");
@@ -56,17 +58,22 @@ export default function ResultsPanel({
   }, [reviewRequest]);
   const save = async () => {
     setLocalError("");
+    setSavedMessage("");
     try {
+      if (note.trim().length < 3)
+        throw new Error("Escribe un motivo y evidencia de al menos 3 caracteres para registrar la revisión.");
       const data: unknown = JSON.parse(correction);
       if (data === null || Array.isArray(data) || typeof data !== "object")
         throw new Error("La corrección debe ser un objeto JSON.");
-      if (await onHumanReview(data as Record<string, unknown>, note))
-        setEditing(false);
+      const review = await onHumanReview(data as Record<string, unknown>, note);
+      setSavedMessage(`Revisión registrada · ${review.id}. Consulta la auditoría debajo.`);
+      setEditing(false);
     } catch (e) {
       setLocalError(e instanceof Error ? e.message : "JSON inválido.");
     }
   };
   const verdict = result?.reviewer_verdict;
+  const humanReviews = batch?.human_reviews?.filter((review) => review.document_id === result?.document_id) ?? [];
   return (
     <section
       className="panel results-panel"
@@ -262,7 +269,7 @@ export default function ResultsPanel({
             ) : null}
             {result.human_review_required && batch?.status === "completed" ? (
               <div className="human-review">
-                <button onClick={() => setEditing(!editing)} disabled={busy}>
+                <button onClick={() => { setEditing(!editing); setLocalError(""); setSavedMessage(""); }} disabled={busy}>
                   {editing ? "Cerrar revisión" : "Registrar revisión humana"}
                 </button>
                 {editing ? (
@@ -276,17 +283,18 @@ export default function ResultsPanel({
                       />
                     </label>
                     <label>
-                      Motivo y evidencia
+                      Motivo y evidencia (obligatorio)
                       <textarea
                         rows={2}
                         value={note}
                         onChange={(e) => setNote(e.target.value)}
                         maxLength={2000}
+                        disabled={busy}
                       />
                     </label>
                     <p className="help">
                       La corrección se valida y se registra aparte. La tasa
-                      automática y las versiones se conservan.
+                      automática y las versiones se conservan. Escribe un motivo de al menos 3 caracteres.
                     </p>
                     {localError ? (
                       <p role="alert" className="inline-warning">
@@ -295,29 +303,39 @@ export default function ResultsPanel({
                     ) : null}
                     <button
                       className="primary"
-                      disabled={busy || !note.trim()}
+                      disabled={busy}
                       onClick={() => void save()}
                     >
                       <Save size={16} />
-                      Registrar revisión
+                      {busy ? "Registrando…" : "Registrar revisión"}
                     </button>
                   </div>
                 ) : null}
               </div>
             ) : null}
-            {batch?.human_reviews
-              ?.filter((r) => r.document_id === result.document_id)
-              .map((review) => (
-                <details className="human-history" key={review.id}>
+            {savedMessage ? <p className="review-confirmation" role="status">{savedMessage}</p> : null}
+            {humanReviews.length ? (
+              <section className="human-audit" aria-label="Auditoría de revisiones humanas">
+                <h3>Auditoría humana · {humanReviews.length} revisión(es)</h3>
+                <p className="help">Registro de esta sesión. Descarga el reporte JSON o CSV para conservarlo al cerrar o reiniciar.</p>
+                {humanReviews.map((review, index) => (
+                <details className="human-history" key={review.id} open={index === humanReviews.length - 1}>
                   <summary>
                     Revisión humana ·{" "}
                     {new Date(review.timestamp).toLocaleString("es-PE")} ·{" "}
                     {review.validation.status}
                   </summary>
+                  <p className="review-receipt">ID: {review.id} · Autor: {review.actor}</p>
                   <p>{review.note}</p>
+                  <h4>Resultado automático original</h4>
+                  <pre>{JSON.stringify(review.original_record, null, 2)}</pre>
+                  <h4>Corrección humana registrada</h4>
                   <pre>{JSON.stringify(review.proposed_record, null, 2)}</pre>
+                  {review.validation.reasons.length ? <ul className="reasons">{review.validation.reasons.map((reason, i) => <li key={i}>{reason}</li>)}</ul> : null}
                 </details>
-              ))}
+                ))}
+              </section>
+            ) : null}
           </>
         )}
       </div>

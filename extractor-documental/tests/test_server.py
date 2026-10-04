@@ -1,6 +1,8 @@
 """Seguridad y contratos del servidor local; no realizan llamadas a Gemini."""
 from __future__ import annotations
 
+import csv
+import io
 import json
 import threading
 import time
@@ -161,19 +163,68 @@ def test_supervision_threshold_uses_actual_processed_documents():
 
 
 def test_human_review_preserves_original_and_success_metrics(client):
+    from bsg_extractor.schema import BatchReport
+
     session = server.store.get(client.cookies[server.COOKIE_NAME])
-    result = {"document_id": "doc-a", "status": "parcial", "record": {"titulo": None, "cantidad": 4}, "attempts": 1}
+    result = {"document_id": "doc-a", "source_name": "Prueba de revisión", "status": "parcial",
+              "record": {"titulo": None, "cantidad": 4}, "attempts": 1, "review_calls": 0,
+              "reasons": ["Falta título verificable."], "attempt_log": [], "human_review_required": True}
+    report = BatchReport.model_validate({
+        "mode": "test_injected", "provider": "offline-test-extractor", "reviewer": "offline-test-reviewer",
+        "schema_definition": SCHEMA, "started_at": "2026-01-01T00:00:00Z", "completed_at": "2026-01-01T00:00:01Z",
+        "max_attempts": 3, "max_review_calls": 6, "results": [result], "events": [], "usage": {"total_calls": 0},
+        "metrics": {"total": 1, "successful": 0, "partial": 1, "failed": 0,
+                    "success_rate": 0, "partial_rate": 100, "failure_rate": 0, "total_attempts": 1,
+                    "real_documents": 0, "real_successful": 0, "real_success_rate": None,
+                    "synthetic_documents": 1}}).model_dump(mode="json")
     session.batches["batch-a"] = {"status": "completed", "results": [result], "schema": SCHEMA, "human_reviews": [],
-                                  "metrics": {"success_rate": 0}, "report": {"results": [result]}}
+                                  "metrics": {"success_rate": 0}, "report": report}
     invalid = client.post("/api/batches/batch-a/review", json={"document_id": "doc-a", "corrected_data": {"titulo": "Revisión", "cantidad": "cuatro"}, "note": "Lectura humana de la fuente"})
     assert invalid.status_code == 422
     response = client.post("/api/batches/batch-a/review", json={"document_id": "doc-a", "corrected_data": {"titulo": "Revisión", "cantidad": 4}, "note": "Lectura humana de la fuente"})
     assert response.status_code == 200
-    assert response.json()["review"]["changes_pipeline_success"] is False
+    first = response.json()["review"]
+    assert first["changes_pipeline_success"] is False
+    second_response = client.post("/api/batches/batch-a/review", json={"document_id": "doc-a", "corrected_data": {"titulo": "Revisión final", "cantidad": 5}, "note": "Segunda lectura humana de la fuente"})
+    assert second_response.status_code == 200
+    second = second_response.json()["review"]
+    assert first["id"] != second["id"]
+    assert first["proposed_record"] == {"titulo": "Revisión", "cantidad": 4}
+    assert first["original_record"] == second["original_record"] == {"titulo": None, "cantidad": 4}
+    assert first["actor"] == second["actor"] == "usuario_local"
+    assert first["timestamp"] and second["timestamp"]
     assert result["record"]["titulo"] is None and session.batches["batch-a"]["metrics"]["success_rate"] == 0
+    retrieved = client.get("/api/batches/batch-a").json()
+    assert retrieved["human_reviews"] == [first, second]
+    assert client.get("/api/session").json()["latest_batch_id"] == "batch-a"
     exported = client.get("/api/batches/batch-a/export?format=json")
     assert exported.status_code == 200
-    assert json.loads(exported.content)["human_reviews"][0]["original_record"]["titulo"] is None
+    exported_report = json.loads(exported.content)
+    assert exported_report["human_reviews"] == [first, second]
+    assert exported_report["metrics"]["success_rate"] == 0
+    assert exported_report["results"][0]["record"] == {"titulo": None, "cantidad": 4}
+    exported_csv = client.get("/api/batches/batch-a/export?format=csv")
+    assert exported_csv.status_code == 200
+    rows = list(csv.DictReader(io.StringIO(exported_csv.content.decode("utf-8-sig"))))
+    assert len(rows) == 1
+    assert json.loads(rows[0]["human_reviews"]) == [first, second]
+    assert rows[0]["data.cantidad"] == "4" and rows[0]["status"] == "parcial"
+
+
+def test_human_review_validation_errors_explain_fields_without_values(client):
+    session = server.store.get(client.cookies[server.COOKIE_NAME])
+    session.batches["batch-a"] = {"status": "completed", "results": [{"document_id": "doc-a", "record": None}],
+                                  "schema": SCHEMA, "human_reviews": []}
+    private_value = "private-document-value-not-for-errors"
+    invalid = client.post("/api/batches/batch-a/review", json={"document_id": "doc-a", "corrected_data": {"titulo": None, "cantidad": private_value}, "note": "Lectura humana de prueba"})
+    assert invalid.status_code == 422
+    assert "cantidad: tipo, formato o restricción number inválidos" in invalid.json()["detail"]
+    assert private_value not in invalid.text
+    incomplete = client.post("/api/batches/batch-a/review", json={"document_id": "doc-a", "corrected_data": {}, "note": "Lectura humana de prueba"})
+    assert incomplete.status_code == 422
+    assert "titulo: falta la clave" in incomplete.json()["detail"]
+    assert "cantidad: falta la clave" in incomplete.json()["detail"]
+    assert session.batches["batch-a"]["human_reviews"] == []
 
 
 def test_background_batch_contract_with_explicit_injected_providers(client, monkeypatch):

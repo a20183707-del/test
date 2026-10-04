@@ -583,8 +583,12 @@ async def human_review(batch_id: str, request: Request) -> dict[str, Any]:
         schema = _schema(batch["schema"])
         try:
             validated = validate_record(data, schema)
-        except (InvalidJSONError, RecordValidationError):
-            raise _safe_error("Los datos corregidos no cumplen el esquema. Revisa claves, tipos, fechas y categorías.", 422) from None
+        except InvalidJSONError:
+            raise _safe_error("La corrección debe contener un objeto JSON válido.", 422) from None
+        except RecordValidationError as error:
+            # Estos mensajes sólo contienen nombres y restricciones del esquema;
+            # nunca incluyen los valores del documento ni de la corrección.
+            raise _safe_error("Los datos corregidos no cumplen el esquema: " + "; ".join(error.messages), 422) from None
         validation_data = _serializable(validate_business_rules(validated, schema))
         review = {"id": secrets.token_hex(12), "document_id": document_id,
                   "timestamp": datetime.now(timezone.utc).isoformat(), "actor": "usuario_local",
